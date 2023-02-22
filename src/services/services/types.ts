@@ -392,6 +392,12 @@ export interface CreateDivideLinkRequestRequestVM {
   userWalletNumber?: string;
 }
 
+export interface CreateIdentificationUserBankRequirementRequestVM {
+  /** - Format: int64 */
+  birthday: number;
+  nationalCode?: string;
+}
+
 export interface CreateIpgRequestRequestVM {
   /** - Format: decimal */
   amount: number;
@@ -584,7 +590,8 @@ export type DocumentType =
   | "NationalCard"
   | "BirthCertificate"
   | "Passport"
-  | "VerificationLetter";
+  | "VerificationLetter"
+  | "BirthCertificateDescription";
 
 export interface DomainCurrencyClassResponseVM {
   /** - Format: int32 */
@@ -1491,6 +1498,11 @@ export interface GetWalletV1PrivateUserassetSpotDefaultQueryParams {
   symbol?: string;
 }
 
+export interface GetWalletV1PrivateUserbankQueryParams {
+  /** - Format: int64 */
+  userBankId?: number;
+}
+
 export interface GetWalletV1PrivateUserbankStatusQueryParams {
   accountNo?: string;
 }
@@ -1619,6 +1631,11 @@ export interface IdentificationLevelGuideResponseVM {
 }
 
 export type IdentificationLevelRequestStatus = "Pending" | "Confirm" | "Reject";
+
+export interface IdentificationUserBankRequirementResponseVM {
+  validBirthday: boolean;
+  validNationalCode: boolean;
+}
 
 export type IdentityFailedStatusCodes =
   | "BadRequest"
@@ -2751,6 +2768,7 @@ export interface UserBankResponseVM {
   lastName?: string;
   name?: string;
   nationalCode?: string;
+  paymentIdentifier?: string;
   rejectCauseDescription?: string;
   shebaNo?: string;
 }
@@ -2805,6 +2823,8 @@ export interface UserExistResponseVM {
 export interface UserIdentificationLevelOneRequestVM {
   /** - Format: date-time */
   birthDate: string;
+  hasIdentityChanges: boolean;
+  birthCertificateDescriptionFile?: DocumentFileRequestVM;
   firstName?: string;
   lastName?: string;
   nationalCardFile?: DocumentFileRequestVM;
@@ -2839,6 +2859,7 @@ export type UserIdentifierType =
   | "AccountNumber";
 
 export interface UserInfoVM {
+  canAddUserBank: boolean;
   currentLevel: IdentificationLevel;
   /** - Format: int64 */
   customerNumber: number;
@@ -2911,6 +2932,8 @@ export interface UserMinimalResponseVM {
 }
 
 export interface UserMoneyNetworkResponseVM {
+  /** - Format: int32 */
+  decimalDigits: number;
   depositEnabled: boolean;
   /** - Format: int32 */
   estimatedArrivalTime: number;

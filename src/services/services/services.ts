@@ -37,6 +37,7 @@ import {
   CreateChargeRequestRequestVM,
   CreateDivideIpgRequestRequestVM,
   CreateDivideLinkRequestRequestVM,
+  CreateIdentificationUserBankRequirementRequestVM,
   CreateIpgRequestRequestVM,
   CreateLinkRequestRequestVM,
   CreatePosRequestRequestVM,
@@ -134,6 +135,7 @@ import {
   GetWalletV1PrivateSubuserAssignableQueryParams,
   GetWalletV1PrivateTransferCommissionQueryParams,
   GetWalletV1PrivateUserassetSpotDefaultQueryParams,
+  GetWalletV1PrivateUserbankQueryParams,
   GetWalletV1PrivateUserbankStatusQueryParams,
   GetWalletV1PublicFindQueryParams,
   GetWithdrawRequestUserWalletItemResponseVM,
@@ -141,6 +143,7 @@ import {
   GroupTransferMoneyRequestVM,
   GroupTransferResponseVM,
   IdentificationLevelGuideResponseVM,
+  IdentificationUserBankRequirementResponseVM,
   IdentityStatus,
   InternalWithdrawResponseVM,
   KlineDataResponseVM,
@@ -2221,6 +2224,22 @@ export const getWalletV1PrivateUserassetSpotDefaultAll = (
 getWalletV1PrivateUserassetSpotDefaultAll.key =
   "/wallet/v1/private/userasset/spot/default/all";
 
+export const getWalletV1PrivateUserbank = (
+  queryParams?: GetWalletV1PrivateUserbankQueryParams,
+  configOverride?: AxiosRequestConfig,
+): Promise<SwaggerResponse<string>> => {
+  return Http.getRequest(
+    getWalletV1PrivateUserbank.key,
+    queryParams,
+    undefined,
+    undefined,
+    overrideConfig(_CONSTANT2, configOverride),
+  );
+};
+
+/** Key is end point string without base url */
+getWalletV1PrivateUserbank.key = "/wallet/v1/private/userbank";
+
 export const getWalletV1PrivateUserbankAll = (
   configOverride?: AxiosRequestConfig,
 ): Promise<SwaggerResponse<UserBankResponseVM[]>> => {
@@ -2894,6 +2913,23 @@ export const postPartyV1PrivateIdentificationlevelLeveltwo = (
 /** Key is end point string without base url */
 postPartyV1PrivateIdentificationlevelLeveltwo.key =
   "/party/v1/private/identificationlevel/leveltwo";
+
+export const postPartyV1PrivateIdentificationlevelUserbankRequirement = (
+  requestBody: CreateIdentificationUserBankRequirementRequestVM,
+  configOverride?: AxiosRequestConfig,
+): Promise<SwaggerResponse<IdentificationUserBankRequirementResponseVM>> => {
+  return Http.postRequest(
+    postPartyV1PrivateIdentificationlevelUserbankRequirement.key,
+    undefined,
+    requestBody,
+    undefined,
+    overrideConfig(_CONSTANT2, configOverride),
+  );
+};
+
+/** Key is end point string without base url */
+postPartyV1PrivateIdentificationlevelUserbankRequirement.key =
+  "/party/v1/private/identificationlevel/userbank/requirement";
 
 export const postPartyV1PrivateUserProfileimage = (
   requestBody: {

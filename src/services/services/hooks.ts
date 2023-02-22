@@ -137,6 +137,7 @@ import {
   getWalletV1PrivateUserassetAll,
   getWalletV1PrivateUserassetSpotDefault,
   getWalletV1PrivateUserassetSpotDefaultAll,
+  getWalletV1PrivateUserbank,
   getWalletV1PrivateUserbankAll,
   getWalletV1PrivateUserbankHascurrentuserapprovedorpenddinguserbank,
   getWalletV1PrivateUserbankStatus,
@@ -173,6 +174,7 @@ import {
   postPartyV1PrivateIdentificationlevelLevelone,
   postPartyV1PrivateIdentificationlevelLevelthree,
   postPartyV1PrivateIdentificationlevelLeveltwo,
+  postPartyV1PrivateIdentificationlevelUserbankRequirement,
   postPartyV1PrivateUserProfileimage,
   postPaymentV1PrivateEpayrequestCharge,
   postPaymentV1PrivateEpayrequestDivideipg,
@@ -245,6 +247,7 @@ import {
   CreateChargeRequestRequestVM,
   CreateDivideIpgRequestRequestVM,
   CreateDivideLinkRequestRequestVM,
+  CreateIdentificationUserBankRequirementRequestVM,
   CreateIpgRequestRequestVM,
   CreateLinkRequestRequestVM,
   CreatePosRequestRequestVM,
@@ -342,6 +345,7 @@ import {
   GetWalletV1PrivateSubuserAssignableQueryParams,
   GetWalletV1PrivateTransferCommissionQueryParams,
   GetWalletV1PrivateUserassetSpotDefaultQueryParams,
+  GetWalletV1PrivateUserbankQueryParams,
   GetWalletV1PrivateUserbankStatusQueryParams,
   GetWalletV1PublicFindQueryParams,
   GetWithdrawRequestUserWalletItemResponseVM,
@@ -349,6 +353,7 @@ import {
   GroupTransferMoneyRequestVM,
   GroupTransferResponseVM,
   IdentificationLevelGuideResponseVM,
+  IdentificationUserBankRequirementResponseVM,
   IdentityStatus,
   InternalWithdrawResponseVM,
   KlineDataResponseVM,
@@ -5030,6 +5035,46 @@ useGetWalletV1PrivateUserassetSpotDefaultAll.prefetch = (
     ? Promise.resolve()
     : client.prefetchQuery(key, () => fun(), options);
 };
+export const useGetWalletV1PrivateUserbank = (
+  queryParams?: GetWalletV1PrivateUserbankQueryParams,
+  options?: SwaggerTypescriptUseQueryOptions<string>,
+  configOverride?: AxiosRequestConfig,
+) => {
+  const { key, fun } = useGetWalletV1PrivateUserbank.info(
+    queryParams,
+    configOverride,
+  );
+  return useQuery(key, fun, options);
+};
+useGetWalletV1PrivateUserbank.info = (
+  queryParams?: GetWalletV1PrivateUserbankQueryParams,
+  configOverride?: AxiosRequestConfig,
+) => {
+  return {
+    key: [getWalletV1PrivateUserbank.key, queryParams] as QueryKey,
+    fun: () =>
+      getWalletV1PrivateUserbank(
+        queryParams,
+
+        configOverride,
+      ),
+  };
+};
+useGetWalletV1PrivateUserbank.prefetch = (
+  client: QueryClient,
+  queryParams?: GetWalletV1PrivateUserbankQueryParams,
+  options?: SwaggerTypescriptUseQueryOptions<string>,
+  configOverride?: AxiosRequestConfig,
+) => {
+  const { key, fun } = useGetWalletV1PrivateUserbank.info(
+    queryParams,
+    configOverride,
+  );
+
+  return client.getQueryData(key)
+    ? Promise.resolve()
+    : client.prefetchQuery(key, () => fun(), options);
+};
 export const useGetWalletV1PrivateUserbankAll = (
   options?: SwaggerTypescriptUseQueryOptions<UserBankResponseVM[]>,
   configOverride?: AxiosRequestConfig,
@@ -5874,6 +5919,30 @@ export const usePostPartyV1PrivateIdentificationlevelLeveltwo = <TExtra>(
     } = _o || {};
 
     return postPartyV1PrivateIdentificationlevelLeveltwo(
+      requestBody,
+
+      configOverride,
+    );
+  }, options);
+};
+
+export const usePostPartyV1PrivateIdentificationlevelUserbankRequirement = <
+  TExtra,
+>(
+  options?: SwaggerTypescriptUseMutationOptions<
+    IdentificationUserBankRequirementResponseVM,
+    { requestBody: CreateIdentificationUserBankRequirementRequestVM },
+    TExtra
+  >,
+) => {
+  return useMutation((_o) => {
+    const {
+      requestBody,
+
+      configOverride,
+    } = _o || {};
+
+    return postPartyV1PrivateIdentificationlevelUserbankRequirement(
       requestBody,
 
       configOverride,
