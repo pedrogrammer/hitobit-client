@@ -1,252 +1,16 @@
+
 /**
- * AUTO_GENERATED Do not change this file directly, use config.ts file instead
- *
- * @version 6
- */
+* AUTO_GENERATED Do not change this file directly, use config.ts file instead
+*
+* @version 6
+*/
 
 import { AxiosRequestConfig } from "axios";
 import { SwaggerResponse } from "./config";
 import { Http } from "./httpRequest";
 //@ts-ignore
 import qs from "qs";
-import {
-  AddPostActionInternalDepositEPayRequestRequestVM,
-  AddPostActionPlaceMarketBuyOrderRequestVM,
-  AddPostActionResponseVM,
-  AddressBookAddRequestVM,
-  AddressBookResponseVM,
-  AggregationResultResponseVM,
-  ApiKeyAddRequestVM,
-  ApiKeyAddResponseVM,
-  ApiKeyListResponseVM,
-  ApiKeyResponseVM,
-  ApiKeyUpdateRequestVM,
-  ApiScopeResponseVM,
-  BanksResponseVM,
-  BlockchainAddressResponseVM,
-  CancelAllOrdersRequestVM,
-  CancelOcoOrderRequestVM,
-  CancelOcoOrderResponseVM,
-  CancelOrderRequestVM,
-  CancelOrderResponseVM,
-  ChangeEmailRequestVM,
-  ChangePasswordRequestVM,
-  ChangeTwoFactorRequestVM,
-  CityResponseVM,
-  CountryResponseVM,
-  CreateChargeRequestRequestVM,
-  CreateDivideIpgRequestRequestVM,
-  CreateDivideLinkRequestRequestVM,
-  CreateIdentificationUserBankRequirementRequestVM,
-  CreateIpgRequestRequestVM,
-  CreateLinkRequestRequestVM,
-  CreatePosRequestRequestVM,
-  CreateSettlementRequestVM,
-  CreateUserBankDetailRequestVM,
-  CreateUserBankRequestVM,
-  CreateUserWalletRequestVM,
-  CreateWithdrawRequestUserWalletResponseVM,
-  CurrencyResponseVM,
-  DeleteAuthV1PrivateUsertrusteddeviceQueryParams,
-  DeleteAuthV1ProtectApikeyQueryParams,
-  DeleteEngagementV1PrivateNotificationClearallQueryParams,
-  DepositTransactionHistoryListResponseVM,
-  DomainCurrencyClassResponseVM,
-  DomainCurrencyResponseVM,
-  DomainSettingVM,
-  DomainTraderLevelResponseVM,
-  EpayPayWithWalletRequestVM,
-  EpayRequestCountResponseVM,
-  EpayRequestInfoResponseVM,
-  EpayRequestListResponseVM,
-  EPayRequestReceiptInfoResponseVM,
-  EpayRequestResponseVM,
-  FindUserWalletResponseVM,
-  ForgotPasswordRequestVM,
-  GetAnalyticsV1PrivateResellercommissionhistoryActiveusercountQueryParams,
-  GetAnalyticsV1PrivateResellercommissionhistoryNewusercountQueryParams,
-  GetAnalyticsV1PrivateResellercommissionhistoryTotalincomeQueryParams,
-  GetAnalyticsV1PrivateResellercommissionhistoryTransactioncountQueryParams,
-  GetAnalyticsV1PrivateSecurityactivityListQueryParams,
-  GetAnalyticsV1PrivateTradehistoryIncomeinviteeListQueryParams,
-  GetAnalyticsV1PrivateTradehistoryIncomereferralListQueryParams,
-  GetAnalyticsV1PrivateTradehistoryReferralhistoryQueryParams,
-  GetAnalyticsV1PrivateUserloginhistoryListQueryParams,
-  GetAuthV1PrivateApikeyListQueryParams,
-  GetAuthV1PrivateApikeyQueryParams,
-  GetAuthV1PrivateUsertrusteddeviceListQueryParams,
-  GetAuthV1PrivateUsertrusteddeviceLoginhistoryListQueryParams,
-  GetAuthV1PublicAuthIsphonenumberregisteredQueryParams,
-  GetBaseinfoV1PublicCityListQueryParams,
-  GetBaseinfoV1PublicCountryAllQueryParams,
-  GetBaseinfoV1PublicProvinceListQueryParams,
-  GetCapitalV1PrivateDepositListQueryParams,
-  GetCapitalV1PrivatePosListQueryParams,
-  GetCapitalV1PrivateSettlementListQueryParams,
-  GetCapitalV1PrivateWithdrawDetailQueryParams,
-  GetCapitalV1PrivateWithdrawInfoQueryParams,
-  GetCapitalV1PrivateWithdrawListQueryParams,
-  GetEngagementV1PrivateNotificationQueryParams,
-  GetEngagementV1PublicCouponIsvalidforphonenumberQueryParams,
-  GetEngagementV1PublicCouponIsvalidQueryParams,
-  GetExchangeV1PrivateAllorderlistQueryParams,
-  GetExchangeV1PrivateAllordersQueryParams,
-  GetExchangeV1PrivateAlltradesQueryParams,
-  GetExchangeV1PrivateOpenocoorderlistQueryParams,
-  GetExchangeV1PrivateOpenordersQueryParams,
-  GetExchangeV1PrivateOrderlistQueryParams,
-  GetExchangeV1PrivateOrderQueryParams,
-  GetExchangeV1PublicDepthQueryParams,
-  GetExchangeV1PublicKlinesQueryParams,
-  GetExchangeV1PublicMarketsQueryParams,
-  GetExchangeV1PublicSymbolRateQueryParams,
-  GetExchangeV1PublicTicker24hrQueryParams,
-  GetExchangeV1PublicTradesQueryParams,
-  GetOcoOrderResponseVM,
-  GetOrderResponseVM,
-  GetPartyV1PrivateFavoritemarketQueryParams,
-  GetPartyV1PrivateNotificationAllQueryParams,
-  GetPartyV1PrivatePluginListQueryParams,
-  GetPartyV1PublicPluginQueryParams,
-  GetPaymentV1PrivateEpayrequestCommissionQueryParams,
-  GetPaymentV1PrivateEpayrequestCountFrommeQueryParams,
-  GetPaymentV1PrivateEpayrequestCountQueryParams,
-  GetPaymentV1PrivateEpayrequestInfoClientuniqueidQueryParams,
-  GetPaymentV1PrivateEpayrequestListFrommeQueryParams,
-  GetPaymentV1PrivateEpayrequestListQueryParams,
-  GetPaymentV1PrivateEpayrequestPluginCountQueryParams,
-  GetPaymentV1PublicEpayrequestGetblockchainaddressQueryParams,
-  GetPaymentV1PublicEpayrequestInfoTokenQueryParams,
-  GetPaymentV1PublicEpayrequestReceiptinfoClientuniqueidQueryParams,
-  GetPaymentV1PublicEpayrequestReceiptinfoTokenQueryParams,
-  GetSettlementV1PrivateAddressbookQueryParams,
-  GetSettlementV1PrivateCommissionQueryParams,
-  GetSettlementV1PrivateCountQueryParams,
-  GetSettlementV1PrivateListQueryParams,
-  GetSettlementV1PrivateQueryParams,
-  GetSettlementV1PrivateReportQueryParams,
-  GetSettlementV1PrivateSubuserQueryParams,
-  GetStorageV1PrivateFileDownloadQueryParams,
-  GetWalletV1PrivateDomaincurrencyfeerateBydomaincurrencyclassidQueryParams,
-  GetWalletV1PrivateGrouptransferCommissionQueryParams,
-  GetWalletV1PrivateInternalwithdrawInfoQueryParams,
-  GetWalletV1PrivateQueryParams,
-  GetWalletV1PrivateSubuserAllQueryParams,
-  GetWalletV1PrivateSubuserAssignableQueryParams,
-  GetWalletV1PrivateTransferCommissionQueryParams,
-  GetWalletV1PrivateUserassetSpotDefaultQueryParams,
-  GetWalletV1PrivateUserbankQueryParams,
-  GetWalletV1PrivateUserbankStatusQueryParams,
-  GetWalletV1PublicFindQueryParams,
-  GetWithdrawRequestUserWalletItemResponseVM,
-  GlobalWalletProviderResponseVM,
-  GroupTransferMoneyRequestVM,
-  GroupTransferResponseVM,
-  IdentificationLevelGuideResponseVM,
-  IdentificationUserBankRequirementResponseVM,
-  IdentityStatus,
-  InternalWithdrawResponseVM,
-  KlineDataResponseVM,
-  LoginModelRequestVM,
-  MarketResponseVM,
-  MarketTickerPriceResponseVM,
-  MoneyNetworkResponseVM,
-  NewEmailRequestVM,
-  Notification2ListResponseVM,
-  NotificationCountByTypeResponseVM,
-  NotificationListResponseVM,
-  NotificationTypesReadCountResponseVM,
-  OcoOrderResultInfoResponseVM,
-  OrderAckInfoResponseVM,
-  OrderBookResponseVM,
-  OrderResultInfoListResponseVM,
-  OrderResultInfoResponseVM,
-  PayerCurrencyRequestVM,
-  PermissionRequestVM,
-  PlaceOcoOrderRequestVM,
-  PlaceOrderRequestVM,
-  PlatformType,
-  PluginInfoResponseVM,
-  PostAuthV1PrivateAuthEmailSendcodeQueryParams,
-  PostAuthV1PrivateAuthPhonecallSendcodeQueryParams,
-  PostAuthV1PublicAuthChecktwofactorisenableQueryParams,
-  PostAuthV1PublicAuthGetcodeQueryParams,
-  PostPaymentV1PrivateEpayrequestUnblockQueryParams,
-  PostPaymentV1PublicEpayrequestSmsResendQueryParams,
-  POSTransactionHistoryListResponseVM,
-  PreferenceUserSettingRequestVM,
-  ProvinceResponseVM,
-  PurposeType,
-  PutEngagementV1PrivateNotificationReadallQueryParams,
-  PutPartyV1ProtectUserSuspendQueryParams,
-  PutPaymentV1PublicEpayrequestCancelQueryParams,
-  PutWalletV1PrivateUserreferralprogramDefaultQueryParams,
-  PuzzleModelResponseVM,
-  PuzzleSubmissionRequestVM,
-  QrCodeResponseVM,
-  RecentTradeResponseVM,
-  RegisterRequestVM,
-  RegisterResponseVM,
-  RemoveEmailRequestVM,
-  ReportResultResponseVM,
-  RevokeTokenRequestVM,
-  SecurityActivityListVM,
-  SecurityUserSettingRequestVM,
-  SettlementExcelResponseVM,
-  SettlementFilterRequestVM,
-  SettlementRequestInfoListResponseVM,
-  SettlementRequestInfoResponseVM,
-  SettlementTransactionHistoryListResponseVM,
-  SubuserAccessRequestVM,
-  SymbolRateResponseVM,
-  TodayTotalWithdrawResponseVM,
-  TokenResponseVM,
-  TotalTradeQuantityResponseVM,
-  TradeIncomeHistoryListResponseVM,
-  TradeIncomeHistoryResponseVM,
-  TradeIncomeInviteeRankingResponseVM,
-  TradeReferralHistoryListResponseVM,
-  TradeResposneListVM,
-  TransactionHistoryDetailResponseVM,
-  TransferMoneyRequestVM,
-  TransferMoneyResponseVM,
-  UpdateEpayRequestAssignedUserRequestVM,
-  UpdateEpayRequestCustomDataRequestVM,
-  UpdateFavoriteMarketRequestVM,
-  UpdateUserWalletRequestVM,
-  UserAssetResponseVM,
-  UserBankResponseVM,
-  UserBasicInfoRequestVM,
-  UserCurrencyResponseVM,
-  UserDepositAddressRequestVM,
-  UserDepositAddressResponseVM,
-  UserExistResponseVM,
-  UserIdentificationLevelOneRequestVM,
-  UserIdentificationLevelThreeRequestVM,
-  UserIdentificationLevelTwoRequestVM,
-  UserInfoVM,
-  UserLoginHistoryDetailsVM,
-  UserLoginHistoryListVM,
-  UserMinimalResponseVM,
-  UserPluginResponseVM,
-  UserPluginTogggleRequestVM,
-  UserReferralProgramAddVM,
-  UserReferralProgramVM,
-  UserSettingPreferenseResponseVM,
-  UserSettingSecurityResponseVM,
-  UserStatusResponseVM,
-  UserTotalReferralProgramVM,
-  UserTraderLevelResponseVM,
-  UserTrustedDeviceListResponseVM,
-  UserWalletDisplayDetailResponseVM,
-  UserWalletDisplayResponseVM,
-  UserWalletResponseVM,
-  VerifySecureRequestVM,
-  VerifyUserPhoneNumberRequestVM,
-  WalletDepositAddressRequestVM,
-  WithdrawRequestUserWalletCreateRequestVM,
-  WithdrawTransactionHistoryListResponseVM,
-} from "./types";
+import { GetSettlementV1PrivateAddressbookQueryParams, DeleteAuthV1ProtectApikeyQueryParams, GetAuthV1PrivateApikeyQueryParams, GetAuthV1PrivateApikeyListQueryParams, PostAuthV1PublicAuthChecktwofactorisenableQueryParams, PostAuthV1PublicAuthGetcodeQueryParams, GetAuthV1PublicAuthIsphonenumberregisteredQueryParams, PostAuthV1PrivateAuthPhonecallSendcodeQueryParams, PostAuthV1PrivateAuthEmailSendcodeQueryParams, GetBaseinfoV1PublicCountryAllQueryParams, GetBaseinfoV1PublicProvinceListQueryParams, GetBaseinfoV1PublicCityListQueryParams, GetCapitalV1PrivateDepositListQueryParams, GetCapitalV1PrivateWithdrawListQueryParams, GetCapitalV1PrivatePosListQueryParams, GetCapitalV1PrivateSettlementListQueryParams, GetCapitalV1PrivateWithdrawDetailQueryParams, GetCapitalV1PrivateWithdrawInfoQueryParams, GetEngagementV1PublicCouponIsvalidQueryParams, GetEngagementV1PublicCouponIsvalidforphonenumberQueryParams, GetWalletV1PrivateDomaincurrencyfeerateBydomaincurrencyclassidQueryParams, GetPaymentV1PublicEpayrequestInfoTokenQueryParams, PostPaymentV1PublicEpayrequestSmsResendQueryParams, GetPaymentV1PublicEpayrequestGetblockchainaddressQueryParams, PutPaymentV1PublicEpayrequestCancelQueryParams, GetPaymentV1PublicEpayrequestReceiptinfoClientuniqueidQueryParams, GetPaymentV1PublicEpayrequestReceiptinfoTokenQueryParams, GetPaymentV1PrivateEpayrequestListQueryParams, GetPaymentV1PrivateEpayrequestListFrommeQueryParams, GetPaymentV1PrivateEpayrequestCountQueryParams, GetPaymentV1PrivateEpayrequestCountFrommeQueryParams, GetPaymentV1PrivateEpayrequestCommissionQueryParams, GetPaymentV1PrivateEpayrequestPluginCountQueryParams, PostPaymentV1PrivateEpayrequestUnblockQueryParams, GetPaymentV1PrivateEpayrequestInfoClientuniqueidQueryParams, GetPartyV1PrivateFavoritemarketQueryParams, GetStorageV1PrivateFileDownloadQueryParams, GetWalletV1PrivateGrouptransferCommissionQueryParams, GetExchangeV1PublicDepthQueryParams, GetExchangeV1PublicTicker24hrQueryParams, GetExchangeV1PublicKlinesQueryParams, GetExchangeV1PublicTradesQueryParams, GetExchangeV1PublicMarketsQueryParams, GetExchangeV1PublicSymbolRateQueryParams, GetPartyV1PrivateNotificationAllQueryParams, GetEngagementV1PrivateNotificationQueryParams, PutEngagementV1PrivateNotificationReadallQueryParams, DeleteEngagementV1PrivateNotificationClearallQueryParams, GetExchangeV1PrivateOrderQueryParams, GetExchangeV1PrivateOpenordersQueryParams, GetExchangeV1PrivateAllordersQueryParams, GetExchangeV1PrivateOrderlistQueryParams, GetExchangeV1PrivateOpenocoorderlistQueryParams, GetExchangeV1PrivateAllorderlistQueryParams, GetPartyV1PublicPluginQueryParams, GetPartyV1PrivatePluginListQueryParams, GetAnalyticsV1PrivateResellercommissionhistoryNewusercountQueryParams, GetAnalyticsV1PrivateResellercommissionhistoryActiveusercountQueryParams, GetAnalyticsV1PrivateResellercommissionhistoryTotalincomeQueryParams, GetAnalyticsV1PrivateResellercommissionhistoryTransactioncountQueryParams, GetAnalyticsV1PrivateSecurityactivityListQueryParams, GetSettlementV1PrivateCommissionQueryParams, GetSettlementV1PrivateListQueryParams, GetSettlementV1PrivateQueryParams, GetSettlementV1PrivateCountQueryParams, GetSettlementV1PrivateReportQueryParams, GetSettlementV1PrivateSubuserQueryParams, GetExchangeV1PrivateAlltradesQueryParams, GetAnalyticsV1PrivateTradehistoryIncomereferralListQueryParams, GetAnalyticsV1PrivateTradehistoryIncomeinviteeListQueryParams, GetAnalyticsV1PrivateTradehistoryReferralhistoryQueryParams, GetWalletV1PrivateTransferCommissionQueryParams, PutPartyV1ProtectUserSuspendQueryParams, GetWalletV1PrivateUserbankStatusQueryParams, GetAnalyticsV1PrivateUserloginhistoryListQueryParams, PutWalletV1PrivateUserreferralprogramDefaultQueryParams, DeleteAuthV1PrivateUsertrusteddeviceQueryParams, GetAuthV1PrivateUsertrusteddeviceListQueryParams, GetAuthV1PrivateUsertrusteddeviceLoginhistoryListQueryParams, GetWalletV1PublicFindQueryParams, GetWalletV1PrivateQueryParams, GetWalletV1PrivateSubuserAssignableQueryParams, GetWalletV1PrivateSubuserAllQueryParams, GetWalletV1PrivateUserassetSpotDefaultQueryParams, GetWalletV1PrivateInternalwithdrawInfoQueryParams, AddPostActionInternalDepositEPayRequestRequestVM, AddPostActionPlaceMarketBuyOrderRequestVM, AddPostActionResponseVM, AddressBookAddRequestVM, AddressBookResponseVM, AggregationResultResponseVM, ApiKeyAddRequestVM, ApiKeyAddResponseVM, ApiKeyListResponseVM, ApiKeyResponseVM, ApiKeyUpdateRequestVM, ApiScopeResponseVM, BanksResponseVM, BlockchainAddressResponseVM, CancelAllOrdersRequestVM, CancelOcoOrderRequestVM, CancelOcoOrderResponseVM, CancelOrderRequestVM, CancelOrderResponseVM, ChangeEmailRequestVM, ChangePasswordRequestVM, ChangeTwoFactorRequestVM, CityResponseVM, CountryResponseVM, CreateChargeRequestRequestVM, CreateDivideIpgRequestRequestVM, CreateDivideLinkRequestRequestVM, CreateIdentificationUserBankRequirementRequestVM, CreateIpgRequestRequestVM, CreateLinkRequestRequestVM, CreatePosRequestRequestVM, CreateSettlementRequestVM, CreateUserBankDetailRequestVM, CreateUserBankRequestVM, CreateUserWalletRequestVM, CreateWithdrawRequestUserWalletResponseVM, CurrencyResponseVM, DepositTransactionHistoryListResponseVM, DomainCurrencyClassResponseVM, DomainCurrencyResponseVM, DomainSettingVM, DomainTraderLevelResponseVM, EPayRequestReceiptInfoResponseVM, EpayPayWithWalletRequestVM, EpayRequestCountResponseVM, EpayRequestInfoResponseVM, EpayRequestListResponseVM, EpayRequestResponseVM, FindUserWalletResponseVM, ForgotPasswordRequestVM, GetOcoOrderResponseVM, GetOrderResponseVM, GetWithdrawRequestUserWalletItemResponseVM, GlobalWalletProviderResponseVM, GroupTransferMoneyRequestVM, GroupTransferResponseVM, IdentificationLevelGuideResponseVM, IdentificationUserBankRequirementResponseVM, IdentityStatus, InternalWithdrawResponseVM, KlineDataResponseVM, LoginModelRequestVM, MarketResponseVM, MarketTickerPriceResponseVM, MoneyNetworkResponseVM, NewEmailRequestVM, Notification2ListResponseVM, NotificationCountByTypeResponseVM, NotificationListResponseVM, NotificationTypesReadCountResponseVM, OcoOrderResultInfoResponseVM, OrderAckInfoResponseVM, OrderBookResponseVM, OrderResultInfoListResponseVM, OrderResultInfoResponseVM, POSTransactionHistoryListResponseVM, PayerCurrencyRequestVM, PermissionRequestVM, PlaceOcoOrderRequestVM, PlaceOrderRequestVM, PlatformType, PluginInfoResponseVM, PreferenceUserSettingRequestVM, ProvinceResponseVM, PurposeType, PuzzleModelResponseVM, PuzzleSubmissionRequestVM, QrCodeResponseVM, RecentTradeResponseVM, RegisterRequestVM, RegisterResponseVM, RemoveEmailRequestVM, ReportResultResponseVM, RevokeTokenRequestVM, SecurityActivityListVM, SecurityUserSettingRequestVM, SettlementExcelResponseVM, SettlementFilterRequestVM, SettlementRequestInfoListResponseVM, SettlementRequestInfoResponseVM, SettlementTransactionHistoryListResponseVM, SubuserAccessRequestVM, SymbolRateResponseVM, TodayTotalWithdrawResponseVM, TokenResponseVM, TotalTradeQuantityResponseVM, TradeIncomeHistoryListResponseVM, TradeIncomeHistoryResponseVM, TradeIncomeInviteeRankingResponseVM, TradeReferralHistoryListResponseVM, TradeResposneListVM, TransactionHistoryDetailResponseVM, TransferMoneyRequestVM, TransferMoneyResponseVM, UpdateEpayRequestAssignedUserRequestVM, UpdateEpayRequestCustomDataRequestVM, UpdateFavoriteMarketRequestVM, UpdateUserWalletRequestVM, UserAssetResponseVM, UserBankResponseVM, UserBasicInfoRequestVM, UserCurrencyResponseVM, UserDepositAddressRequestVM, UserDepositAddressResponseVM, UserExistResponseVM, UserIdentificationLevelOneRequestVM, UserIdentificationLevelThreeRequestVM, UserIdentificationLevelTwoRequestVM, UserInfoVM, UserLoginHistoryDetailsVM, UserLoginHistoryListVM, UserMinimalResponseVM, UserPluginResponseVM, UserPluginTogggleRequestVM, UserReferralProgramAddVM, UserReferralProgramVM, UserSettingPreferenseResponseVM, UserSettingSecurityResponseVM, UserStatusResponseVM, UserTotalReferralProgramVM, UserTraderLevelResponseVM, UserTrustedDeviceListResponseVM, UserWalletDisplayDetailResponseVM, UserWalletDisplayResponseVM, UserWalletResponseVM, VerifySecureRequestVM, VerifyUserPhoneNumberRequestVM, WalletDepositAddressRequestVM, WithdrawRequestUserWalletCreateRequestVM, WithdrawTransactionHistoryListResponseVM,}  from "./types"
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const __DEV__ = process.env.NODE_ENV !== "production";
@@ -268,12 +32,12 @@ function overrideConfig(
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function template(path: string, obj: { [x: string]: any } = {}) {
-  Object.keys(obj).forEach((key) => {
-    const re = new RegExp(`{${key}}`, "i");
-    path = path.replace(re, obj[key]);
-  });
+    Object.keys(obj).forEach((key) => {
+      const re = new RegExp(`{${key}}`, "i");
+      path = path.replace(re, obj[key]);
+    });
 
-  return path;
+    return path;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -289,3469 +53,3724 @@ function objToForm(requestBody: object) {
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function objToUrlencoded(requestBody: object) {
-  return qs.stringify(requestBody);
+  return qs.stringify(requestBody)
 }
 
 export const deleteAuthV1PrivateAuthEmail = (
-  requestBody: RemoveEmailRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (RemoveEmailRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.deleteRequest(
     deleteAuthV1PrivateAuthEmail.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 deleteAuthV1PrivateAuthEmail.key = "/auth/v1/private/auth/email";
 
 export const deleteAuthV1PrivateUsertrusteddevice = (
-  queryParams?: DeleteAuthV1PrivateUsertrusteddeviceQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: DeleteAuthV1PrivateUsertrusteddeviceQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.deleteRequest(
     deleteAuthV1PrivateUsertrusteddevice.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 deleteAuthV1PrivateUsertrusteddevice.key = "/auth/v1/private/usertrusteddevice";
 
 export const deleteAuthV1ProtectApikey = (
-  queryParams?: DeleteAuthV1ProtectApikeyQueryParams,
-  headerParams?: {
-    otpcode: string;
-    otptoken: string;
-    purpose: PurposeType;
-    totp: string;
-  },
-  configOverride?: AxiosRequestConfig,
+    queryParams?: DeleteAuthV1ProtectApikeyQueryParams,headerParams?: {"otpcode": string;"otptoken": string;"purpose":  & (PurposeType);"totp": string;},configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.deleteRequest(
     deleteAuthV1ProtectApikey.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(
-      {
-        headers: {
-          ..._CONSTANT0,
-          ...headerParams,
-        },
-      },
+    overrideConfig({
+              headers:{
+                ..._CONSTANT0,
+                ...headerParams,
+              },
+            },
       configOverride,
-    ),
-  );
-};
+    )
+  )
+}
 
 /** Key is end point string without base url */
 deleteAuthV1ProtectApikey.key = "/auth/v1/protect/apikey";
 
 export const deleteAuthV1ProtectApikeyAll = (
-  headerParams?: {
-    otpcode: string;
-    otptoken: string;
-    purpose: PurposeType;
-    totp: string;
-  },
-  configOverride?: AxiosRequestConfig,
+    headerParams?: {"otpcode": string;"otptoken": string;"purpose":  & (PurposeType);"totp": string;},configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.deleteRequest(
     deleteAuthV1ProtectApikeyAll.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(
-      {
-        headers: {
-          ..._CONSTANT0,
-          ...headerParams,
-        },
-      },
+    overrideConfig({
+              headers:{
+                ..._CONSTANT0,
+                ...headerParams,
+              },
+            },
       configOverride,
-    ),
-  );
-};
+    )
+  )
+}
 
 /** Key is end point string without base url */
 deleteAuthV1ProtectApikeyAll.key = "/auth/v1/protect/apikey/all";
 
 export const deleteEngagementV1PrivateNotificationClearall = (
-  queryParams?: DeleteEngagementV1PrivateNotificationClearallQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: DeleteEngagementV1PrivateNotificationClearallQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.deleteRequest(
     deleteEngagementV1PrivateNotificationClearall.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-deleteEngagementV1PrivateNotificationClearall.key =
-  "/engagement/v1/private/notification/clearall";
+deleteEngagementV1PrivateNotificationClearall.key = "/engagement/v1/private/notification/clearall";
 
 export const deleteExchangeV1PrivateOpenorders = (
-  requestBody: CancelAllOrdersRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (CancelAllOrdersRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<CancelOrderResponseVM[]>> => {
+  
   return Http.deleteRequest(
     deleteExchangeV1PrivateOpenorders.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 deleteExchangeV1PrivateOpenorders.key = "/exchange/v1/private/openorders";
 
 export const deleteExchangeV1PrivateOrder = (
-  requestBody: CancelOrderRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (CancelOrderRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<CancelOrderResponseVM>> => {
+  
   return Http.deleteRequest(
     deleteExchangeV1PrivateOrder.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 deleteExchangeV1PrivateOrder.key = "/exchange/v1/private/order";
 
 export const deleteExchangeV1PrivateOrderlist = (
-  requestBody: CancelOcoOrderRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (CancelOcoOrderRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<CancelOcoOrderResponseVM>> => {
+  
   return Http.deleteRequest(
     deleteExchangeV1PrivateOrderlist.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 deleteExchangeV1PrivateOrderlist.key = "/exchange/v1/private/orderlist";
 
 export const deletePartyV1PrivateFavoritemarket = (
-  requestBody: UpdateFavoriteMarketRequestVM[],
-  configOverride?: AxiosRequestConfig,
+    requestBody: UpdateFavoriteMarketRequestVM[],configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.deleteRequest(
     deletePartyV1PrivateFavoritemarket.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 deletePartyV1PrivateFavoritemarket.key = "/party/v1/private/favoritemarket";
 
 export const deletePartyV1PrivateNotification = (
-  requestBody: number[],
-  configOverride?: AxiosRequestConfig,
+    requestBody: number[],configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.deleteRequest(
     deletePartyV1PrivateNotification.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 deletePartyV1PrivateNotification.key = "/party/v1/private/notification";
 
 export const deletePartyV1PrivateNotificationAll = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.deleteRequest(
     deletePartyV1PrivateNotificationAll.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 deletePartyV1PrivateNotificationAll.key = "/party/v1/private/notification/all";
 
 export const deleteSettlementV1PrivateAddressbook = (
-  requestBody: number[],
-  configOverride?: AxiosRequestConfig,
+    requestBody: number[],configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.deleteRequest(
     deleteSettlementV1PrivateAddressbook.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 deleteSettlementV1PrivateAddressbook.key = "/settlement/v1/private/addressbook";
 
 export const deleteWalletV1PrivateWalletpermission = (
-  requestBody: SubuserAccessRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (SubuserAccessRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.deleteRequest(
     deleteWalletV1PrivateWalletpermission.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-deleteWalletV1PrivateWalletpermission.key =
-  "/wallet/v1/private/walletpermission";
+deleteWalletV1PrivateWalletpermission.key = "/wallet/v1/private/walletpermission";
 
 export const getAnalyticsV1PrivateResellercommissionhistoryActiveusercount = (
-  queryParams?: GetAnalyticsV1PrivateResellercommissionhistoryActiveusercountQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetAnalyticsV1PrivateResellercommissionhistoryActiveusercountQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<number>> => {
+  
   return Http.getRequest(
     getAnalyticsV1PrivateResellercommissionhistoryActiveusercount.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getAnalyticsV1PrivateResellercommissionhistoryActiveusercount.key =
-  "/analytics/v1/private/resellercommissionhistory/activeusercount";
+getAnalyticsV1PrivateResellercommissionhistoryActiveusercount.key = "/analytics/v1/private/resellercommissionhistory/activeusercount";
 
 export const getAnalyticsV1PrivateResellercommissionhistoryNewusercount = (
-  queryParams?: GetAnalyticsV1PrivateResellercommissionhistoryNewusercountQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetAnalyticsV1PrivateResellercommissionhistoryNewusercountQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<number>> => {
+  
   return Http.getRequest(
     getAnalyticsV1PrivateResellercommissionhistoryNewusercount.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getAnalyticsV1PrivateResellercommissionhistoryNewusercount.key =
-  "/analytics/v1/private/resellercommissionhistory/newusercount";
+getAnalyticsV1PrivateResellercommissionhistoryNewusercount.key = "/analytics/v1/private/resellercommissionhistory/newusercount";
 
 export const getAnalyticsV1PrivateResellercommissionhistoryTotalincome = (
-  queryParams?: GetAnalyticsV1PrivateResellercommissionhistoryTotalincomeQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetAnalyticsV1PrivateResellercommissionhistoryTotalincomeQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<number>> => {
+  
   return Http.getRequest(
     getAnalyticsV1PrivateResellercommissionhistoryTotalincome.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getAnalyticsV1PrivateResellercommissionhistoryTotalincome.key =
-  "/analytics/v1/private/resellercommissionhistory/totalincome";
+getAnalyticsV1PrivateResellercommissionhistoryTotalincome.key = "/analytics/v1/private/resellercommissionhistory/totalincome";
 
 export const getAnalyticsV1PrivateResellercommissionhistoryTransactioncount = (
-  queryParams?: GetAnalyticsV1PrivateResellercommissionhistoryTransactioncountQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetAnalyticsV1PrivateResellercommissionhistoryTransactioncountQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<number>> => {
+  
   return Http.getRequest(
     getAnalyticsV1PrivateResellercommissionhistoryTransactioncount.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getAnalyticsV1PrivateResellercommissionhistoryTransactioncount.key =
-  "/analytics/v1/private/resellercommissionhistory/transactioncount";
+getAnalyticsV1PrivateResellercommissionhistoryTransactioncount.key = "/analytics/v1/private/resellercommissionhistory/transactioncount";
 
 export const getAnalyticsV1PrivateSecurityactivityList = (
-  queryParams?: GetAnalyticsV1PrivateSecurityactivityListQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetAnalyticsV1PrivateSecurityactivityListQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<SecurityActivityListVM>> => {
+  
   return Http.getRequest(
     getAnalyticsV1PrivateSecurityactivityList.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getAnalyticsV1PrivateSecurityactivityList.key =
-  "/analytics/v1/private/securityactivity/list";
+getAnalyticsV1PrivateSecurityactivityList.key = "/analytics/v1/private/securityactivity/list";
 
 export const getAnalyticsV1PrivateTradehistoryIncomeinviteeList = (
-  queryParams?: GetAnalyticsV1PrivateTradehistoryIncomeinviteeListQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetAnalyticsV1PrivateTradehistoryIncomeinviteeListQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<TradeIncomeHistoryListResponseVM>> => {
+  
   return Http.getRequest(
     getAnalyticsV1PrivateTradehistoryIncomeinviteeList.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getAnalyticsV1PrivateTradehistoryIncomeinviteeList.key =
-  "/analytics/v1/private/tradehistory/incomeinvitee/list";
+getAnalyticsV1PrivateTradehistoryIncomeinviteeList.key = "/analytics/v1/private/tradehistory/incomeinvitee/list";
 
 export const getAnalyticsV1PrivateTradehistoryIncomeinviteeRecent = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<TradeIncomeHistoryResponseVM[]>> => {
+  
   return Http.getRequest(
     getAnalyticsV1PrivateTradehistoryIncomeinviteeRecent.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getAnalyticsV1PrivateTradehistoryIncomeinviteeRecent.key =
-  "/analytics/v1/private/tradehistory/incomeinvitee/recent";
+getAnalyticsV1PrivateTradehistoryIncomeinviteeRecent.key = "/analytics/v1/private/tradehistory/incomeinvitee/recent";
 
 export const getAnalyticsV1PrivateTradehistoryIncomereferralList = (
-  queryParams?: GetAnalyticsV1PrivateTradehistoryIncomereferralListQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetAnalyticsV1PrivateTradehistoryIncomereferralListQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<TradeIncomeHistoryListResponseVM>> => {
+  
   return Http.getRequest(
     getAnalyticsV1PrivateTradehistoryIncomereferralList.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getAnalyticsV1PrivateTradehistoryIncomereferralList.key =
-  "/analytics/v1/private/tradehistory/incomereferral/list";
+getAnalyticsV1PrivateTradehistoryIncomereferralList.key = "/analytics/v1/private/tradehistory/incomereferral/list";
 
 export const getAnalyticsV1PrivateTradehistoryIncomereferralRecent = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<TradeIncomeHistoryResponseVM[]>> => {
+  
   return Http.getRequest(
     getAnalyticsV1PrivateTradehistoryIncomereferralRecent.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getAnalyticsV1PrivateTradehistoryIncomereferralRecent.key =
-  "/analytics/v1/private/tradehistory/incomereferral/recent";
+getAnalyticsV1PrivateTradehistoryIncomereferralRecent.key = "/analytics/v1/private/tradehistory/incomereferral/recent";
 
 export const getAnalyticsV1PrivateTradehistoryReferralhistory = (
-  queryParams?: GetAnalyticsV1PrivateTradehistoryReferralhistoryQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetAnalyticsV1PrivateTradehistoryReferralhistoryQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<TradeReferralHistoryListResponseVM>> => {
+  
   return Http.getRequest(
     getAnalyticsV1PrivateTradehistoryReferralhistory.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getAnalyticsV1PrivateTradehistoryReferralhistory.key =
-  "/analytics/v1/private/tradehistory/referralhistory";
+getAnalyticsV1PrivateTradehistoryReferralhistory.key = "/analytics/v1/private/tradehistory/referralhistory";
 
 export const getAnalyticsV1PrivateUserloginhistoryLast = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<UserLoginHistoryDetailsVM>> => {
+  
   return Http.getRequest(
     getAnalyticsV1PrivateUserloginhistoryLast.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getAnalyticsV1PrivateUserloginhistoryLast.key =
-  "/analytics/v1/private/userloginhistory/last";
+getAnalyticsV1PrivateUserloginhistoryLast.key = "/analytics/v1/private/userloginhistory/last";
 
 export const getAnalyticsV1PrivateUserloginhistoryList = (
-  queryParams?: GetAnalyticsV1PrivateUserloginhistoryListQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetAnalyticsV1PrivateUserloginhistoryListQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<UserLoginHistoryListVM>> => {
+  
   return Http.getRequest(
     getAnalyticsV1PrivateUserloginhistoryList.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getAnalyticsV1PrivateUserloginhistoryList.key =
-  "/analytics/v1/private/userloginhistory/list";
+getAnalyticsV1PrivateUserloginhistoryList.key = "/analytics/v1/private/userloginhistory/list";
 
 export const getAnalyticsV1PrivateUserreferralprogramTotal = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<UserTotalReferralProgramVM>> => {
+  
   return Http.getRequest(
     getAnalyticsV1PrivateUserreferralprogramTotal.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getAnalyticsV1PrivateUserreferralprogramTotal.key =
-  "/analytics/v1/private/userreferralprogram/total";
+getAnalyticsV1PrivateUserreferralprogramTotal.key = "/analytics/v1/private/userreferralprogram/total";
 
 export const getAnalyticsV1PublicTradehistoryRank = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<TradeIncomeInviteeRankingResponseVM[]>> => {
+  
   return Http.getRequest(
     getAnalyticsV1PublicTradehistoryRank.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getAnalyticsV1PublicTradehistoryRank.key =
-  "/analytics/v1/public/tradehistory/rank";
+getAnalyticsV1PublicTradehistoryRank.key = "/analytics/v1/public/tradehistory/rank";
 
 export const getAnalyticsV1PublicTradehistoryTotalquantity = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<TotalTradeQuantityResponseVM>> => {
+  
   return Http.getRequest(
     getAnalyticsV1PublicTradehistoryTotalquantity.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getAnalyticsV1PublicTradehistoryTotalquantity.key =
-  "/analytics/v1/public/tradehistory/totalquantity";
+getAnalyticsV1PublicTradehistoryTotalquantity.key = "/analytics/v1/public/tradehistory/totalquantity";
 
 export const getAuthV1PrivateApikey = (
-  queryParams?: GetAuthV1PrivateApikeyQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetAuthV1PrivateApikeyQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<ApiKeyResponseVM>> => {
+  
   return Http.getRequest(
     getAuthV1PrivateApikey.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getAuthV1PrivateApikey.key = "/auth/v1/private/apikey";
 
 export const getAuthV1PrivateApikeyList = (
-  queryParams?: GetAuthV1PrivateApikeyListQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetAuthV1PrivateApikeyListQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<ApiKeyListResponseVM>> => {
+  
   return Http.getRequest(
     getAuthV1PrivateApikeyList.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getAuthV1PrivateApikeyList.key = "/auth/v1/private/apikey/list";
 
 export const getAuthV1PrivateAuthGetqrcode = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<QrCodeResponseVM>> => {
+  
   return Http.getRequest(
     getAuthV1PrivateAuthGetqrcode.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getAuthV1PrivateAuthGetqrcode.key = "/auth/v1/private/auth/getqrcode";
 
 export const getAuthV1PrivateAuthUserstatus = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<UserStatusResponseVM>> => {
+  
   return Http.getRequest(
     getAuthV1PrivateAuthUserstatus.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getAuthV1PrivateAuthUserstatus.key = "/auth/v1/private/auth/userstatus";
 
 export const getAuthV1PrivateIdentityresourceGetpropertylist = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<string[]>> => {
+  
   return Http.getRequest(
     getAuthV1PrivateIdentityresourceGetpropertylist.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getAuthV1PrivateIdentityresourceGetpropertylist.key =
-  "/auth/v1/private/identityresource/getpropertylist";
+getAuthV1PrivateIdentityresourceGetpropertylist.key = "/auth/v1/private/identityresource/getpropertylist";
 
 export const getAuthV1PrivateIdentityresourceGetscopelist = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<ApiScopeResponseVM[]>> => {
+  
   return Http.getRequest(
     getAuthV1PrivateIdentityresourceGetscopelist.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getAuthV1PrivateIdentityresourceGetscopelist.key =
-  "/auth/v1/private/identityresource/getscopelist";
+getAuthV1PrivateIdentityresourceGetscopelist.key = "/auth/v1/private/identityresource/getscopelist";
 
 export const getAuthV1PrivateUsertrusteddeviceList = (
-  queryParams?: GetAuthV1PrivateUsertrusteddeviceListQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetAuthV1PrivateUsertrusteddeviceListQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<UserTrustedDeviceListResponseVM>> => {
+  
   return Http.getRequest(
     getAuthV1PrivateUsertrusteddeviceList.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getAuthV1PrivateUsertrusteddeviceList.key =
-  "/auth/v1/private/usertrusteddevice/list";
+getAuthV1PrivateUsertrusteddeviceList.key = "/auth/v1/private/usertrusteddevice/list";
 
 export const getAuthV1PrivateUsertrusteddeviceLoginhistoryList = (
-  queryParams?: GetAuthV1PrivateUsertrusteddeviceLoginhistoryListQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetAuthV1PrivateUsertrusteddeviceLoginhistoryListQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<UserLoginHistoryListVM>> => {
+  
   return Http.getRequest(
     getAuthV1PrivateUsertrusteddeviceLoginhistoryList.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getAuthV1PrivateUsertrusteddeviceLoginhistoryList.key =
-  "/auth/v1/private/usertrusteddevice/loginhistory/list";
+getAuthV1PrivateUsertrusteddeviceLoginhistoryList.key = "/auth/v1/private/usertrusteddevice/loginhistory/list";
 
 export const getAuthV1PublicAuthIsphonenumberregistered = (
-  queryParams?: GetAuthV1PublicAuthIsphonenumberregisteredQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetAuthV1PublicAuthIsphonenumberregisteredQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<boolean>> => {
+  
   return Http.getRequest(
     getAuthV1PublicAuthIsphonenumberregistered.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getAuthV1PublicAuthIsphonenumberregistered.key =
-  "/auth/v1/public/auth/isphonenumberregistered";
+getAuthV1PublicAuthIsphonenumberregistered.key = "/auth/v1/public/auth/isphonenumberregistered";
 
 export const getBaseinfoV1PublicCityList = (
-  queryParams?: GetBaseinfoV1PublicCityListQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetBaseinfoV1PublicCityListQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<CityResponseVM[]>> => {
+  
   return Http.getRequest(
     getBaseinfoV1PublicCityList.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getBaseinfoV1PublicCityList.key = "/baseinfo/v1/public/city/list";
 
 export const getBaseinfoV1PublicCountryAll = (
-  queryParams?: GetBaseinfoV1PublicCountryAllQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetBaseinfoV1PublicCountryAllQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<CountryResponseVM[]>> => {
+  
   return Http.getRequest(
     getBaseinfoV1PublicCountryAll.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getBaseinfoV1PublicCountryAll.key = "/baseinfo/v1/public/country/all";
 
 export const getBaseinfoV1PublicProvinceList = (
-  queryParams?: GetBaseinfoV1PublicProvinceListQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetBaseinfoV1PublicProvinceListQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<ProvinceResponseVM[]>> => {
+  
   return Http.getRequest(
     getBaseinfoV1PublicProvinceList.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getBaseinfoV1PublicProvinceList.key = "/baseinfo/v1/public/province/list";
 
 export const getCapitalV1PrivateDepositList = (
-  queryParams?: GetCapitalV1PrivateDepositListQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetCapitalV1PrivateDepositListQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<DepositTransactionHistoryListResponseVM>> => {
+  
   return Http.getRequest(
     getCapitalV1PrivateDepositList.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getCapitalV1PrivateDepositList.key = "/capital/v1/private/deposit/list";
 
 export const getCapitalV1PrivateDepositRecent = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<DepositTransactionHistoryListResponseVM>> => {
+  
   return Http.getRequest(
     getCapitalV1PrivateDepositRecent.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getCapitalV1PrivateDepositRecent.key = "/capital/v1/private/deposit/recent";
 
 export const getCapitalV1PrivatePosList = (
-  queryParams?: GetCapitalV1PrivatePosListQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetCapitalV1PrivatePosListQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<POSTransactionHistoryListResponseVM>> => {
+  
   return Http.getRequest(
     getCapitalV1PrivatePosList.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getCapitalV1PrivatePosList.key = "/capital/v1/private/pos/list";
 
 export const getCapitalV1PrivateSettlementList = (
-  queryParams?: GetCapitalV1PrivateSettlementListQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetCapitalV1PrivateSettlementListQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<SettlementTransactionHistoryListResponseVM>> => {
+  
   return Http.getRequest(
     getCapitalV1PrivateSettlementList.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getCapitalV1PrivateSettlementList.key = "/capital/v1/private/settlement/list";
 
 export const getCapitalV1PrivateWithdrawDetail = (
-  queryParams?: GetCapitalV1PrivateWithdrawDetailQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetCapitalV1PrivateWithdrawDetailQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<TransactionHistoryDetailResponseVM>> => {
+  
   return Http.getRequest(
     getCapitalV1PrivateWithdrawDetail.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getCapitalV1PrivateWithdrawDetail.key = "/capital/v1/private/withdraw/detail";
 
 export const getCapitalV1PrivateWithdrawInfo = (
-  queryParams?: GetCapitalV1PrivateWithdrawInfoQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetCapitalV1PrivateWithdrawInfoQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<GetWithdrawRequestUserWalletItemResponseVM>> => {
+  
   return Http.getRequest(
     getCapitalV1PrivateWithdrawInfo.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getCapitalV1PrivateWithdrawInfo.key = "/capital/v1/private/withdraw/info";
 
 export const getCapitalV1PrivateWithdrawList = (
-  queryParams?: GetCapitalV1PrivateWithdrawListQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetCapitalV1PrivateWithdrawListQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<WithdrawTransactionHistoryListResponseVM>> => {
+  
   return Http.getRequest(
     getCapitalV1PrivateWithdrawList.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getCapitalV1PrivateWithdrawList.key = "/capital/v1/private/withdraw/list";
 
 export const getCapitalV1PrivateWithdrawRecent = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<WithdrawTransactionHistoryListResponseVM>> => {
+  
   return Http.getRequest(
     getCapitalV1PrivateWithdrawRecent.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getCapitalV1PrivateWithdrawRecent.key = "/capital/v1/private/withdraw/recent";
 
 export const getCapitalV1PrivateWithdrawTodaytotal = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<TodayTotalWithdrawResponseVM>> => {
+  
   return Http.getRequest(
     getCapitalV1PrivateWithdrawTodaytotal.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getCapitalV1PrivateWithdrawTodaytotal.key =
-  "/capital/v1/private/withdraw/todaytotal";
+getCapitalV1PrivateWithdrawTodaytotal.key = "/capital/v1/private/withdraw/todaytotal";
 
 export const getCapitalV1PublicCurrencyAll = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<CurrencyResponseVM[]>> => {
+  
   return Http.getRequest(
     getCapitalV1PublicCurrencyAll.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getCapitalV1PublicCurrencyAll.key = "/capital/v1/public/currency/all";
 
 export const getCapitalV1PublicMoneynetworkAll = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<MoneyNetworkResponseVM[]>> => {
+  
   return Http.getRequest(
     getCapitalV1PublicMoneynetworkAll.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getCapitalV1PublicMoneynetworkAll.key = "/capital/v1/public/moneynetwork/all";
 
 export const getEngagementV1PrivateNotification = (
-  queryParams?: GetEngagementV1PrivateNotificationQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetEngagementV1PrivateNotificationQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<Notification2ListResponseVM>> => {
+  
   return Http.getRequest(
     getEngagementV1PrivateNotification.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getEngagementV1PrivateNotification.key = "/engagement/v1/private/notification";
 
 export const getEngagementV1PrivateNotificationType = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<NotificationCountByTypeResponseVM[]>> => {
+  
   return Http.getRequest(
     getEngagementV1PrivateNotificationType.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getEngagementV1PrivateNotificationType.key =
-  "/engagement/v1/private/notification/type";
+getEngagementV1PrivateNotificationType.key = "/engagement/v1/private/notification/type";
 
 export const getEngagementV1PublicCouponIsvalid = (
-  queryParams?: GetEngagementV1PublicCouponIsvalidQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetEngagementV1PublicCouponIsvalidQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<boolean>> => {
+  
   return Http.getRequest(
     getEngagementV1PublicCouponIsvalid.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getEngagementV1PublicCouponIsvalid.key = "/engagement/v1/public/coupon/isvalid";
 
 export const getEngagementV1PublicCouponIsvalidforphonenumber = (
-  queryParams?: GetEngagementV1PublicCouponIsvalidforphonenumberQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetEngagementV1PublicCouponIsvalidforphonenumberQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<boolean>> => {
+  
   return Http.getRequest(
     getEngagementV1PublicCouponIsvalidforphonenumber.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getEngagementV1PublicCouponIsvalidforphonenumber.key =
-  "/engagement/v1/public/coupon/isvalidforphonenumber";
+getEngagementV1PublicCouponIsvalidforphonenumber.key = "/engagement/v1/public/coupon/isvalidforphonenumber";
 
 export const getExchangeV1PrivateAllorderlist = (
-  queryParams?: GetExchangeV1PrivateAllorderlistQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetExchangeV1PrivateAllorderlistQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<OcoOrderResultInfoResponseVM[]>> => {
+  
   return Http.getRequest(
     getExchangeV1PrivateAllorderlist.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getExchangeV1PrivateAllorderlist.key = "/exchange/v1/private/allorderlist";
 
 export const getExchangeV1PrivateAllorders = (
-  queryParams?: GetExchangeV1PrivateAllordersQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetExchangeV1PrivateAllordersQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<OrderResultInfoListResponseVM>> => {
+  
   return Http.getRequest(
     getExchangeV1PrivateAllorders.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getExchangeV1PrivateAllorders.key = "/exchange/v1/private/allorders";
 
 export const getExchangeV1PrivateAlltrades = (
-  queryParams?: GetExchangeV1PrivateAlltradesQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetExchangeV1PrivateAlltradesQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<TradeResposneListVM>> => {
+  
   return Http.getRequest(
     getExchangeV1PrivateAlltrades.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getExchangeV1PrivateAlltrades.key = "/exchange/v1/private/alltrades";
 
 export const getExchangeV1PrivateOpenocoorderlist = (
-  queryParams?: GetExchangeV1PrivateOpenocoorderlistQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetExchangeV1PrivateOpenocoorderlistQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<OcoOrderResultInfoResponseVM[]>> => {
+  
   return Http.getRequest(
     getExchangeV1PrivateOpenocoorderlist.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getExchangeV1PrivateOpenocoorderlist.key =
-  "/exchange/v1/private/openocoorderlist";
+getExchangeV1PrivateOpenocoorderlist.key = "/exchange/v1/private/openocoorderlist";
 
 export const getExchangeV1PrivateOpenorders = (
-  queryParams?: GetExchangeV1PrivateOpenordersQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetExchangeV1PrivateOpenordersQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<OrderResultInfoResponseVM[]>> => {
+  
   return Http.getRequest(
     getExchangeV1PrivateOpenorders.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getExchangeV1PrivateOpenorders.key = "/exchange/v1/private/openorders";
 
 export const getExchangeV1PrivateOrder = (
-  queryParams?: GetExchangeV1PrivateOrderQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetExchangeV1PrivateOrderQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<GetOrderResponseVM>> => {
+  
   return Http.getRequest(
     getExchangeV1PrivateOrder.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getExchangeV1PrivateOrder.key = "/exchange/v1/private/order";
 
 export const getExchangeV1PrivateOrderlist = (
-  queryParams?: GetExchangeV1PrivateOrderlistQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetExchangeV1PrivateOrderlistQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<GetOcoOrderResponseVM>> => {
+  
   return Http.getRequest(
     getExchangeV1PrivateOrderlist.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getExchangeV1PrivateOrderlist.key = "/exchange/v1/private/orderlist";
 
 export const getExchangeV1PrivateUsertraderlevel = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<UserTraderLevelResponseVM>> => {
+  
   return Http.getRequest(
     getExchangeV1PrivateUsertraderlevel.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getExchangeV1PrivateUsertraderlevel.key =
-  "/exchange/v1/private/usertraderlevel";
+getExchangeV1PrivateUsertraderlevel.key = "/exchange/v1/private/usertraderlevel";
 
 export const getExchangeV1PublicAlltickers24hr = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<MarketTickerPriceResponseVM[]>> => {
+  
   return Http.getRequest(
     getExchangeV1PublicAlltickers24hr.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getExchangeV1PublicAlltickers24hr.key = "/exchange/v1/public/alltickers/24hr";
 
 export const getExchangeV1PublicDepth = (
-  queryParams?: GetExchangeV1PublicDepthQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetExchangeV1PublicDepthQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<OrderBookResponseVM>> => {
+  
   return Http.getRequest(
     getExchangeV1PublicDepth.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getExchangeV1PublicDepth.key = "/exchange/v1/public/depth";
 
 export const getExchangeV1PublicDomaintraderlevels = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<DomainTraderLevelResponseVM[]>> => {
+  
   return Http.getRequest(
     getExchangeV1PublicDomaintraderlevels.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getExchangeV1PublicDomaintraderlevels.key =
-  "/exchange/v1/public/domaintraderlevels";
+getExchangeV1PublicDomaintraderlevels.key = "/exchange/v1/public/domaintraderlevels";
 
 export const getExchangeV1PublicKlines = (
-  queryParams?: GetExchangeV1PublicKlinesQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetExchangeV1PublicKlinesQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<KlineDataResponseVM[]>> => {
+  
   return Http.getRequest(
     getExchangeV1PublicKlines.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getExchangeV1PublicKlines.key = "/exchange/v1/public/klines";
 
 export const getExchangeV1PublicMarkets = (
-  queryParams?: GetExchangeV1PublicMarketsQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetExchangeV1PublicMarketsQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<MarketResponseVM>> => {
+  
   return Http.getRequest(
     getExchangeV1PublicMarkets.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getExchangeV1PublicMarkets.key = "/exchange/v1/public/markets";
 
 export const getExchangeV1PublicSymbolRate = (
-  queryParams?: GetExchangeV1PublicSymbolRateQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetExchangeV1PublicSymbolRateQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<SymbolRateResponseVM>> => {
+  
   return Http.getRequest(
     getExchangeV1PublicSymbolRate.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getExchangeV1PublicSymbolRate.key = "/exchange/v1/public/symbol/rate";
 
 export const getExchangeV1PublicTicker24hr = (
-  queryParams?: GetExchangeV1PublicTicker24hrQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetExchangeV1PublicTicker24hrQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<MarketTickerPriceResponseVM>> => {
+  
   return Http.getRequest(
     getExchangeV1PublicTicker24hr.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getExchangeV1PublicTicker24hr.key = "/exchange/v1/public/ticker/24hr";
 
 export const getExchangeV1PublicTrades = (
-  queryParams?: GetExchangeV1PublicTradesQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetExchangeV1PublicTradesQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<RecentTradeResponseVM[]>> => {
+  
   return Http.getRequest(
     getExchangeV1PublicTrades.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getExchangeV1PublicTrades.key = "/exchange/v1/public/trades";
 
 export const getPartyV1PrivateDomainForcetwofa = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<boolean>> => {
+  
   return Http.getRequest(
     getPartyV1PrivateDomainForcetwofa.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getPartyV1PrivateDomainForcetwofa.key = "/party/v1/private/domain/forcetwofa";
 
 export const getPartyV1PrivateDomainMultiwallet = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<boolean>> => {
+  
   return Http.getRequest(
     getPartyV1PrivateDomainMultiwallet.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getPartyV1PrivateDomainMultiwallet.key = "/party/v1/private/domain/multiwallet";
 
 export const getPartyV1PrivateFavoritemarket = (
-  queryParams?: GetPartyV1PrivateFavoritemarketQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetPartyV1PrivateFavoritemarketQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<string[]>> => {
+  
   return Http.getRequest(
     getPartyV1PrivateFavoritemarket.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getPartyV1PrivateFavoritemarket.key = "/party/v1/private/favoritemarket";
 
 export const getPartyV1PrivateIdentificationlevelUserInfo = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<UserInfoVM>> => {
+  
   return Http.getRequest(
     getPartyV1PrivateIdentificationlevelUserInfo.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getPartyV1PrivateIdentificationlevelUserInfo.key =
-  "/party/v1/private/identificationlevel/user/info";
+getPartyV1PrivateIdentificationlevelUserInfo.key = "/party/v1/private/identificationlevel/user/info";
 
 export const getPartyV1PrivateNotificationAll = (
-  queryParams?: GetPartyV1PrivateNotificationAllQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetPartyV1PrivateNotificationAllQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<NotificationListResponseVM>> => {
+  
   return Http.getRequest(
     getPartyV1PrivateNotificationAll.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getPartyV1PrivateNotificationAll.key = "/party/v1/private/notification/all";
 
 export const getPartyV1PrivateNotificationTypes = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<NotificationTypesReadCountResponseVM[]>> => {
+  
   return Http.getRequest(
     getPartyV1PrivateNotificationTypes.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getPartyV1PrivateNotificationTypes.key = "/party/v1/private/notification/types";
 
 export const getPartyV1PrivatePluginList = (
-  queryParams?: GetPartyV1PrivatePluginListQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetPartyV1PrivatePluginListQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<UserPluginResponseVM[]>> => {
+  
   return Http.getRequest(
     getPartyV1PrivatePluginList.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getPartyV1PrivatePluginList.key = "/party/v1/private/plugin/list";
 
 export const getPartyV1PrivateUsersettingPreference = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<UserSettingPreferenseResponseVM>> => {
+  
   return Http.getRequest(
     getPartyV1PrivateUsersettingPreference.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getPartyV1PrivateUsersettingPreference.key =
-  "/party/v1/private/usersetting/preference";
+getPartyV1PrivateUsersettingPreference.key = "/party/v1/private/usersetting/preference";
 
 export const getPartyV1PrivateUsersettingSecurity = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<UserSettingSecurityResponseVM>> => {
+  
   return Http.getRequest(
     getPartyV1PrivateUsersettingSecurity.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getPartyV1PrivateUsersettingSecurity.key =
-  "/party/v1/private/usersetting/security";
+getPartyV1PrivateUsersettingSecurity.key = "/party/v1/private/usersetting/security";
 
 export const getPartyV1PrivateWalletsettingMaxreferalprogrampercent = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<number>> => {
+  
   return Http.getRequest(
     getPartyV1PrivateWalletsettingMaxreferalprogrampercent.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getPartyV1PrivateWalletsettingMaxreferalprogrampercent.key =
-  "/party/v1/private/walletsetting/maxreferalprogrampercent";
+getPartyV1PrivateWalletsettingMaxreferalprogrampercent.key = "/party/v1/private/walletsetting/maxreferalprogrampercent";
 
 export const getPartyV1PublicDomainSetting = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<DomainSettingVM>> => {
+  
   return Http.getRequest(
     getPartyV1PublicDomainSetting.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getPartyV1PublicDomainSetting.key = "/party/v1/public/domain/setting";
 
 export const getPartyV1PublicIdentificationlevelGuide = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<IdentificationLevelGuideResponseVM[]>> => {
+  
   return Http.getRequest(
     getPartyV1PublicIdentificationlevelGuide.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getPartyV1PublicIdentificationlevelGuide.key =
-  "/party/v1/public/identificationlevel/guide";
+getPartyV1PublicIdentificationlevelGuide.key = "/party/v1/public/identificationlevel/guide";
 
 export const getPartyV1PublicPlugin = (
-  queryParams?: GetPartyV1PublicPluginQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetPartyV1PublicPluginQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<PluginInfoResponseVM>> => {
+  
   return Http.getRequest(
     getPartyV1PublicPlugin.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getPartyV1PublicPlugin.key = "/party/v1/public/plugin";
 
 export const getPaymentV1PrivateEpayrequestCommission = (
-  queryParams?: GetPaymentV1PrivateEpayrequestCommissionQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetPaymentV1PrivateEpayrequestCommissionQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<number>> => {
+  
   return Http.getRequest(
     getPaymentV1PrivateEpayrequestCommission.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getPaymentV1PrivateEpayrequestCommission.key =
-  "/payment/v1/private/epayrequest/commission";
+getPaymentV1PrivateEpayrequestCommission.key = "/payment/v1/private/epayrequest/commission";
 
 export const getPaymentV1PrivateEpayrequestCount = (
-  queryParams?: GetPaymentV1PrivateEpayrequestCountQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetPaymentV1PrivateEpayrequestCountQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<EpayRequestCountResponseVM[]>> => {
+  
   return Http.getRequest(
     getPaymentV1PrivateEpayrequestCount.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getPaymentV1PrivateEpayrequestCount.key =
-  "/payment/v1/private/epayrequest/count";
+getPaymentV1PrivateEpayrequestCount.key = "/payment/v1/private/epayrequest/count";
 
 export const getPaymentV1PrivateEpayrequestCountFromme = (
-  queryParams?: GetPaymentV1PrivateEpayrequestCountFrommeQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetPaymentV1PrivateEpayrequestCountFrommeQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<EpayRequestCountResponseVM[]>> => {
+  
   return Http.getRequest(
     getPaymentV1PrivateEpayrequestCountFromme.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getPaymentV1PrivateEpayrequestCountFromme.key =
-  "/payment/v1/private/epayrequest/count/fromme";
+getPaymentV1PrivateEpayrequestCountFromme.key = "/payment/v1/private/epayrequest/count/fromme";
 
 export const getPaymentV1PrivateEpayrequestInfoClientuniqueid = (
-  queryParams?: GetPaymentV1PrivateEpayrequestInfoClientuniqueidQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetPaymentV1PrivateEpayrequestInfoClientuniqueidQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<EpayRequestInfoResponseVM>> => {
+  
   return Http.getRequest(
     getPaymentV1PrivateEpayrequestInfoClientuniqueid.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getPaymentV1PrivateEpayrequestInfoClientuniqueid.key =
-  "/payment/v1/private/epayrequest/info/clientuniqueid";
+getPaymentV1PrivateEpayrequestInfoClientuniqueid.key = "/payment/v1/private/epayrequest/info/clientuniqueid";
 
 export const getPaymentV1PrivateEpayrequestList = (
-  queryParams?: GetPaymentV1PrivateEpayrequestListQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetPaymentV1PrivateEpayrequestListQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<EpayRequestListResponseVM>> => {
+  
   return Http.getRequest(
     getPaymentV1PrivateEpayrequestList.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getPaymentV1PrivateEpayrequestList.key = "/payment/v1/private/epayrequest/list";
 
 export const getPaymentV1PrivateEpayrequestListFromme = (
-  queryParams?: GetPaymentV1PrivateEpayrequestListFrommeQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetPaymentV1PrivateEpayrequestListFrommeQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<EpayRequestListResponseVM>> => {
+  
   return Http.getRequest(
     getPaymentV1PrivateEpayrequestListFromme.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getPaymentV1PrivateEpayrequestListFromme.key =
-  "/payment/v1/private/epayrequest/list/fromme";
+getPaymentV1PrivateEpayrequestListFromme.key = "/payment/v1/private/epayrequest/list/fromme";
 
 export const getPaymentV1PrivateEpayrequestPluginCount = (
-  queryParams?: GetPaymentV1PrivateEpayrequestPluginCountQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetPaymentV1PrivateEpayrequestPluginCountQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<number>> => {
+  
   return Http.getRequest(
     getPaymentV1PrivateEpayrequestPluginCount.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getPaymentV1PrivateEpayrequestPluginCount.key =
-  "/payment/v1/private/epayrequest/plugin/count";
+getPaymentV1PrivateEpayrequestPluginCount.key = "/payment/v1/private/epayrequest/plugin/count";
 
 export const getPaymentV1PublicEpayrequestGetblockchainaddress = (
-  queryParams?: GetPaymentV1PublicEpayrequestGetblockchainaddressQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetPaymentV1PublicEpayrequestGetblockchainaddressQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<BlockchainAddressResponseVM>> => {
+  
   return Http.getRequest(
     getPaymentV1PublicEpayrequestGetblockchainaddress.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getPaymentV1PublicEpayrequestGetblockchainaddress.key =
-  "/payment/v1/public/epayrequest/getblockchainaddress";
+getPaymentV1PublicEpayrequestGetblockchainaddress.key = "/payment/v1/public/epayrequest/getblockchainaddress";
 
 export const getPaymentV1PublicEpayrequestInfoToken = (
-  queryParams?: GetPaymentV1PublicEpayrequestInfoTokenQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetPaymentV1PublicEpayrequestInfoTokenQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<EpayRequestInfoResponseVM>> => {
+  
   return Http.getRequest(
     getPaymentV1PublicEpayrequestInfoToken.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getPaymentV1PublicEpayrequestInfoToken.key =
-  "/payment/v1/public/epayrequest/info/token";
+getPaymentV1PublicEpayrequestInfoToken.key = "/payment/v1/public/epayrequest/info/token";
 
 export const getPaymentV1PublicEpayrequestReceiptinfoClientuniqueid = (
-  queryParams?: GetPaymentV1PublicEpayrequestReceiptinfoClientuniqueidQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetPaymentV1PublicEpayrequestReceiptinfoClientuniqueidQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<EPayRequestReceiptInfoResponseVM>> => {
+  
   return Http.getRequest(
     getPaymentV1PublicEpayrequestReceiptinfoClientuniqueid.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getPaymentV1PublicEpayrequestReceiptinfoClientuniqueid.key =
-  "/payment/v1/public/epayrequest/receiptinfo/clientuniqueid";
+getPaymentV1PublicEpayrequestReceiptinfoClientuniqueid.key = "/payment/v1/public/epayrequest/receiptinfo/clientuniqueid";
 
 export const getPaymentV1PublicEpayrequestReceiptinfoToken = (
-  queryParams?: GetPaymentV1PublicEpayrequestReceiptinfoTokenQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetPaymentV1PublicEpayrequestReceiptinfoTokenQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<EPayRequestReceiptInfoResponseVM>> => {
+  
   return Http.getRequest(
     getPaymentV1PublicEpayrequestReceiptinfoToken.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getPaymentV1PublicEpayrequestReceiptinfoToken.key =
-  "/payment/v1/public/epayrequest/receiptinfo/token";
+getPaymentV1PublicEpayrequestReceiptinfoToken.key = "/payment/v1/public/epayrequest/receiptinfo/token";
 
 export const getSettlementV1Private = (
-  queryParams?: GetSettlementV1PrivateQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetSettlementV1PrivateQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<SettlementRequestInfoResponseVM>> => {
+  
   return Http.getRequest(
     getSettlementV1Private.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getSettlementV1Private.key = "/settlement/v1/private";
 
 export const getSettlementV1PrivateAddressbook = (
-  queryParams?: GetSettlementV1PrivateAddressbookQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetSettlementV1PrivateAddressbookQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<AddressBookResponseVM>> => {
+  
   return Http.getRequest(
     getSettlementV1PrivateAddressbook.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getSettlementV1PrivateAddressbook.key = "/settlement/v1/private/addressbook";
 
 export const getSettlementV1PrivateAddressbookAll = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<AddressBookResponseVM[]>> => {
+  
   return Http.getRequest(
     getSettlementV1PrivateAddressbookAll.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getSettlementV1PrivateAddressbookAll.key =
-  "/settlement/v1/private/addressbook/all";
+getSettlementV1PrivateAddressbookAll.key = "/settlement/v1/private/addressbook/all";
 
 export const getSettlementV1PrivateCommission = (
-  queryParams?: GetSettlementV1PrivateCommissionQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetSettlementV1PrivateCommissionQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<number>> => {
+  
   return Http.getRequest(
     getSettlementV1PrivateCommission.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getSettlementV1PrivateCommission.key = "/settlement/v1/private/commission";
 
 export const getSettlementV1PrivateCount = (
-  queryParams?: GetSettlementV1PrivateCountQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetSettlementV1PrivateCountQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<AggregationResultResponseVM>> => {
+  
   return Http.getRequest(
     getSettlementV1PrivateCount.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getSettlementV1PrivateCount.key = "/settlement/v1/private/count";
 
 export const getSettlementV1PrivateGlobalwalletproviderAll = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<GlobalWalletProviderResponseVM[]>> => {
+  
   return Http.getRequest(
     getSettlementV1PrivateGlobalwalletproviderAll.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getSettlementV1PrivateGlobalwalletproviderAll.key =
-  "/settlement/v1/private/globalwalletprovider/all";
+getSettlementV1PrivateGlobalwalletproviderAll.key = "/settlement/v1/private/globalwalletprovider/all";
 
 export const getSettlementV1PrivateList = (
-  queryParams?: GetSettlementV1PrivateListQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetSettlementV1PrivateListQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<SettlementRequestInfoListResponseVM>> => {
+  
   return Http.getRequest(
     getSettlementV1PrivateList.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getSettlementV1PrivateList.key = "/settlement/v1/private/list";
 
 export const getSettlementV1PrivateReport = (
-  queryParams?: GetSettlementV1PrivateReportQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetSettlementV1PrivateReportQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<ReportResultResponseVM[]>> => {
+  
   return Http.getRequest(
     getSettlementV1PrivateReport.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getSettlementV1PrivateReport.key = "/settlement/v1/private/report";
 
 export const getSettlementV1PrivateSubuser = (
-  queryParams?: GetSettlementV1PrivateSubuserQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetSettlementV1PrivateSubuserQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<SettlementRequestInfoListResponseVM>> => {
+  
   return Http.getRequest(
     getSettlementV1PrivateSubuser.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getSettlementV1PrivateSubuser.key = "/settlement/v1/private/subuser";
 
+export const getSettlementV1PrivateTodaytotal = (
+    configOverride?:AxiosRequestConfig
+): Promise<SwaggerResponse<TodayTotalWithdrawResponseVM>> => {
+  
+  return Http.getRequest(
+    getSettlementV1PrivateTodaytotal.key,
+    undefined,
+    undefined,
+    undefined,
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
+
+/** Key is end point string without base url */
+getSettlementV1PrivateTodaytotal.key = "/settlement/v1/private/todaytotal";
+
 export const getStorageV1PrivateFileDownload = (
-  queryParams?: GetStorageV1PrivateFileDownloadQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetStorageV1PrivateFileDownloadQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.getRequest(
     getStorageV1PrivateFileDownload.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getStorageV1PrivateFileDownload.key = "/storage/v1/private/file/download";
 
 export const getWalletV1Private = (
-  queryParams?: GetWalletV1PrivateQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetWalletV1PrivateQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<UserWalletDisplayDetailResponseVM>> => {
+  
   return Http.getRequest(
     getWalletV1Private.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getWalletV1Private.key = "/wallet/v1/private";
 
 export const getWalletV1PrivateAll = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<UserWalletDisplayResponseVM[]>> => {
+  
   return Http.getRequest(
     getWalletV1PrivateAll.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getWalletV1PrivateAll.key = "/wallet/v1/private/all";
 
 export const getWalletV1PrivateBankAll = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<BanksResponseVM[]>> => {
+  
   return Http.getRequest(
     getWalletV1PrivateBankAll.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getWalletV1PrivateBankAll.key = "/wallet/v1/private/bank/all";
 
 export const getWalletV1PrivateDomaincurrencyfeerate = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<DomainCurrencyClassResponseVM[]>> => {
+  
   return Http.getRequest(
     getWalletV1PrivateDomaincurrencyfeerate.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getWalletV1PrivateDomaincurrencyfeerate.key =
-  "/wallet/v1/private/domaincurrencyfeerate";
+getWalletV1PrivateDomaincurrencyfeerate.key = "/wallet/v1/private/domaincurrencyfeerate";
 
 export const getWalletV1PrivateDomaincurrencyfeerateBydomaincurrencyclassid = (
-  queryParams?: GetWalletV1PrivateDomaincurrencyfeerateBydomaincurrencyclassidQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetWalletV1PrivateDomaincurrencyfeerateBydomaincurrencyclassidQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<DomainCurrencyClassResponseVM>> => {
+  
   return Http.getRequest(
     getWalletV1PrivateDomaincurrencyfeerateBydomaincurrencyclassid.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getWalletV1PrivateDomaincurrencyfeerateBydomaincurrencyclassid.key =
-  "/wallet/v1/private/domaincurrencyfeerate/bydomaincurrencyclassid";
+getWalletV1PrivateDomaincurrencyfeerateBydomaincurrencyclassid.key = "/wallet/v1/private/domaincurrencyfeerate/bydomaincurrencyclassid";
 
 export const getWalletV1PrivateGrouptransferCommission = (
-  queryParams?: GetWalletV1PrivateGrouptransferCommissionQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetWalletV1PrivateGrouptransferCommissionQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<number>> => {
+  
   return Http.getRequest(
     getWalletV1PrivateGrouptransferCommission.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getWalletV1PrivateGrouptransferCommission.key =
-  "/wallet/v1/private/grouptransfer/commission";
+getWalletV1PrivateGrouptransferCommission.key = "/wallet/v1/private/grouptransfer/commission";
 
 export const getWalletV1PrivateInternalwithdrawInfo = (
-  queryParams?: GetWalletV1PrivateInternalwithdrawInfoQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetWalletV1PrivateInternalwithdrawInfoQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<InternalWithdrawResponseVM>> => {
+  
   return Http.getRequest(
     getWalletV1PrivateInternalwithdrawInfo.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getWalletV1PrivateInternalwithdrawInfo.key =
-  "/wallet/v1/private/internalwithdraw/info";
+getWalletV1PrivateInternalwithdrawInfo.key = "/wallet/v1/private/internalwithdraw/info";
 
 export const getWalletV1PrivateSubuserAll = (
-  queryParams?: GetWalletV1PrivateSubuserAllQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetWalletV1PrivateSubuserAllQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<UserMinimalResponseVM[]>> => {
+  
   return Http.getRequest(
     getWalletV1PrivateSubuserAll.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getWalletV1PrivateSubuserAll.key = "/wallet/v1/private/subuser/all";
 
 export const getWalletV1PrivateSubuserAssignable = (
-  queryParams?: GetWalletV1PrivateSubuserAssignableQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetWalletV1PrivateSubuserAssignableQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<UserMinimalResponseVM[]>> => {
+  
   return Http.getRequest(
     getWalletV1PrivateSubuserAssignable.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getWalletV1PrivateSubuserAssignable.key =
-  "/wallet/v1/private/subuser/assignable";
+getWalletV1PrivateSubuserAssignable.key = "/wallet/v1/private/subuser/assignable";
 
 export const getWalletV1PrivateTransferCommission = (
-  queryParams?: GetWalletV1PrivateTransferCommissionQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetWalletV1PrivateTransferCommissionQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<number>> => {
+  
   return Http.getRequest(
     getWalletV1PrivateTransferCommission.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getWalletV1PrivateTransferCommission.key =
-  "/wallet/v1/private/transfer/commission";
+getWalletV1PrivateTransferCommission.key = "/wallet/v1/private/transfer/commission";
 
 export const getWalletV1PrivateUserassetAll = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<UserAssetResponseVM[]>> => {
+  
   return Http.getRequest(
     getWalletV1PrivateUserassetAll.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getWalletV1PrivateUserassetAll.key = "/wallet/v1/private/userasset/all";
 
 export const getWalletV1PrivateUserassetSpotDefault = (
-  queryParams?: GetWalletV1PrivateUserassetSpotDefaultQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetWalletV1PrivateUserassetSpotDefaultQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<UserCurrencyResponseVM>> => {
+  
   return Http.getRequest(
     getWalletV1PrivateUserassetSpotDefault.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getWalletV1PrivateUserassetSpotDefault.key =
-  "/wallet/v1/private/userasset/spot/default";
+getWalletV1PrivateUserassetSpotDefault.key = "/wallet/v1/private/userasset/spot/default";
 
 export const getWalletV1PrivateUserassetSpotDefaultAll = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<UserAssetResponseVM[]>> => {
+  
   return Http.getRequest(
     getWalletV1PrivateUserassetSpotDefaultAll.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getWalletV1PrivateUserassetSpotDefaultAll.key =
-  "/wallet/v1/private/userasset/spot/default/all";
-
-export const getWalletV1PrivateUserbank = (
-  queryParams?: GetWalletV1PrivateUserbankQueryParams,
-  configOverride?: AxiosRequestConfig,
-): Promise<SwaggerResponse<string>> => {
-  return Http.getRequest(
-    getWalletV1PrivateUserbank.key,
-    queryParams,
-    undefined,
-    undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
-
-/** Key is end point string without base url */
-getWalletV1PrivateUserbank.key = "/wallet/v1/private/userbank";
+getWalletV1PrivateUserassetSpotDefaultAll.key = "/wallet/v1/private/userasset/spot/default/all";
 
 export const getWalletV1PrivateUserbankAll = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<UserBankResponseVM[]>> => {
+  
   return Http.getRequest(
     getWalletV1PrivateUserbankAll.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getWalletV1PrivateUserbankAll.key = "/wallet/v1/private/userbank/all";
 
-export const getWalletV1PrivateUserbankHascurrentuserapprovedorpenddinguserbank =
-  (configOverride?: AxiosRequestConfig): Promise<SwaggerResponse<boolean>> => {
-    return Http.getRequest(
-      getWalletV1PrivateUserbankHascurrentuserapprovedorpenddinguserbank.key,
-      undefined,
-      undefined,
-      undefined,
-      overrideConfig(_CONSTANT2, configOverride),
-    );
-  };
+export const getWalletV1PrivateUserbankHascurrentuserapprovedorpenddinguserbank = (
+    configOverride?:AxiosRequestConfig
+): Promise<SwaggerResponse<boolean>> => {
+  
+  return Http.getRequest(
+    getWalletV1PrivateUserbankHascurrentuserapprovedorpenddinguserbank.key,
+    undefined,
+    undefined,
+    undefined,
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getWalletV1PrivateUserbankHascurrentuserapprovedorpenddinguserbank.key =
-  "/wallet/v1/private/userbank/hascurrentuserapprovedorpenddinguserbank";
+getWalletV1PrivateUserbankHascurrentuserapprovedorpenddinguserbank.key = "/wallet/v1/private/userbank/hascurrentuserapprovedorpenddinguserbank";
 
 export const getWalletV1PrivateUserbankStatus = (
-  queryParams?: GetWalletV1PrivateUserbankStatusQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetWalletV1PrivateUserbankStatusQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<IdentityStatus>> => {
+  
   return Http.getRequest(
     getWalletV1PrivateUserbankStatus.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getWalletV1PrivateUserbankStatus.key = "/wallet/v1/private/userbank/status";
 
 export const getWalletV1PrivateUserreferralprogramAll = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<UserReferralProgramVM[]>> => {
+  
   return Http.getRequest(
     getWalletV1PrivateUserreferralprogramAll.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getWalletV1PrivateUserreferralprogramAll.key =
-  "/wallet/v1/private/userreferralprogram/all";
+getWalletV1PrivateUserreferralprogramAll.key = "/wallet/v1/private/userreferralprogram/all";
 
 export const getWalletV1PrivateUserreferralprogramDefault = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<UserReferralProgramVM>> => {
+  
   return Http.getRequest(
     getWalletV1PrivateUserreferralprogramDefault.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-getWalletV1PrivateUserreferralprogramDefault.key =
-  "/wallet/v1/private/userreferralprogram/default";
+getWalletV1PrivateUserreferralprogramDefault.key = "/wallet/v1/private/userreferralprogram/default";
 
 export const getWalletV1PublicCurrencyInfo = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<DomainCurrencyResponseVM[]>> => {
+  
   return Http.getRequest(
     getWalletV1PublicCurrencyInfo.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getWalletV1PublicCurrencyInfo.key = "/wallet/v1/public/currency/info";
 
 export const getWalletV1PublicFind = (
-  queryParams?: GetWalletV1PublicFindQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: GetWalletV1PublicFindQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<FindUserWalletResponseVM>> => {
+  
   return Http.getRequest(
     getWalletV1PublicFind.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 getWalletV1PublicFind.key = "/wallet/v1/public/find";
 
 export const patchWalletV1Private = (
-  requestBody: UpdateUserWalletRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (UpdateUserWalletRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.patchRequest(
     patchWalletV1Private.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 patchWalletV1Private.key = "/wallet/v1/private";
 
 export const postApiCspreportLog = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.postRequest(
     postApiCspreportLog.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 postApiCspreportLog.key = "/api/cspreport/log";
 
 export const postAuthV1PrivateAuthDisabletwofactor = (
-  requestBody: ChangeTwoFactorRequestVM,
-  headerParams?: { platformType: PlatformType },
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (ChangeTwoFactorRequestVM),headerParams?: {"platformType":  & (PlatformType);},configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.postRequest(
     postAuthV1PrivateAuthDisabletwofactor.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(
-      {
-        headers: {
-          ..._CONSTANT0,
-          ...headerParams,
-        },
-      },
+    overrideConfig({
+              headers:{
+                ..._CONSTANT0,
+                ...headerParams,
+              },
+            },
       configOverride,
-    ),
-  );
-};
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postAuthV1PrivateAuthDisabletwofactor.key =
-  "/auth/v1/private/auth/disabletwofactor";
+postAuthV1PrivateAuthDisabletwofactor.key = "/auth/v1/private/auth/disabletwofactor";
 
 export const postAuthV1PrivateAuthEmail = (
-  requestBody: NewEmailRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (NewEmailRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.postRequest(
     postAuthV1PrivateAuthEmail.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 postAuthV1PrivateAuthEmail.key = "/auth/v1/private/auth/email";
 
 export const postAuthV1PrivateAuthEmailSendcode = (
-  queryParams?: PostAuthV1PrivateAuthEmailSendcodeQueryParams,
-  headerParams?: { purpose: PurposeType },
-  configOverride?: AxiosRequestConfig,
+    queryParams?: PostAuthV1PrivateAuthEmailSendcodeQueryParams,headerParams?: {"purpose":  & (PurposeType);},configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<string>> => {
+  
   return Http.postRequest(
     postAuthV1PrivateAuthEmailSendcode.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(
-      {
-        headers: {
-          ..._CONSTANT3,
-          ...headerParams,
-        },
-      },
+    overrideConfig({
+              headers:{
+                ..._CONSTANT3,
+                ...headerParams,
+              },
+            },
       configOverride,
-    ),
-  );
-};
+    )
+  )
+}
 
 /** Key is end point string without base url */
 postAuthV1PrivateAuthEmailSendcode.key = "/auth/v1/private/auth/email/sendcode";
 
 export const postAuthV1PrivateAuthEnabletwofactor = (
-  requestBody: ChangeTwoFactorRequestVM,
-  headerParams?: { platformType: PlatformType },
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (ChangeTwoFactorRequestVM),headerParams?: {"platformType":  & (PlatformType);},configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.postRequest(
     postAuthV1PrivateAuthEnabletwofactor.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(
-      {
-        headers: {
-          ..._CONSTANT0,
-          ...headerParams,
-        },
-      },
+    overrideConfig({
+              headers:{
+                ..._CONSTANT0,
+                ...headerParams,
+              },
+            },
       configOverride,
-    ),
-  );
-};
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postAuthV1PrivateAuthEnabletwofactor.key =
-  "/auth/v1/private/auth/enabletwofactor";
+postAuthV1PrivateAuthEnabletwofactor.key = "/auth/v1/private/auth/enabletwofactor";
 
 export const postAuthV1PrivateAuthGeneratewebsocketusertoken = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<string>> => {
+  
   return Http.postRequest(
     postAuthV1PrivateAuthGeneratewebsocketusertoken.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postAuthV1PrivateAuthGeneratewebsocketusertoken.key =
-  "/auth/v1/private/auth/generatewebsocketusertoken";
+postAuthV1PrivateAuthGeneratewebsocketusertoken.key = "/auth/v1/private/auth/generatewebsocketusertoken";
 
 export const postAuthV1PrivateAuthGetcode = (
-  headerParams?: { purpose: PurposeType },
-  configOverride?: AxiosRequestConfig,
+    headerParams?: {"purpose":  & (PurposeType);},configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<string>> => {
+  
   return Http.postRequest(
     postAuthV1PrivateAuthGetcode.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(
-      {
-        headers: {
-          ..._CONSTANT3,
-          ...headerParams,
-        },
-      },
+    overrideConfig({
+              headers:{
+                ..._CONSTANT3,
+                ...headerParams,
+              },
+            },
       configOverride,
-    ),
-  );
-};
+    )
+  )
+}
 
 /** Key is end point string without base url */
 postAuthV1PrivateAuthGetcode.key = "/auth/v1/private/auth/getcode";
 
 export const postAuthV1PrivateAuthPhonecallSendcode = (
-  queryParams?: PostAuthV1PrivateAuthPhonecallSendcodeQueryParams,
-  headerParams?: { purpose: PurposeType },
-  configOverride?: AxiosRequestConfig,
+    queryParams?: PostAuthV1PrivateAuthPhonecallSendcodeQueryParams,headerParams?: {"purpose":  & (PurposeType);},configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<string>> => {
+  
   return Http.postRequest(
     postAuthV1PrivateAuthPhonecallSendcode.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(
-      {
-        headers: {
-          ..._CONSTANT3,
-          ...headerParams,
-        },
-      },
+    overrideConfig({
+              headers:{
+                ..._CONSTANT3,
+                ...headerParams,
+              },
+            },
       configOverride,
-    ),
-  );
-};
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postAuthV1PrivateAuthPhonecallSendcode.key =
-  "/auth/v1/private/auth/phonecall/sendcode";
+postAuthV1PrivateAuthPhonecallSendcode.key = "/auth/v1/private/auth/phonecall/sendcode";
 
 export const postAuthV1PrivateAuthRevoketoken = (
-  requestBody: RevokeTokenRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (RevokeTokenRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.postRequest(
     postAuthV1PrivateAuthRevoketoken.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 postAuthV1PrivateAuthRevoketoken.key = "/auth/v1/private/auth/revoketoken";
 
 export const postAuthV1ProtectApikey = (
-  requestBody: ApiKeyAddRequestVM,
-  headerParams?: {
-    otpcode: string;
-    otptoken: string;
-    purpose: PurposeType;
-    totp: string;
-  },
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (ApiKeyAddRequestVM),headerParams?: {"otpcode": string;"otptoken": string;"purpose":  & (PurposeType);"totp": string;},configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<ApiKeyAddResponseVM>> => {
+  
   return Http.postRequest(
     postAuthV1ProtectApikey.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(
-      {
-        headers: {
-          ..._CONSTANT3,
-          ...headerParams,
-        },
-      },
+    overrideConfig({
+              headers:{
+                ..._CONSTANT3,
+                ...headerParams,
+              },
+            },
       configOverride,
-    ),
-  );
-};
+    )
+  )
+}
 
 /** Key is end point string without base url */
 postAuthV1ProtectApikey.key = "/auth/v1/protect/apikey";
 
 export const postAuthV1PublicAuthAnonyverifysecure = (
-  requestBody: VerifySecureRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (VerifySecureRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<string>> => {
+  
   return Http.postRequest(
     postAuthV1PublicAuthAnonyverifysecure.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postAuthV1PublicAuthAnonyverifysecure.key =
-  "/auth/v1/public/auth/anonyverifysecure";
+postAuthV1PublicAuthAnonyverifysecure.key = "/auth/v1/public/auth/anonyverifysecure";
 
 export const postAuthV1PublicAuthChecktwofactorisenable = (
-  queryParams?: PostAuthV1PublicAuthChecktwofactorisenableQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: PostAuthV1PublicAuthChecktwofactorisenableQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<UserExistResponseVM>> => {
+  
   return Http.postRequest(
     postAuthV1PublicAuthChecktwofactorisenable.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postAuthV1PublicAuthChecktwofactorisenable.key =
-  "/auth/v1/public/auth/checktwofactorisenable";
+postAuthV1PublicAuthChecktwofactorisenable.key = "/auth/v1/public/auth/checktwofactorisenable";
 
 export const postAuthV1PublicAuthConnectToken = (
-  requestBody: LoginModelRequestVM,
-  headerParams?: { deviceId: string; platform: string },
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (LoginModelRequestVM),headerParams?: {"deviceId": string;"platform": string;},configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<TokenResponseVM>> => {
+  
   return Http.postRequest(
     postAuthV1PublicAuthConnectToken.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(
-      {
-        headers: {
-          ..._CONSTANT3,
-          ...headerParams,
-        },
-      },
+    overrideConfig({
+              headers:{
+                ..._CONSTANT3,
+                ...headerParams,
+              },
+            },
       configOverride,
-    ),
-  );
-};
+    )
+  )
+}
 
 /** Key is end point string without base url */
 postAuthV1PublicAuthConnectToken.key = "/auth/v1/public/auth/connect/token";
 
 export const postAuthV1PublicAuthGetcaptcha = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<PuzzleModelResponseVM>> => {
+  
   return Http.postRequest(
     postAuthV1PublicAuthGetcaptcha.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 postAuthV1PublicAuthGetcaptcha.key = "/auth/v1/public/auth/getcaptcha";
 
 export const postAuthV1PublicAuthGetcode = (
-  queryParams?: PostAuthV1PublicAuthGetcodeQueryParams,
-  headerParams?: { purpose: PurposeType },
-  configOverride?: AxiosRequestConfig,
+    queryParams?: PostAuthV1PublicAuthGetcodeQueryParams,headerParams?: {"purpose":  & (PurposeType);},configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<string>> => {
+  
   return Http.postRequest(
     postAuthV1PublicAuthGetcode.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(
-      {
-        headers: {
-          ..._CONSTANT3,
-          ...headerParams,
-        },
-      },
+    overrideConfig({
+              headers:{
+                ..._CONSTANT3,
+                ...headerParams,
+              },
+            },
       configOverride,
-    ),
-  );
-};
+    )
+  )
+}
 
 /** Key is end point string without base url */
 postAuthV1PublicAuthGetcode.key = "/auth/v1/public/auth/getcode";
 
 export const postAuthV1PublicAuthRegister = (
-  requestBody: RegisterRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (RegisterRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<RegisterResponseVM>> => {
+  
   return Http.postRequest(
     postAuthV1PublicAuthRegister.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 postAuthV1PublicAuthRegister.key = "/auth/v1/public/auth/register";
 
 export const postAuthV1PublicAuthRegisterverify = (
-  requestBody: VerifyUserPhoneNumberRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (VerifyUserPhoneNumberRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<string>> => {
+  
   return Http.postRequest(
     postAuthV1PublicAuthRegisterverify.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 postAuthV1PublicAuthRegisterverify.key = "/auth/v1/public/auth/registerverify";
 
 export const postAuthV1PublicAuthSetuserbasicinfo = (
-  requestBody: UserBasicInfoRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (UserBasicInfoRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.postRequest(
     postAuthV1PublicAuthSetuserbasicinfo.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postAuthV1PublicAuthSetuserbasicinfo.key =
-  "/auth/v1/public/auth/setuserbasicinfo";
+postAuthV1PublicAuthSetuserbasicinfo.key = "/auth/v1/public/auth/setuserbasicinfo";
 
 export const postAuthV1PublicAuthValidatecaptcha = (
-  requestBody: PuzzleSubmissionRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (PuzzleSubmissionRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<boolean>> => {
+  
   return Http.postRequest(
     postAuthV1PublicAuthValidatecaptcha.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postAuthV1PublicAuthValidatecaptcha.key =
-  "/auth/v1/public/auth/validatecaptcha";
+postAuthV1PublicAuthValidatecaptcha.key = "/auth/v1/public/auth/validatecaptcha";
 
 export const postCapitalV1PrivateDepositQueryuserdepositaddress = (
-  requestBody: UserDepositAddressRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (UserDepositAddressRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<UserDepositAddressResponseVM>> => {
+  
   return Http.postRequest(
     postCapitalV1PrivateDepositQueryuserdepositaddress.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postCapitalV1PrivateDepositQueryuserdepositaddress.key =
-  "/capital/v1/private/deposit/queryuserdepositaddress";
+postCapitalV1PrivateDepositQueryuserdepositaddress.key = "/capital/v1/private/deposit/queryuserdepositaddress";
 
 export const postCapitalV1PrivateDepositQuerywalletdepositaddress = (
-  requestBody: WalletDepositAddressRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (WalletDepositAddressRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<UserDepositAddressResponseVM>> => {
+  
   return Http.postRequest(
     postCapitalV1PrivateDepositQuerywalletdepositaddress.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postCapitalV1PrivateDepositQuerywalletdepositaddress.key =
-  "/capital/v1/private/deposit/querywalletdepositaddress";
+postCapitalV1PrivateDepositQuerywalletdepositaddress.key = "/capital/v1/private/deposit/querywalletdepositaddress";
 
 export const postCapitalV1ProtectedWithdrawApply = (
-  requestBody: WithdrawRequestUserWalletCreateRequestVM,
-  headerParams?: {
-    otpcode: string;
-    otptoken: string;
-    purpose: PurposeType;
-    totp: string;
-  },
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (WithdrawRequestUserWalletCreateRequestVM),headerParams?: {"otpcode": string;"otptoken": string;"purpose":  & (PurposeType);"totp": string;},configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<CreateWithdrawRequestUserWalletResponseVM>> => {
+  
   return Http.postRequest(
     postCapitalV1ProtectedWithdrawApply.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(
-      {
-        headers: {
-          ..._CONSTANT3,
-          ...headerParams,
-        },
-      },
+    overrideConfig({
+              headers:{
+                ..._CONSTANT3,
+                ...headerParams,
+              },
+            },
       configOverride,
-    ),
-  );
-};
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postCapitalV1ProtectedWithdrawApply.key =
-  "/capital/v1/protected/withdraw/apply";
+postCapitalV1ProtectedWithdrawApply.key = "/capital/v1/protected/withdraw/apply";
 
 export const postExchangeV1PrivateOrder = (
-  requestBody: PlaceOrderRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (PlaceOrderRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<OrderAckInfoResponseVM>> => {
+  
   return Http.postRequest(
     postExchangeV1PrivateOrder.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 postExchangeV1PrivateOrder.key = "/exchange/v1/private/order";
 
 export const postExchangeV1PrivateOrderOco = (
-  requestBody: PlaceOcoOrderRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (PlaceOcoOrderRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<OcoOrderResultInfoResponseVM>> => {
+  
   return Http.postRequest(
     postExchangeV1PrivateOrderOco.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 postExchangeV1PrivateOrderOco.key = "/exchange/v1/private/order/oco";
 
 export const postPartyV1PrivateFavoritemarket = (
-  requestBody: UpdateFavoriteMarketRequestVM[],
-  configOverride?: AxiosRequestConfig,
+    requestBody: UpdateFavoriteMarketRequestVM[],configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.postRequest(
     postPartyV1PrivateFavoritemarket.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 postPartyV1PrivateFavoritemarket.key = "/party/v1/private/favoritemarket";
 
 export const postPartyV1PrivateIdentificationlevelLevelone = (
-  requestBody: UserIdentificationLevelOneRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (UserIdentificationLevelOneRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.postRequest(
     postPartyV1PrivateIdentificationlevelLevelone.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postPartyV1PrivateIdentificationlevelLevelone.key =
-  "/party/v1/private/identificationlevel/levelone";
+postPartyV1PrivateIdentificationlevelLevelone.key = "/party/v1/private/identificationlevel/levelone";
 
 export const postPartyV1PrivateIdentificationlevelLevelthree = (
-  requestBody: UserIdentificationLevelThreeRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (UserIdentificationLevelThreeRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.postRequest(
     postPartyV1PrivateIdentificationlevelLevelthree.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postPartyV1PrivateIdentificationlevelLevelthree.key =
-  "/party/v1/private/identificationlevel/levelthree";
+postPartyV1PrivateIdentificationlevelLevelthree.key = "/party/v1/private/identificationlevel/levelthree";
 
 export const postPartyV1PrivateIdentificationlevelLeveltwo = (
-  requestBody: UserIdentificationLevelTwoRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (UserIdentificationLevelTwoRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.postRequest(
     postPartyV1PrivateIdentificationlevelLeveltwo.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postPartyV1PrivateIdentificationlevelLeveltwo.key =
-  "/party/v1/private/identificationlevel/leveltwo";
+postPartyV1PrivateIdentificationlevelLeveltwo.key = "/party/v1/private/identificationlevel/leveltwo";
 
 export const postPartyV1PrivateIdentificationlevelUserbankRequirement = (
-  requestBody: CreateIdentificationUserBankRequirementRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (CreateIdentificationUserBankRequirementRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<IdentificationUserBankRequirementResponseVM>> => {
+  
   return Http.postRequest(
     postPartyV1PrivateIdentificationlevelUserbankRequirement.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postPartyV1PrivateIdentificationlevelUserbankRequirement.key =
-  "/party/v1/private/identificationlevel/userbank/requirement";
+postPartyV1PrivateIdentificationlevelUserbankRequirement.key = "/party/v1/private/identificationlevel/userbank/requirement";
 
 export const postPartyV1PrivateUserProfileimage = (
-  requestBody: {
-    /** - Format: binary */
-    file: string;
-  },
-  configOverride?: AxiosRequestConfig,
+    requestBody: {
+/**
+ * 
+ * - Format: binary
+ */
+"file": string;},configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<string>> => {
+  
   return Http.postRequest(
     postPartyV1PrivateUserProfileimage.key,
     undefined,
     objToForm(requestBody),
     undefined,
-    overrideConfig(_CONSTANT4, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT4,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 postPartyV1PrivateUserProfileimage.key = "/party/v1/private/user/profileimage";
 
 export const postPaymentV1PrivateEpayrequestCharge = (
-  requestBody: CreateChargeRequestRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (CreateChargeRequestRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<EpayRequestResponseVM>> => {
+  
   return Http.postRequest(
     postPaymentV1PrivateEpayrequestCharge.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postPaymentV1PrivateEpayrequestCharge.key =
-  "/payment/v1/private/epayrequest/charge";
+postPaymentV1PrivateEpayrequestCharge.key = "/payment/v1/private/epayrequest/charge";
 
 export const postPaymentV1PrivateEpayrequestDivideipg = (
-  requestBody: CreateDivideIpgRequestRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (CreateDivideIpgRequestRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<EpayRequestResponseVM>> => {
+  
   return Http.postRequest(
     postPaymentV1PrivateEpayrequestDivideipg.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postPaymentV1PrivateEpayrequestDivideipg.key =
-  "/payment/v1/private/epayrequest/divideipg";
+postPaymentV1PrivateEpayrequestDivideipg.key = "/payment/v1/private/epayrequest/divideipg";
 
 export const postPaymentV1PrivateEpayrequestDividelink = (
-  requestBody: CreateDivideLinkRequestRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (CreateDivideLinkRequestRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<EpayRequestResponseVM>> => {
+  
   return Http.postRequest(
     postPaymentV1PrivateEpayrequestDividelink.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postPaymentV1PrivateEpayrequestDividelink.key =
-  "/payment/v1/private/epayrequest/dividelink";
+postPaymentV1PrivateEpayrequestDividelink.key = "/payment/v1/private/epayrequest/dividelink";
 
 export const postPaymentV1PrivateEpayrequestIpg = (
-  requestBody: CreateIpgRequestRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (CreateIpgRequestRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<EpayRequestResponseVM>> => {
+  
   return Http.postRequest(
     postPaymentV1PrivateEpayrequestIpg.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 postPaymentV1PrivateEpayrequestIpg.key = "/payment/v1/private/epayrequest/ipg";
 
 export const postPaymentV1PrivateEpayrequestLink = (
-  requestBody: CreateLinkRequestRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (CreateLinkRequestRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<EpayRequestResponseVM>> => {
+  
   return Http.postRequest(
     postPaymentV1PrivateEpayrequestLink.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postPaymentV1PrivateEpayrequestLink.key =
-  "/payment/v1/private/epayrequest/link";
+postPaymentV1PrivateEpayrequestLink.key = "/payment/v1/private/epayrequest/link";
 
 export const postPaymentV1PrivateEpayrequestPaywithwallet = (
-  requestBody: EpayPayWithWalletRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (EpayPayWithWalletRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.postRequest(
     postPaymentV1PrivateEpayrequestPaywithwallet.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postPaymentV1PrivateEpayrequestPaywithwallet.key =
-  "/payment/v1/private/epayrequest/paywithwallet";
+postPaymentV1PrivateEpayrequestPaywithwallet.key = "/payment/v1/private/epayrequest/paywithwallet";
 
-export const postPaymentV1PrivateEpayrequestPostactioninternaldepositepayrequest =
-  (
-    requestBody: AddPostActionInternalDepositEPayRequestRequestVM,
-    configOverride?: AxiosRequestConfig,
-  ): Promise<SwaggerResponse<AddPostActionResponseVM>> => {
-    return Http.postRequest(
-      postPaymentV1PrivateEpayrequestPostactioninternaldepositepayrequest.key,
-      undefined,
-      requestBody,
-      undefined,
-      overrideConfig(_CONSTANT2, configOverride),
-    );
-  };
+export const postPaymentV1PrivateEpayrequestPostactioninternaldepositepayrequest = (
+    requestBody:  & (AddPostActionInternalDepositEPayRequestRequestVM),configOverride?:AxiosRequestConfig
+): Promise<SwaggerResponse<AddPostActionResponseVM>> => {
+  
+  return Http.postRequest(
+    postPaymentV1PrivateEpayrequestPostactioninternaldepositepayrequest.key,
+    undefined,
+    requestBody,
+    undefined,
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postPaymentV1PrivateEpayrequestPostactioninternaldepositepayrequest.key =
-  "/payment/v1/private/epayrequest/postactioninternaldepositepayrequest";
+postPaymentV1PrivateEpayrequestPostactioninternaldepositepayrequest.key = "/payment/v1/private/epayrequest/postactioninternaldepositepayrequest";
 
 export const postPaymentV1PrivateEpayrequestPostactionplacemarketbuyorder = (
-  requestBody: AddPostActionPlaceMarketBuyOrderRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (AddPostActionPlaceMarketBuyOrderRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<AddPostActionResponseVM>> => {
+  
   return Http.postRequest(
     postPaymentV1PrivateEpayrequestPostactionplacemarketbuyorder.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postPaymentV1PrivateEpayrequestPostactionplacemarketbuyorder.key =
-  "/payment/v1/private/epayrequest/postactionplacemarketbuyorder";
+postPaymentV1PrivateEpayrequestPostactionplacemarketbuyorder.key = "/payment/v1/private/epayrequest/postactionplacemarketbuyorder";
 
 export const postPaymentV1PrivateEpayrequestSetpayercurrenyinfo = (
-  requestBody: PayerCurrencyRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (PayerCurrencyRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.postRequest(
     postPaymentV1PrivateEpayrequestSetpayercurrenyinfo.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postPaymentV1PrivateEpayrequestSetpayercurrenyinfo.key =
-  "/payment/v1/private/epayrequest/setpayercurrenyinfo";
+postPaymentV1PrivateEpayrequestSetpayercurrenyinfo.key = "/payment/v1/private/epayrequest/setpayercurrenyinfo";
 
 export const postPaymentV1PrivateEpayrequestUnblock = (
-  queryParams?: PostPaymentV1PrivateEpayrequestUnblockQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: PostPaymentV1PrivateEpayrequestUnblockQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.postRequest(
     postPaymentV1PrivateEpayrequestUnblock.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postPaymentV1PrivateEpayrequestUnblock.key =
-  "/payment/v1/private/epayrequest/unblock";
+postPaymentV1PrivateEpayrequestUnblock.key = "/payment/v1/private/epayrequest/unblock";
 
 export const postPaymentV1PublicEpayrequestPos = (
-  requestBody: CreatePosRequestRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (CreatePosRequestRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<EpayRequestResponseVM>> => {
+  
   return Http.postRequest(
     postPaymentV1PublicEpayrequestPos.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 postPaymentV1PublicEpayrequestPos.key = "/payment/v1/public/epayrequest/pos";
 
 export const postPaymentV1PublicEpayrequestSmsResend = (
-  queryParams?: PostPaymentV1PublicEpayrequestSmsResendQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: PostPaymentV1PublicEpayrequestSmsResendQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.postRequest(
     postPaymentV1PublicEpayrequestSmsResend.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postPaymentV1PublicEpayrequestSmsResend.key =
-  "/payment/v1/public/epayrequest/sms/resend";
+postPaymentV1PublicEpayrequestSmsResend.key = "/payment/v1/public/epayrequest/sms/resend";
 
 export const postSettlementV1PrivateAddressbook = (
-  requestBody: AddressBookAddRequestVM[],
-  headerParams?: {
-    otpcode: string;
-    otptoken: string;
-    purpose: PurposeType;
-    totp: string;
-  },
-  configOverride?: AxiosRequestConfig,
+    requestBody: AddressBookAddRequestVM[],headerParams?: {"otpcode": string;"otptoken": string;"purpose":  & (PurposeType);"totp": string;},configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.postRequest(
     postSettlementV1PrivateAddressbook.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(
-      {
-        headers: {
-          ..._CONSTANT0,
-          ...headerParams,
-        },
-      },
+    overrideConfig({
+              headers:{
+                ..._CONSTANT0,
+                ...headerParams,
+              },
+            },
       configOverride,
-    ),
-  );
-};
+    )
+  )
+}
 
 /** Key is end point string without base url */
 postSettlementV1PrivateAddressbook.key = "/settlement/v1/private/addressbook";
 
 export const postSettlementV1PrivateExcel = (
-  requestBody: SettlementFilterRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (SettlementFilterRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<SettlementExcelResponseVM[]>> => {
+  
   return Http.postRequest(
     postSettlementV1PrivateExcel.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 postSettlementV1PrivateExcel.key = "/settlement/v1/private/excel";
 
 export const postSettlementV1PrivateUserWalletNumber = (
-  userWalletNumber: string,
-  requestBody: CreateSettlementRequestVM,
-  configOverride?: AxiosRequestConfig,
+    userWalletNumber: string,requestBody:  & (CreateSettlementRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<SettlementRequestInfoResponseVM>> => {
+  
   return Http.postRequest(
-    template(postSettlementV1PrivateUserWalletNumber.key, { userWalletNumber }),
+    template(postSettlementV1PrivateUserWalletNumber.key,{userWalletNumber,}),
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postSettlementV1PrivateUserWalletNumber.key =
-  "/settlement/v1/private/{userWalletNumber}";
+postSettlementV1PrivateUserWalletNumber.key = "/settlement/v1/private/{userWalletNumber}";
 
 export const postStorageV1PrivateFileUploadfile = (
-  requestBody: {
-    /** - Format: binary */
-    file: string;
-  },
-  configOverride?: AxiosRequestConfig,
+    requestBody: {
+/**
+ * 
+ * - Format: binary
+ */
+"file": string;},configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<string>> => {
+  
   return Http.postRequest(
     postStorageV1PrivateFileUploadfile.key,
     undefined,
     objToForm(requestBody),
     undefined,
-    overrideConfig(_CONSTANT4, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT4,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 postStorageV1PrivateFileUploadfile.key = "/storage/v1/private/file/uploadfile";
 
 export const postWalletV1Private = (
-  requestBody: CreateUserWalletRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (CreateUserWalletRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<UserWalletResponseVM>> => {
+  
   return Http.postRequest(
     postWalletV1Private.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 postWalletV1Private.key = "/wallet/v1/private";
 
 export const postWalletV1PrivateGrouptransfer = (
-  requestBody: GroupTransferMoneyRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (GroupTransferMoneyRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<GroupTransferResponseVM>> => {
+  
   return Http.postRequest(
     postWalletV1PrivateGrouptransfer.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 postWalletV1PrivateGrouptransfer.key = "/wallet/v1/private/grouptransfer";
 
 export const postWalletV1PrivateTransfer = (
-  requestBody: TransferMoneyRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (TransferMoneyRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<TransferMoneyResponseVM>> => {
+  
   return Http.postRequest(
     postWalletV1PrivateTransfer.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 postWalletV1PrivateTransfer.key = "/wallet/v1/private/transfer";
 
 export const postWalletV1PrivateUserbank = (
-  requestBody: CreateUserBankRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (CreateUserBankRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.postRequest(
     postWalletV1PrivateUserbank.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 postWalletV1PrivateUserbank.key = "/wallet/v1/private/userbank";
 
 export const postWalletV1PrivateUserbankDetailed = (
-  requestBody: CreateUserBankDetailRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (CreateUserBankDetailRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.postRequest(
     postWalletV1PrivateUserbankDetailed.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postWalletV1PrivateUserbankDetailed.key =
-  "/wallet/v1/private/userbank/detailed";
+postWalletV1PrivateUserbankDetailed.key = "/wallet/v1/private/userbank/detailed";
+
+export const postWalletV1PrivateUserbankPayid = (
+    requestBody: number,configOverride?:AxiosRequestConfig
+): Promise<SwaggerResponse<string>> => {
+  
+  return Http.postRequest(
+    postWalletV1PrivateUserbankPayid.key,
+    undefined,
+    requestBody,
+    undefined,
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
+
+/** Key is end point string without base url */
+postWalletV1PrivateUserbankPayid.key = "/wallet/v1/private/userbank/payid";
 
 export const postWalletV1PrivateUserreferralprogram = (
-  requestBody: UserReferralProgramAddVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (UserReferralProgramAddVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.postRequest(
     postWalletV1PrivateUserreferralprogram.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-postWalletV1PrivateUserreferralprogram.key =
-  "/wallet/v1/private/userreferralprogram";
+postWalletV1PrivateUserreferralprogram.key = "/wallet/v1/private/userreferralprogram";
 
 export const postWalletV1PrivateWalletpermission = (
-  requestBody: SubuserAccessRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (SubuserAccessRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.postRequest(
     postWalletV1PrivateWalletpermission.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 postWalletV1PrivateWalletpermission.key = "/wallet/v1/private/walletpermission";
 
 export const putAuthV1PrivateAuthEmail = (
-  requestBody: ChangeEmailRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (ChangeEmailRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.putRequest(
     putAuthV1PrivateAuthEmail.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 putAuthV1PrivateAuthEmail.key = "/auth/v1/private/auth/email";
 
 export const putAuthV1ProtectApikey = (
-  requestBody: ApiKeyUpdateRequestVM,
-  headerParams?: {
-    otpcode: string;
-    otptoken: string;
-    purpose: PurposeType;
-    totp: string;
-  },
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (ApiKeyUpdateRequestVM),headerParams?: {"otpcode": string;"otptoken": string;"purpose":  & (PurposeType);"totp": string;},configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.putRequest(
     putAuthV1ProtectApikey.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(
-      {
-        headers: {
-          ..._CONSTANT0,
-          ...headerParams,
-        },
-      },
+    overrideConfig({
+              headers:{
+                ..._CONSTANT0,
+                ...headerParams,
+              },
+            },
       configOverride,
-    ),
-  );
-};
+    )
+  )
+}
 
 /** Key is end point string without base url */
 putAuthV1ProtectApikey.key = "/auth/v1/protect/apikey";
 
 export const putAuthV1ProtectAuthChangepassword = (
-  requestBody: ChangePasswordRequestVM,
-  headerParams?: {
-    otpcode: string;
-    otptoken: string;
-    platformType: PlatformType;
-    purpose: PurposeType;
-    totp: string;
-  },
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (ChangePasswordRequestVM),headerParams?: {"otpcode": string;"otptoken": string;"platformType":  & (PlatformType);"purpose":  & (PurposeType);"totp": string;},configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.putRequest(
     putAuthV1ProtectAuthChangepassword.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(
-      {
-        headers: {
-          ..._CONSTANT0,
-          ...headerParams,
-        },
-      },
+    overrideConfig({
+              headers:{
+                ..._CONSTANT0,
+                ...headerParams,
+              },
+            },
       configOverride,
-    ),
-  );
-};
+    )
+  )
+}
 
 /** Key is end point string without base url */
 putAuthV1ProtectAuthChangepassword.key = "/auth/v1/protect/auth/changepassword";
 
 export const putAuthV1PublicAuthForgotpassword = (
-  requestBody: ForgotPasswordRequestVM,
-  headerParams?: { platformType: PlatformType },
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (ForgotPasswordRequestVM),headerParams?: {"platformType":  & (PlatformType);},configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.putRequest(
     putAuthV1PublicAuthForgotpassword.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(
-      {
-        headers: {
-          ..._CONSTANT0,
-          ...headerParams,
-        },
-      },
+    overrideConfig({
+              headers:{
+                ..._CONSTANT0,
+                ...headerParams,
+              },
+            },
       configOverride,
-    ),
-  );
-};
+    )
+  )
+}
 
 /** Key is end point string without base url */
 putAuthV1PublicAuthForgotpassword.key = "/auth/v1/public/auth/forgotpassword";
 
 export const putEngagementV1PrivateNotificationRead = (
-  requestBody: number[],
-  configOverride?: AxiosRequestConfig,
+    requestBody: number[],configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.putRequest(
     putEngagementV1PrivateNotificationRead.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-putEngagementV1PrivateNotificationRead.key =
-  "/engagement/v1/private/notification/read";
+putEngagementV1PrivateNotificationRead.key = "/engagement/v1/private/notification/read";
 
 export const putEngagementV1PrivateNotificationReadall = (
-  queryParams?: PutEngagementV1PrivateNotificationReadallQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: PutEngagementV1PrivateNotificationReadallQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.putRequest(
     putEngagementV1PrivateNotificationReadall.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-putEngagementV1PrivateNotificationReadall.key =
-  "/engagement/v1/private/notification/readall";
+putEngagementV1PrivateNotificationReadall.key = "/engagement/v1/private/notification/readall";
 
 export const putPartyV1PrivateNotificationRead = (
-  requestBody: number[],
-  configOverride?: AxiosRequestConfig,
+    requestBody: number[],configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.putRequest(
     putPartyV1PrivateNotificationRead.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 putPartyV1PrivateNotificationRead.key = "/party/v1/private/notification/read";
 
 export const putPartyV1PrivateNotificationReadall = (
-  configOverride?: AxiosRequestConfig,
+    configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.putRequest(
     putPartyV1PrivateNotificationReadall.key,
     undefined,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-putPartyV1PrivateNotificationReadall.key =
-  "/party/v1/private/notification/readall";
+putPartyV1PrivateNotificationReadall.key = "/party/v1/private/notification/readall";
 
 export const putPartyV1PrivatePlugin = (
-  requestBody: UserPluginTogggleRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (UserPluginTogggleRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.putRequest(
     putPartyV1PrivatePlugin.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 putPartyV1PrivatePlugin.key = "/party/v1/private/plugin";
 
 export const putPartyV1PrivateUsersettingPreference = (
-  requestBody: PreferenceUserSettingRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (PreferenceUserSettingRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.putRequest(
     putPartyV1PrivateUsersettingPreference.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-putPartyV1PrivateUsersettingPreference.key =
-  "/party/v1/private/usersetting/preference";
+putPartyV1PrivateUsersettingPreference.key = "/party/v1/private/usersetting/preference";
 
 export const putPartyV1ProtectUserSuspend = (
-  queryParams?: PutPartyV1ProtectUserSuspendQueryParams,
-  headerParams?: {
-    otpcode: string;
-    otptoken: string;
-    purpose: PurposeType;
-    totp: string;
-  },
-  configOverride?: AxiosRequestConfig,
+    queryParams?: PutPartyV1ProtectUserSuspendQueryParams,headerParams?: {"otpcode": string;"otptoken": string;"purpose":  & (PurposeType);"totp": string;},configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.putRequest(
     putPartyV1ProtectUserSuspend.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(
-      {
-        headers: {
-          ..._CONSTANT0,
-          ...headerParams,
-        },
-      },
+    overrideConfig({
+              headers:{
+                ..._CONSTANT0,
+                ...headerParams,
+              },
+            },
       configOverride,
-    ),
-  );
-};
+    )
+  )
+}
 
 /** Key is end point string without base url */
 putPartyV1ProtectUserSuspend.key = "/party/v1/protect/user/suspend";
 
 export const putPartyV1ProtectUsersettingSecurity = (
-  requestBody: SecurityUserSettingRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (SecurityUserSettingRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.putRequest(
     putPartyV1ProtectUsersettingSecurity.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-putPartyV1ProtectUsersettingSecurity.key =
-  "/party/v1/protect/usersetting/security";
+putPartyV1ProtectUsersettingSecurity.key = "/party/v1/protect/usersetting/security";
 
 export const putPaymentV1PrivateEpayrequestAssigneduser = (
-  requestBody: UpdateEpayRequestAssignedUserRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (UpdateEpayRequestAssignedUserRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<EpayRequestInfoResponseVM>> => {
+  
   return Http.putRequest(
     putPaymentV1PrivateEpayrequestAssigneduser.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-putPaymentV1PrivateEpayrequestAssigneduser.key =
-  "/payment/v1/private/epayrequest/assigneduser";
+putPaymentV1PrivateEpayrequestAssigneduser.key = "/payment/v1/private/epayrequest/assigneduser";
 
 export const putPaymentV1PublicEpayrequestCancel = (
-  queryParams?: PutPaymentV1PublicEpayrequestCancelQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: PutPaymentV1PublicEpayrequestCancelQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.putRequest(
     putPaymentV1PublicEpayrequestCancel.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-putPaymentV1PublicEpayrequestCancel.key =
-  "/payment/v1/public/epayrequest/cancel";
+putPaymentV1PublicEpayrequestCancel.key = "/payment/v1/public/epayrequest/cancel";
 
 export const putPaymentV1PublicEpayrequestCustomdata = (
-  requestBody: UpdateEpayRequestCustomDataRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (UpdateEpayRequestCustomDataRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<EpayRequestInfoResponseVM>> => {
+  
   return Http.putRequest(
     putPaymentV1PublicEpayrequestCustomdata.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT2,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-putPaymentV1PublicEpayrequestCustomdata.key =
-  "/payment/v1/public/epayrequest/customdata";
+putPaymentV1PublicEpayrequestCustomdata.key = "/payment/v1/public/epayrequest/customdata";
 
 export const putSettlementV1PrivateAddressbookWhitelistDisable = (
-  requestBody: number[],
-  configOverride?: AxiosRequestConfig,
+    requestBody: number[],configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.putRequest(
     putSettlementV1PrivateAddressbookWhitelistDisable.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-putSettlementV1PrivateAddressbookWhitelistDisable.key =
-  "/settlement/v1/private/addressbook/whitelist/disable";
+putSettlementV1PrivateAddressbookWhitelistDisable.key = "/settlement/v1/private/addressbook/whitelist/disable";
 
 export const putSettlementV1PrivateAddressbookWhitelistEnable = (
-  requestBody: number[],
-  headerParams?: {
-    otpcode: string;
-    otptoken: string;
-    purpose: PurposeType;
-    totp: string;
-  },
-  configOverride?: AxiosRequestConfig,
+    requestBody: number[],headerParams?: {"otpcode": string;"otptoken": string;"purpose":  & (PurposeType);"totp": string;},configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.putRequest(
     putSettlementV1PrivateAddressbookWhitelistEnable.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(
-      {
-        headers: {
-          ..._CONSTANT0,
-          ...headerParams,
-        },
-      },
+    overrideConfig({
+              headers:{
+                ..._CONSTANT0,
+                ...headerParams,
+              },
+            },
       configOverride,
-    ),
-  );
-};
+    )
+  )
+}
 
 /** Key is end point string without base url */
-putSettlementV1PrivateAddressbookWhitelistEnable.key =
-  "/settlement/v1/private/addressbook/whitelist/enable";
+putSettlementV1PrivateAddressbookWhitelistEnable.key = "/settlement/v1/private/addressbook/whitelist/enable";
 
 export const putWalletV1PrivateUserreferralprogramDefault = (
-  queryParams?: PutWalletV1PrivateUserreferralprogramDefaultQueryParams,
-  configOverride?: AxiosRequestConfig,
+    queryParams?: PutWalletV1PrivateUserreferralprogramDefaultQueryParams,configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.putRequest(
     putWalletV1PrivateUserreferralprogramDefault.key,
     queryParams,
     undefined,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
-putWalletV1PrivateUserreferralprogramDefault.key =
-  "/wallet/v1/private/userreferralprogram/default";
+putWalletV1PrivateUserreferralprogramDefault.key = "/wallet/v1/private/userreferralprogram/default";
 
 export const putWalletV1PrivateWalletpermission = (
-  requestBody: PermissionRequestVM,
-  configOverride?: AxiosRequestConfig,
+    requestBody:  & (PermissionRequestVM),configOverride?:AxiosRequestConfig
 ): Promise<SwaggerResponse<any>> => {
+  
   return Http.putRequest(
     putWalletV1PrivateWalletpermission.key,
     undefined,
     requestBody,
     undefined,
-    overrideConfig(_CONSTANT1, configOverride),
-  );
-};
+    overrideConfig(_CONSTANT1,
+      configOverride,
+    )
+  )
+}
 
 /** Key is end point string without base url */
 putWalletV1PrivateWalletpermission.key = "/wallet/v1/private/walletpermission";
 export const _CONSTANT0 = {
-  "Content-Type": "application/json",
-  Accept: "application/json",
-};
-export const _CONSTANT1 = {
-  headers: {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-  },
-};
-export const _CONSTANT2 = {
-  headers: {
-    "Content-Type": "application/json",
-    Accept: "text/plain",
-  },
-};
-export const _CONSTANT3 = {
-  "Content-Type": "application/json",
-  Accept: "text/plain",
-};
-export const _CONSTANT4 = {
-  headers: {
-    "Content-Type": "multipart/form-data",
-    Accept: "text/plain",
-  },
-};
+                  "Content-Type": "application/json",
+                  Accept: "application/json",
+
+                };export const _CONSTANT1 = {
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+              },
+            };export const _CONSTANT2 = {
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "text/plain",
+              },
+            };export const _CONSTANT3 = {
+                  "Content-Type": "application/json",
+                  Accept: "text/plain",
+
+                };export const _CONSTANT4 = {
+              headers: {
+                "Content-Type": "multipart/form-data",
+                Accept: "text/plain",
+              },
+            };
