@@ -1,17 +1,16 @@
-import Decimal from "decimal.js";
 import { groupBy, map } from "lodash-es";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import {
   AppOrderSide,
   AppOrderType,
   usePostExchangeV1PrivateOrder,
   usePostPaymentV1PrivateEpayrequestPostactionplacemarketbuyorder,
+  UserBankResponseVM,
 } from "../../services";
 import { getErrorMessage } from "../../utils";
 import { MarketTicker, useMarketTicker } from "../marketTicker";
 import { useCharge } from "../useCharge";
-import { useConvertBaseToQuote } from "../useConvertBaseToQuote";
 import { BuySellContext, BuySellProps } from "./context";
 
 type OrderProps = {
@@ -23,6 +22,7 @@ type OrderProps = {
 type Charge = {
   redirectUrl: string;
   clientId?: string;
+  amountToCharge?: number;
 };
 
 type SelectedQueries = {
@@ -36,18 +36,23 @@ export const useBuySell = (callbacks?: BuySellProps) => {
   }
 
   const { handleSubmit, reset, setValue } = BuySellContext.useFormContext();
-  const convert = useConvertBaseToQuote();
 
-  const { lastChangeInput, recieve, selected, spend, shouldCharge } =
-    BuySellContext.useWatch();
+  const {
+    lastChangeInput,
+    recieve,
+    selected,
+    spend,
+    shouldCharge,
+    selectedBank,
+    showChargeMessage,
+    chargeAmount,
+  } = BuySellContext.useWatch();
 
   const { getSymbolMarketTicker, marketsTicker } = useMarketTicker();
 
   const selectedMarket = getSymbolMarketTicker(selected);
 
   const isChargeable = selectedMarket?.quoteCurrency?.canCharge;
-
-  const availableRemain = selectedMarket?.quoteCurrency?.availableRemain || 0;
 
   const marketsTickerGrouped = map(
     groupBy(
@@ -59,7 +64,7 @@ export const useBuySell = (callbacks?: BuySellProps) => {
 
   const selectedAssignedValue = useCallback(
     ({ crypto, fiat }: SelectedQueries) => {
-      if (selected || !marketsTickerGrouped.length) {
+      if (selected || !marketsTickerGrouped?.length) {
         return;
       }
 
@@ -94,12 +99,6 @@ export const useBuySell = (callbacks?: BuySellProps) => {
     [marketsTickerGrouped, selected, setValue],
   );
 
-  const convertedBaseQuantity = convert(
-    Number(recieve || 0),
-    selectedMarket?.baseAsset,
-    selectedMarket?.quoteAsset,
-  );
-
   const {
     mutate: placeOrder,
     error: orderError,
@@ -121,6 +120,7 @@ export const useBuySell = (callbacks?: BuySellProps) => {
     errorAmount,
     serverError,
     clearError,
+    checkAmount,
   } = useCharge({
     currency: selectedMarket?.quoteAsset,
     onSuccess: (data) => {
@@ -128,16 +128,13 @@ export const useBuySell = (callbacks?: BuySellProps) => {
     },
   });
 
+  const chargeError = errorAmount || getErrorMessage(serverError);
+
   const { mutate: postAction, isLoading: isLoadingPostAction } =
     usePostPaymentV1PrivateEpayrequestPostactionplacemarketbuyorder<Charge>({
       onSuccess: ({ postActionUniqueId }, { _extraVariables }) => {
         const clientUniqueId = _extraVariables?.clientId || uuidv4();
-        const requiredAmount =
-          lastChangeInput === "spend"
-            ? new Decimal(spend || 0).minus(availableRemain)
-            : new Decimal(convertedBaseQuantity).minus(availableRemain);
-
-        requestCharge(requiredAmount.toNumber(), {
+        requestCharge(chargeAmount, {
           postActionUniqueId,
           redirectUrl: window.location.origin + _extraVariables?.redirectUrl,
           clientUniqueId,
@@ -145,12 +142,13 @@ export const useBuySell = (callbacks?: BuySellProps) => {
       },
     });
 
-  const charge = ({ redirectUrl, clientId }: Charge) => {
-    const quoteQuantity =
-      lastChangeInput === "spend"
-        ? Number(spend)
-        : new Decimal(convertedBaseQuantity).minus(availableRemain).toNumber();
+  useEffect(() => {
+    clearError();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [recieve]);
 
+  const charge = ({ redirectUrl, clientId }: Charge) => {
+    const quoteQuantity = Number(spend);
     postAction({
       requestBody: {
         marketType: "Spot",
@@ -161,6 +159,14 @@ export const useBuySell = (callbacks?: BuySellProps) => {
       },
       _extraVariables: { redirectUrl, clientId },
     });
+  };
+
+  const validateCharge = () => {
+    const isValidAmount = checkAmount(chargeAmount);
+    if (!isValidAmount) {
+      return;
+    }
+    setValue("showChargeMessage", true);
   };
   const onSubmit = async ({ type, side, triggerBeforeOrder }: OrderProps) => {
     await new Promise((resolve) => resolve(triggerBeforeOrder?.()));
@@ -201,6 +207,14 @@ export const useBuySell = (callbacks?: BuySellProps) => {
 
   const isChargeLoading = isLoadingCharge || isLoadingPostAction;
 
+  const hideChargeMessage = () => {
+    setValue("showChargeMessage", false);
+  };
+
+  const setSelectedBank = (userBank?: UserBankResponseVM | null) => {
+    setValue("selectedBank", userBank);
+  };
+
   return {
     onSubmit,
     charge,
@@ -216,7 +230,13 @@ export const useBuySell = (callbacks?: BuySellProps) => {
     lastChangeInput,
     selectedAssignedValue,
     reset: resetApi,
-    chargeError: errorAmount || getErrorMessage(serverError),
+    chargeError,
     clearChargeError: clearError,
+    hideChargeMessage,
+    setSelectedBank,
+    chargeAmount,
+    selectedBank,
+    showChargeMessage,
+    validateCharge,
   };
 };

@@ -1,5 +1,6 @@
+import Decimal from "decimal.js";
 import { groupBy, map } from "lodash-es";
-import React, { ReactNode } from "react";
+import React, { FocusEventHandler, ReactNode } from "react";
 import { ControllerRenderProps } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { MarketTicker, useMarketTicker } from "../marketTicker";
@@ -7,6 +8,7 @@ import { useMarketFilters } from "../useMarketFilters";
 import { useOrderPlacingError } from "../useOrderPlacingError";
 import { useStepSize } from "../useStepSize";
 import { BuySellContext, BuySellFormProps } from "./context";
+import { useBuySellPrice } from "./useBuySellPrice";
 
 type BuySpendRenderProps = {
   render: (state: {
@@ -18,7 +20,7 @@ type BuySpendRenderProps = {
       maxQuantity: number;
       availableRemain: number;
       onSelect?: (value?: MarketTicker | undefined) => void;
-      onFocus?: () => void;
+      onFocus?: (e: FocusEventHandler<any> | undefined) => void;
       getMaxSize?: (value: number) => string | number;
     };
   }) => React.ReactElement;
@@ -31,7 +33,8 @@ export const BuySpendController = ({
   renderErrorComponent,
 }: BuySpendRenderProps) => {
   const { t } = useTranslation();
-  const { lastChangeInput, selected, spend } = BuySellContext.useWatch();
+  const { lastChangeInput, selected, spend, recieve } =
+    BuySellContext.useWatch();
 
   const { errors } = BuySellContext.useFormState();
 
@@ -39,7 +42,7 @@ export const BuySpendController = ({
     BuySellContext.useFormContext();
 
   register("shouldCharge");
-
+  const { calculateReceive } = useBuySellPrice("buy");
   const { getTotalError } = useOrderPlacingError();
 
   const { marketsTicker, getSymbolMarketTicker } = useMarketTicker();
@@ -84,6 +87,14 @@ export const BuySpendController = ({
                   Number(value)
               ) {
                 setValue("shouldCharge", true);
+                setValue(
+                  "chargeAmount",
+                  new Decimal(value)
+                    .minus(
+                      Number(selectedMarket?.quoteCurrency?.availableRemain),
+                    )
+                    .toNumber(),
+                );
 
                 return t("insufficientBalance");
               } else {
@@ -105,14 +116,13 @@ export const BuySpendController = ({
               assets: marketsTickerGrouped || [],
               availableRemain,
               minQuantity: minNotional || 0,
-              maxQuantity: availableRemain || maxNotional || 0,
+              maxQuantity: maxNotional || 0,
               asset: selectedMarket,
               hasError: value ? !!errors.spend : false,
               getMaxSize: toTickSize,
               onFocus() {
                 if (lastChangeInput !== "spend") {
                   setValue("lastChangeInput", "spend");
-                  setValue("recieve", "");
                 }
               },
               async onSelect(asset?: MarketTicker) {
@@ -121,7 +131,8 @@ export const BuySpendController = ({
               },
               onChange(value) {
                 onChange(value === "" ? null : value);
-                setValue("recieve", "");
+                const recieve = calculateReceive(value);
+                setValue("recieve", recieve);
                 clearErrors("recieve");
                 lastChangeInput !== "spend" &&
                   setValue("lastChangeInput", "spend");

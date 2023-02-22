@@ -3,7 +3,9 @@ import { ControllerRenderProps } from "react-hook-form";
 import { MarketTicker, useMarketTicker } from "../marketTicker";
 import { useMarketFilters } from "../useMarketFilters";
 import { useOrderPlacingError } from "../useOrderPlacingError";
+import { useStepValues } from "../useStepValues";
 import { BuySellContext, BuySellFormProps } from "./context";
+import { useBuySellPrice } from "./useBuySellPrice";
 
 type SellRecieveRenderProps = {
   render: (state: {
@@ -15,6 +17,7 @@ type SellRecieveRenderProps = {
       hasError?: boolean;
       availableRemain: number;
       onSelect?: (value?: MarketTicker | undefined) => void;
+      onFocus?: (e: any) => void;
     };
   }) => React.ReactElement;
 
@@ -33,7 +36,11 @@ export const SellRecieveController = ({
 
   const { getTotalError } = useOrderPlacingError();
 
+  const { onChangeValue } = useStepValues();
+
   const { marketsTicker, getSymbolMarketTicker } = useMarketTicker();
+
+  const { calculateSpend } = useBuySellPrice("sell");
 
   const selectedMarket = getSymbolMarketTicker(selected);
 
@@ -79,13 +86,19 @@ export const SellRecieveController = ({
               maxQuantity: maxNotional || 0,
               asset: selectedMarket,
               hasError: value ? !!errors.recieve : false,
+              onFocus(e) {
+                e?.target?.value > 0 &&
+                  setValue("spend", onChangeValue(e.target.value).toString());
+                setValue("lastChangeInput", "recieve");
+              },
               onSelect(asset?: MarketTicker) {
                 setValue("selected", asset?.symbol);
               },
               onChange(value) {
                 onChange(value === "" ? null : value);
+                const spend = calculateSpend(value);
+                setValue("spend", spend);
                 clearErrors("spend");
-                setValue("spend", "");
                 setValue("lastChangeInput", "recieve");
               },
               ...rest,
