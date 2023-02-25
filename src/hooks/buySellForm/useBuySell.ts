@@ -138,6 +138,7 @@ export const useBuySell = (callbacks?: BuySellProps) => {
           postActionUniqueId,
           redirectUrl: window.location.origin + _extraVariables?.redirectUrl,
           clientUniqueId,
+          userBankId: selectedBank?.id,
         });
       },
     });
