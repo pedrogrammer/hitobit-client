@@ -123,6 +123,7 @@ import {
   getSettlementV1PrivateList,
   getSettlementV1PrivateReport,
   getSettlementV1PrivateSubuser,
+  getSettlementV1PrivateTodaytotal,
   getStorageV1PrivateFileDownload,
   getWalletV1Private,
   getWalletV1PrivateAll,
@@ -137,7 +138,6 @@ import {
   getWalletV1PrivateUserassetAll,
   getWalletV1PrivateUserassetSpotDefault,
   getWalletV1PrivateUserassetSpotDefaultAll,
-  getWalletV1PrivateUserbank,
   getWalletV1PrivateUserbankAll,
   getWalletV1PrivateUserbankHascurrentuserapprovedorpenddinguserbank,
   getWalletV1PrivateUserbankStatus,
@@ -197,6 +197,7 @@ import {
   postWalletV1PrivateTransfer,
   postWalletV1PrivateUserbank,
   postWalletV1PrivateUserbankDetailed,
+  postWalletV1PrivateUserbankPayid,
   postWalletV1PrivateUserreferralprogram,
   postWalletV1PrivateWalletpermission,
   putAuthV1PrivateAuthEmail,
@@ -345,7 +346,6 @@ import {
   GetWalletV1PrivateSubuserAssignableQueryParams,
   GetWalletV1PrivateTransferCommissionQueryParams,
   GetWalletV1PrivateUserassetSpotDefaultQueryParams,
-  GetWalletV1PrivateUserbankQueryParams,
   GetWalletV1PrivateUserbankStatusQueryParams,
   GetWalletV1PublicFindQueryParams,
   GetWithdrawRequestUserWalletItemResponseVM,
@@ -4540,6 +4540,32 @@ useGetSettlementV1PrivateSubuser.prefetch = (
     ? Promise.resolve()
     : client.prefetchQuery(key, () => fun(), options);
 };
+export const useGetSettlementV1PrivateTodaytotal = (
+  options?: SwaggerTypescriptUseQueryOptions<TodayTotalWithdrawResponseVM>,
+  configOverride?: AxiosRequestConfig,
+) => {
+  const { key, fun } = useGetSettlementV1PrivateTodaytotal.info(configOverride);
+  return useQuery(key, fun, options);
+};
+useGetSettlementV1PrivateTodaytotal.info = (
+  configOverride?: AxiosRequestConfig,
+) => {
+  return {
+    key: [getSettlementV1PrivateTodaytotal.key] as QueryKey,
+    fun: () => getSettlementV1PrivateTodaytotal(configOverride),
+  };
+};
+useGetSettlementV1PrivateTodaytotal.prefetch = (
+  client: QueryClient,
+  options?: SwaggerTypescriptUseQueryOptions<TodayTotalWithdrawResponseVM>,
+  configOverride?: AxiosRequestConfig,
+) => {
+  const { key, fun } = useGetSettlementV1PrivateTodaytotal.info(configOverride);
+
+  return client.getQueryData(key)
+    ? Promise.resolve()
+    : client.prefetchQuery(key, () => fun(), options);
+};
 export const useGetStorageV1PrivateFileDownload = (
   queryParams?: GetStorageV1PrivateFileDownloadQueryParams,
   options?: SwaggerTypescriptUseQueryOptions<any>,
@@ -5030,46 +5056,6 @@ useGetWalletV1PrivateUserassetSpotDefaultAll.prefetch = (
 ) => {
   const { key, fun } =
     useGetWalletV1PrivateUserassetSpotDefaultAll.info(configOverride);
-
-  return client.getQueryData(key)
-    ? Promise.resolve()
-    : client.prefetchQuery(key, () => fun(), options);
-};
-export const useGetWalletV1PrivateUserbank = (
-  queryParams?: GetWalletV1PrivateUserbankQueryParams,
-  options?: SwaggerTypescriptUseQueryOptions<string>,
-  configOverride?: AxiosRequestConfig,
-) => {
-  const { key, fun } = useGetWalletV1PrivateUserbank.info(
-    queryParams,
-    configOverride,
-  );
-  return useQuery(key, fun, options);
-};
-useGetWalletV1PrivateUserbank.info = (
-  queryParams?: GetWalletV1PrivateUserbankQueryParams,
-  configOverride?: AxiosRequestConfig,
-) => {
-  return {
-    key: [getWalletV1PrivateUserbank.key, queryParams] as QueryKey,
-    fun: () =>
-      getWalletV1PrivateUserbank(
-        queryParams,
-
-        configOverride,
-      ),
-  };
-};
-useGetWalletV1PrivateUserbank.prefetch = (
-  client: QueryClient,
-  queryParams?: GetWalletV1PrivateUserbankQueryParams,
-  options?: SwaggerTypescriptUseQueryOptions<string>,
-  configOverride?: AxiosRequestConfig,
-) => {
-  const { key, fun } = useGetWalletV1PrivateUserbank.info(
-    queryParams,
-    configOverride,
-  );
 
   return client.getQueryData(key)
     ? Promise.resolve()
@@ -6436,6 +6422,28 @@ export const usePostWalletV1PrivateUserbankDetailed = <TExtra>(
     } = _o || {};
 
     return postWalletV1PrivateUserbankDetailed(
+      requestBody,
+
+      configOverride,
+    );
+  }, options);
+};
+
+export const usePostWalletV1PrivateUserbankPayid = <TExtra>(
+  options?: SwaggerTypescriptUseMutationOptions<
+    string,
+    { requestBody: number },
+    TExtra
+  >,
+) => {
+  return useMutation((_o) => {
+    const {
+      requestBody,
+
+      configOverride,
+    } = _o || {};
+
+    return postWalletV1PrivateUserbankPayid(
       requestBody,
 
       configOverride,

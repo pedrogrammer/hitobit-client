@@ -135,7 +135,6 @@ import {
   GetWalletV1PrivateSubuserAssignableQueryParams,
   GetWalletV1PrivateTransferCommissionQueryParams,
   GetWalletV1PrivateUserassetSpotDefaultQueryParams,
-  GetWalletV1PrivateUserbankQueryParams,
   GetWalletV1PrivateUserbankStatusQueryParams,
   GetWalletV1PublicFindQueryParams,
   GetWithdrawRequestUserWalletItemResponseVM,
@@ -1997,6 +1996,21 @@ export const getSettlementV1PrivateSubuser = (
 /** Key is end point string without base url */
 getSettlementV1PrivateSubuser.key = "/settlement/v1/private/subuser";
 
+export const getSettlementV1PrivateTodaytotal = (
+  configOverride?: AxiosRequestConfig,
+): Promise<SwaggerResponse<TodayTotalWithdrawResponseVM>> => {
+  return Http.getRequest(
+    getSettlementV1PrivateTodaytotal.key,
+    undefined,
+    undefined,
+    undefined,
+    overrideConfig(_CONSTANT2, configOverride),
+  );
+};
+
+/** Key is end point string without base url */
+getSettlementV1PrivateTodaytotal.key = "/settlement/v1/private/todaytotal";
+
 export const getStorageV1PrivateFileDownload = (
   queryParams?: GetStorageV1PrivateFileDownloadQueryParams,
   configOverride?: AxiosRequestConfig,
@@ -2223,22 +2237,6 @@ export const getWalletV1PrivateUserassetSpotDefaultAll = (
 /** Key is end point string without base url */
 getWalletV1PrivateUserassetSpotDefaultAll.key =
   "/wallet/v1/private/userasset/spot/default/all";
-
-export const getWalletV1PrivateUserbank = (
-  queryParams?: GetWalletV1PrivateUserbankQueryParams,
-  configOverride?: AxiosRequestConfig,
-): Promise<SwaggerResponse<string>> => {
-  return Http.getRequest(
-    getWalletV1PrivateUserbank.key,
-    queryParams,
-    undefined,
-    undefined,
-    overrideConfig(_CONSTANT2, configOverride),
-  );
-};
-
-/** Key is end point string without base url */
-getWalletV1PrivateUserbank.key = "/wallet/v1/private/userbank";
 
 export const getWalletV1PrivateUserbankAll = (
   configOverride?: AxiosRequestConfig,
@@ -3316,6 +3314,22 @@ export const postWalletV1PrivateUserbankDetailed = (
 /** Key is end point string without base url */
 postWalletV1PrivateUserbankDetailed.key =
   "/wallet/v1/private/userbank/detailed";
+
+export const postWalletV1PrivateUserbankPayid = (
+  requestBody: number,
+  configOverride?: AxiosRequestConfig,
+): Promise<SwaggerResponse<string>> => {
+  return Http.postRequest(
+    postWalletV1PrivateUserbankPayid.key,
+    undefined,
+    requestBody,
+    undefined,
+    overrideConfig(_CONSTANT2, configOverride),
+  );
+};
+
+/** Key is end point string without base url */
+postWalletV1PrivateUserbankPayid.key = "/wallet/v1/private/userbank/payid";
 
 export const postWalletV1PrivateUserreferralprogram = (
   requestBody: UserReferralProgramAddVM,

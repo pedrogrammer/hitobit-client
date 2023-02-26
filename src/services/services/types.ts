@@ -156,7 +156,8 @@ export type AppOrderSourceType =
   | "Trade"
   | "InstantBuy"
   | "InstantSell"
-  | "Convert";
+  | "Convert"
+  | "MarketMaker";
 
 export type AppOrderStatus =
   | "NEW"
@@ -349,6 +350,8 @@ export interface CreateChargeRequestRequestVM {
   /** - Format: uuid */
   postActionUniqueId?: string;
   redirectUrl?: string;
+  /** - Format: int64 */
+  userBankId?: number;
   userWalletCurrencySymbol?: string;
   userWalletNumber?: string;
 }
@@ -393,8 +396,8 @@ export interface CreateDivideLinkRequestRequestVM {
 }
 
 export interface CreateIdentificationUserBankRequirementRequestVM {
-  /** - Format: int64 */
-  birthday: number;
+  /** - Format: date-time */
+  birthday: string;
   nationalCode?: string;
 }
 
@@ -1496,11 +1499,6 @@ export interface GetWalletV1PrivateTransferCommissionQueryParams {
 
 export interface GetWalletV1PrivateUserassetSpotDefaultQueryParams {
   symbol?: string;
-}
-
-export interface GetWalletV1PrivateUserbankQueryParams {
-  /** - Format: int64 */
-  userBankId?: number;
 }
 
 export interface GetWalletV1PrivateUserbankStatusQueryParams {
@@ -2874,10 +2872,13 @@ export interface UserInfoVM {
   userStatus: UserStatus;
   userType: UserType;
   withdrawLimit: boolean;
+  /** - Format: date-time */
+  birthDate?: string;
   displayName?: string;
   email?: string;
   firstName?: string;
   lastName?: string;
+  nationalCode?: string;
   nextLevelStatus?: IdentificationLevelRequestStatus;
   pendingRequestDescription?: string;
   phoneNumber?: string;

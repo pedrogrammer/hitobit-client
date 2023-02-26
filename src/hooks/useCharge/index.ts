@@ -67,6 +67,34 @@ export const useCharge = ({
     };
   }, [data]) as UserMoneyNetworkResponseVM;
 
+  const checkAmount = (amount?: number | string | null) => {
+    if (amount === null || amount === undefined || amount === "") {
+      setError(t("enterAmount"));
+      return false;
+    }
+    if (minDeposit === undefined || maxDeposit === undefined) {
+      setError(t("anUnexpectedErrorOccurred"));
+      return false;
+    }
+    if (new Decimal(amount).lessThan(minDeposit)) {
+      setError(
+        t("depositValueShouldBeMoreThanMinPrice", {
+          minPrice: starkString(minDeposit).toCurrency().toString(),
+        }),
+      );
+      return false;
+    }
+    if (new Decimal(amount).greaterThan(maxDeposit)) {
+      setError(
+        t("depositValueShouldBeLessThanMaxPrice", {
+          maxPrice: starkString(maxDeposit).toCurrency().toString(),
+        }),
+      );
+      return false;
+    }
+    return true;
+  };
+
   const charge = (
     amount?: number | string | null,
     configOveride?: Omit<
@@ -74,26 +102,6 @@ export const useCharge = ({
       "amount" | "userWalletCurrencySymbol" | "redirectType"
     >,
   ) => {
-    if (amount === null || amount === undefined || amount === "") {
-      return setError(t("enterAmount"));
-    }
-    if (minDeposit === undefined || maxDeposit === undefined) {
-      return setError(t("anUnexpectedErrorOccurred"));
-    }
-    if (new Decimal(amount).lessThan(minDeposit)) {
-      return setError(
-        t("depositValueShouldBeMoreThanMinPrice", {
-          minPrice: starkString(minDeposit).toCurrency().toString(),
-        }),
-      );
-    }
-    if (new Decimal(amount).greaterThan(maxDeposit)) {
-      return setError(
-        t("depositValueShouldBeLessThanMaxPrice", {
-          maxPrice: starkString(maxDeposit).toCurrency().toString(),
-        }),
-      );
-    }
     mutate({
       requestBody: {
         ...configOveride,
@@ -112,6 +120,7 @@ export const useCharge = ({
     minDeposit,
     maxDeposit,
     clearError,
+    checkAmount,
     ...rest,
   };
 };

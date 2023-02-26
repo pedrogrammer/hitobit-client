@@ -8,6 +8,7 @@ import { useOrderPlacingError } from "../useOrderPlacingError";
 import { useStepSize } from "../useStepSize";
 import { useStepValues } from "../useStepValues";
 import { BuySellContext, BuySellFormProps } from "./context";
+import { useBuySellPrice } from "./useBuySellPrice";
 
 type SellSpendRenderProps = {
   render: (state: {
@@ -19,6 +20,7 @@ type SellSpendRenderProps = {
       hasError?: boolean;
       availableRemain: number;
       onSelect?: (value?: MarketTicker | undefined) => void;
+      onFocus?: (e: any) => void;
       getMaxSize?: (
         value: string | number | Decimal,
         passedSymbol?: string | undefined,
@@ -38,6 +40,8 @@ export const SellSpendController = ({
   const { errors } = BuySellContext.useFormState();
 
   const { setValue, clearErrors } = BuySellContext.useFormContext();
+
+  const { calculateReceive } = useBuySellPrice("sell");
 
   const { getAmountError } = useOrderPlacingError();
 
@@ -102,13 +106,19 @@ export const SellSpendController = ({
               asset: selectedMarket,
               getMaxSize: toStepSize,
               hasError: value ? !!errors.spend : false,
+              onFocus(e) {
+                e?.target?.value > 0 &&
+                  setValue("spend", onChangeValue(e.target.value).toString());
+                setValue("lastChangeInput", "spend");
+              },
               onSelect(asset?: MarketTicker) {
                 setValue("selected", asset?.symbol);
               },
               onChange(value) {
                 onChange(onChangeValue(value));
+                const recieve = calculateReceive(value);
+                setValue("recieve", recieve);
                 clearErrors("recieve");
-                setValue("recieve", "");
                 setValue("lastChangeInput", "spend");
               },
               ...rest,

@@ -4,12 +4,13 @@ import {
   MarketFilterPriceFilter,
   MarketSymbolResponse,
 } from "../../utils";
+import { MarketTicker } from "../marketTicker";
 import { useConvertBaseToQuote } from "../useConvertBaseToQuote";
 
 const useMarketFilters = ({
   selectedMarket,
 }: {
-  selectedMarket?: Partial<MarketSymbolResponse>;
+  selectedMarket?: Partial<MarketSymbolResponse> | Partial<MarketTicker>;
 }) => {
   const filterMinNotional = selectedMarket?.filters?.find(
     (item) => item.filterType === ("MIN_NOTIONAL" as any),

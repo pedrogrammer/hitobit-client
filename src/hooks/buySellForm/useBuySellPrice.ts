@@ -1,7 +1,9 @@
+import Decimal from "decimal.js";
 import { useMemo } from "react";
 import starkString from "starkstring";
 import { useMarketTicker } from "../marketTicker";
 import { useConvertBaseToQuote } from "../useConvertBaseToQuote";
+import { useStepSize } from "../useStepSize";
 import { BuySellContext } from "./context";
 
 export const useBuySellPrice = (mode: "buy" | "sell") => {
@@ -11,6 +13,7 @@ export const useBuySellPrice = (mode: "buy" | "sell") => {
 
   const { getSymbolMarketTicker } = useMarketTicker();
 
+  const { toTickSize } = useStepSize();
   const convert = useConvertBaseToQuote();
 
   const { recieve, selected, lastChangeInput, spend } =
@@ -73,6 +76,7 @@ export const useBuySellPrice = (mode: "buy" | "sell") => {
         selectedMarket?.baseAsset,
         selectedMarket?.quoteAsset,
       );
+
       return starkString(value)
         .scientificNotationToDecimal()
         .toCurrency()
@@ -83,8 +87,51 @@ export const useBuySellPrice = (mode: "buy" | "sell") => {
   const calculateRecieveOrSpend =
     mode === "buy" ? calculateRecieveOrSpendBuy : calculateRecieveOrSpendSell;
 
+  const calculateSpend = (baseQty?: string) => {
+    if (baseQty === "" || baseQty === undefined) {
+      return "";
+    }
+    if (mode === "buy") {
+      const value = convert(
+        new Decimal(baseQty).toNumber(),
+        selectedMarket?.baseCurrencySymbol,
+        selectedMarket?.quoteCurrencySymbol,
+      );
+      return starkString(toTickSize(value)).toString();
+    } else {
+      const value = convert(
+        new Decimal(baseQty).toNumber(),
+        selectedMarket?.quoteCurrencySymbol,
+        selectedMarket?.baseCurrencySymbol,
+      );
+      return starkString(value).toString();
+    }
+  };
+  const calculateReceive = (quoteQty?: string) => {
+    if (quoteQty === "" || quoteQty === undefined) {
+      return "";
+    }
+    if (mode === "buy") {
+      const value = convert(
+        new Decimal(quoteQty).toNumber(),
+        selectedMarket?.quoteCurrencySymbol,
+        selectedMarket?.baseCurrencySymbol,
+      );
+      return starkString(value).scientificNotationToDecimal().toString();
+    } else {
+      const value = convert(
+        new Decimal(quoteQty).toNumber(),
+        selectedMarket?.baseCurrencySymbol,
+        selectedMarket?.quoteCurrencySymbol,
+      );
+      return starkString(toTickSize(value)).toString();
+    }
+  };
+
   return {
     convertedPrice,
     calculateRecieveOrSpend,
+    calculateSpend,
+    calculateReceive,
   };
 };
