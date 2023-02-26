@@ -115,6 +115,7 @@ import {
   GetPaymentV1PrivateEpayrequestListFrommeQueryParams,
   GetPaymentV1PrivateEpayrequestListQueryParams,
   GetPaymentV1PrivateEpayrequestPluginCountQueryParams,
+  GetPaymentV1PrivateEpayrequestPostactionPlacemarketbuyorderQueryParams,
   GetPaymentV1PublicEpayrequestGetblockchainaddressQueryParams,
   GetPaymentV1PublicEpayrequestInfoTokenQueryParams,
   GetPaymentV1PublicEpayrequestReceiptinfoClientuniqueidQueryParams,
@@ -166,6 +167,7 @@ import {
   PlaceOrderRequestVM,
   PlatformType,
   PluginInfoResponseVM,
+  PostActionPlaceMarketBuyOrderResponseVM,
   PostAuthV1PrivateAuthEmailSendcodeQueryParams,
   PostAuthV1PrivateAuthPhonecallSendcodeQueryParams,
   PostAuthV1PublicAuthChecktwofactorisenableQueryParams,
@@ -1784,6 +1786,23 @@ export const getPaymentV1PrivateEpayrequestPluginCount = (
 getPaymentV1PrivateEpayrequestPluginCount.key =
   "/payment/v1/private/epayrequest/plugin/count";
 
+export const getPaymentV1PrivateEpayrequestPostactionPlacemarketbuyorder = (
+  queryParams?: GetPaymentV1PrivateEpayrequestPostactionPlacemarketbuyorderQueryParams,
+  configOverride?: AxiosRequestConfig,
+): Promise<SwaggerResponse<PostActionPlaceMarketBuyOrderResponseVM>> => {
+  return Http.getRequest(
+    getPaymentV1PrivateEpayrequestPostactionPlacemarketbuyorder.key,
+    queryParams,
+    undefined,
+    undefined,
+    overrideConfig(_CONSTANT2, configOverride),
+  );
+};
+
+/** Key is end point string without base url */
+getPaymentV1PrivateEpayrequestPostactionPlacemarketbuyorder.key =
+  "/payment/v1/private/epayrequest/postaction/placemarketbuyorder";
+
 export const getPaymentV1PublicEpayrequestGetblockchainaddress = (
   queryParams?: GetPaymentV1PublicEpayrequestGetblockchainaddressQueryParams,
   configOverride?: AxiosRequestConfig,
@@ -3318,7 +3337,7 @@ postWalletV1PrivateUserbankDetailed.key =
 export const postWalletV1PrivateUserbankPayid = (
   requestBody: number,
   configOverride?: AxiosRequestConfig,
-): Promise<SwaggerResponse<string>> => {
+): Promise<SwaggerResponse<UserBankResponseVM>> => {
   return Http.postRequest(
     postWalletV1PrivateUserbankPayid.key,
     undefined,

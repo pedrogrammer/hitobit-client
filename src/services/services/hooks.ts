@@ -110,6 +110,7 @@ import {
   getPaymentV1PrivateEpayrequestList,
   getPaymentV1PrivateEpayrequestListFromme,
   getPaymentV1PrivateEpayrequestPluginCount,
+  getPaymentV1PrivateEpayrequestPostactionPlacemarketbuyorder,
   getPaymentV1PublicEpayrequestGetblockchainaddress,
   getPaymentV1PublicEpayrequestInfoToken,
   getPaymentV1PublicEpayrequestReceiptinfoClientuniqueid,
@@ -326,6 +327,7 @@ import {
   GetPaymentV1PrivateEpayrequestListFrommeQueryParams,
   GetPaymentV1PrivateEpayrequestListQueryParams,
   GetPaymentV1PrivateEpayrequestPluginCountQueryParams,
+  GetPaymentV1PrivateEpayrequestPostactionPlacemarketbuyorderQueryParams,
   GetPaymentV1PublicEpayrequestGetblockchainaddressQueryParams,
   GetPaymentV1PublicEpayrequestInfoTokenQueryParams,
   GetPaymentV1PublicEpayrequestReceiptinfoClientuniqueidQueryParams,
@@ -377,6 +379,7 @@ import {
   PlaceOrderRequestVM,
   PlatformType,
   PluginInfoResponseVM,
+  PostActionPlaceMarketBuyOrderResponseVM,
   PostAuthV1PrivateAuthEmailSendcodeQueryParams,
   PostAuthV1PrivateAuthPhonecallSendcodeQueryParams,
   PostAuthV1PublicAuthChecktwofactorisenableQueryParams,
@@ -4028,6 +4031,52 @@ useGetPaymentV1PrivateEpayrequestPluginCount.prefetch = (
     ? Promise.resolve()
     : client.prefetchQuery(key, () => fun(), options);
 };
+export const useGetPaymentV1PrivateEpayrequestPostactionPlacemarketbuyorder = (
+  queryParams?: GetPaymentV1PrivateEpayrequestPostactionPlacemarketbuyorderQueryParams,
+  options?: SwaggerTypescriptUseQueryOptions<PostActionPlaceMarketBuyOrderResponseVM>,
+  configOverride?: AxiosRequestConfig,
+) => {
+  const { key, fun } =
+    useGetPaymentV1PrivateEpayrequestPostactionPlacemarketbuyorder.info(
+      queryParams,
+      configOverride,
+    );
+  return useQuery(key, fun, options);
+};
+useGetPaymentV1PrivateEpayrequestPostactionPlacemarketbuyorder.info = (
+  queryParams?: GetPaymentV1PrivateEpayrequestPostactionPlacemarketbuyorderQueryParams,
+  configOverride?: AxiosRequestConfig,
+) => {
+  return {
+    key: [
+      getPaymentV1PrivateEpayrequestPostactionPlacemarketbuyorder.key,
+
+      queryParams,
+    ] as QueryKey,
+    fun: () =>
+      getPaymentV1PrivateEpayrequestPostactionPlacemarketbuyorder(
+        queryParams,
+
+        configOverride,
+      ),
+  };
+};
+useGetPaymentV1PrivateEpayrequestPostactionPlacemarketbuyorder.prefetch = (
+  client: QueryClient,
+  queryParams?: GetPaymentV1PrivateEpayrequestPostactionPlacemarketbuyorderQueryParams,
+  options?: SwaggerTypescriptUseQueryOptions<PostActionPlaceMarketBuyOrderResponseVM>,
+  configOverride?: AxiosRequestConfig,
+) => {
+  const { key, fun } =
+    useGetPaymentV1PrivateEpayrequestPostactionPlacemarketbuyorder.info(
+      queryParams,
+      configOverride,
+    );
+
+  return client.getQueryData(key)
+    ? Promise.resolve()
+    : client.prefetchQuery(key, () => fun(), options);
+};
 export const useGetPaymentV1PublicEpayrequestGetblockchainaddress = (
   queryParams?: GetPaymentV1PublicEpayrequestGetblockchainaddressQueryParams,
   options?: SwaggerTypescriptUseQueryOptions<BlockchainAddressResponseVM>,
@@ -6431,7 +6480,7 @@ export const usePostWalletV1PrivateUserbankDetailed = <TExtra>(
 
 export const usePostWalletV1PrivateUserbankPayid = <TExtra>(
   options?: SwaggerTypescriptUseMutationOptions<
-    string,
+    UserBankResponseVM,
     { requestBody: number },
     TExtra
   >,
