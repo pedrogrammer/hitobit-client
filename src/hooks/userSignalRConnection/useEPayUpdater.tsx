@@ -21,7 +21,7 @@ const useEPayUpdater = () => {
         description: data.description ?? prev?.description,
         expireDate: data.expireDate ?? prev?.expireDate,
         payDate: data.payDate ?? prev?.payDate,
-        payTo: data.payTo ?? prev?.payTo,
+        payTo: data.payTos ?? prev?.payTo,
         token: data.token ?? prev?.token,
         assignedToUserId:
           data.assignedToUserId ?? (prev?.assignedToUserId as string),
