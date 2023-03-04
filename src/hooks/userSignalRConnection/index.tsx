@@ -5,6 +5,7 @@ import { URLManager } from "../../modules";
 import { handleAccessTokenExpired, RequestError } from "../../services";
 import { UserSignalRContext } from "./signalRContext";
 import { useSubscribe } from "./subscribe";
+import { useEPayUpdater } from "./useEPayUpdater";
 import { useUpdateUserAssetWithSignalr } from "./userAsset";
 import { useUpdateUserNotificationWithSignalr } from "./userNotifications";
 import { useUpdateOrderWithSignalr } from "./userOrder";
@@ -58,6 +59,8 @@ const ConnectToSignalRListeners = () => {
   useUpdateOrderWithSignalr();
 
   useUpdateUserNotificationWithSignalr();
+
+  useEPayUpdater();
 
   return null;
 };
