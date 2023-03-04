@@ -4,7 +4,9 @@ import {
   EpayRequestActualState,
   EpayRequestInfoResponseVM,
   EpayRequestListResponseVM,
+  getPaymentV1PrivateEpayrequestCount,
   getPaymentV1PrivateEpayrequestList,
+  getPaymentV1PrivateEpayrequestPluginCount,
   useGetPaymentV1PublicEpayrequestInfoToken,
 } from "../../services";
 import { useUserSignalREvent } from "./useUserSignalREvent";
@@ -119,6 +121,14 @@ const useEPayUpdater = () => {
           };
         },
       );
+      client.invalidateQueries({
+        queryKey: [getPaymentV1PrivateEpayrequestCount.key],
+        refetchType: "all",
+      });
+      client.invalidateQueries({
+        queryKey: [getPaymentV1PrivateEpayrequestPluginCount.key],
+        refetchType: "all",
+      });
     }
   });
 };
