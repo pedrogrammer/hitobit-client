@@ -60,7 +60,7 @@ const ConnectToSignalRListeners = () => {
 
   useUpdateUserNotificationWithSignalr();
 
-  URLManager.getDomainName() === "poolkhord" && useEPayUpdater();
+  useEPayUpdater();
 
   return null;
 };
