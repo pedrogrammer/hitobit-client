@@ -36,7 +36,7 @@ type EpayEventModel = {
   expireDate: string;
   token: string;
   clientUniqueId?: string;
-  payTo: null | { userName: string; userWalletNumber: string }[];
+  payTos: null | { userName: string; userWalletNumber: string }[];
   audiences: [];
   epayRequestCustomDataInfos: any[];
   PluginKey: string;

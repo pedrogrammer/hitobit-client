@@ -196,6 +196,8 @@ export interface BanksResponseVM {
 export interface BasePostActionInfoResponseVM {
   postActionNature: PostActionNature;
   postActionStatus: PostActionStatus;
+  /** - Format: uuid */
+  uniqueId: string;
   /** - Format: date-time */
   doneDate?: string;
 }
@@ -1326,6 +1328,11 @@ export interface GetPaymentV1PrivateEpayrequestPluginCountQueryParams {
   walletNumber?: string;
 }
 
+export interface GetPaymentV1PrivateEpayrequestPostactionPlacemarketbuyorderQueryParams {
+  /** - Format: uuid */
+  uniqueId?: string;
+}
+
 export interface GetPaymentV1PublicEpayrequestGetblockchainaddressQueryParams {
   /** - Format: int32 */
   currencyId?: number;
@@ -1525,6 +1532,7 @@ export interface GetWithdrawRequestUserWalletItemResponseVM {
   currencySymbol?: string;
   destinationBlockchainAddress?: string;
   moneyNetworkSymbol?: string;
+  txId?: string;
 }
 
 export interface GlobalWalletProviderResponseVM {
@@ -1738,7 +1746,10 @@ export type LogicalActionType =
   | "ResellerIncome"
   | "PspTransaction"
   | "ExternalTrade"
-  | "ExternalManualTrade";
+  | "ExternalManualTrade"
+  | "PaymentWithIdentifier"
+  | "DomainBankRedirectOnEpay"
+  | "DomainBankTransfer";
 
 export interface LoginModelRequestVM {
   grantType: GrantType;
@@ -2173,6 +2184,25 @@ export type PostActionNature =
   | "EPayRequest"
   | "PlaceMarketBuyOrder"
   | "TaskCenter";
+
+export interface PostActionPlaceMarketBuyOrderResponseVM {
+  /** - Format: date-time */
+  createDate: string;
+  /** - Format: uuid */
+  createdBy: string;
+  marketType: MarketType;
+  /** - Format: decimal */
+  orderQuoteQuantity: number;
+  postActionNature: PostActionNature;
+  postActionStatus: PostActionStatus;
+  /** - Format: uuid */
+  uniqueId: string;
+  /** - Format: date-time */
+  doneDate?: string;
+  marketSymbol?: string;
+  /** - Format: int64 */
+  resultOrderId?: number;
+}
 
 export type PostActionStatus = "Initiate" | "Success" | "Fail";
 
@@ -2760,13 +2790,14 @@ export interface UserBankResponseVM {
   /** - Format: int32 */
   bankId?: number;
   cardNumber?: string;
+  destinationIbanPayID?: string;
   firstName?: string;
   /** - Format: date-time */
   lastChangeStatusDate?: string;
   lastName?: string;
   name?: string;
   nationalCode?: string;
-  paymentIdentifier?: string;
+  payID?: string;
   rejectCauseDescription?: string;
   shebaNo?: string;
 }
