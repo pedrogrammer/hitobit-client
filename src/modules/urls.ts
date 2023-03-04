@@ -1,7 +1,9 @@
 import { cookieStorage } from "./cookieStore";
 
+type DomainName = "hitobit" | "poolkhord" | "mock";
+
 class URLManager {
-  private static domainName: string;
+  private static domainName: DomainName;
   private static PREFIX_DEV = "dev";
   private static PREFIX_STAGE = "stage";
   private static PREFIX_TEST_STAGE = "test";
@@ -94,8 +96,11 @@ class URLManager {
     URLManager.PREFIX_TESTDEV = testdev;
   }
 
-  static setDomainName(domainName: string) {
+  static setDomainName(domainName: DomainName) {
     URLManager.domainName = domainName;
+  }
+  static getDomainName() {
+    return URLManager.domainName;
   }
 
   static get baseUrl() {
