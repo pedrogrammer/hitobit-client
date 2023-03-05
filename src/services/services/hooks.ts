@@ -87,9 +87,11 @@ import {
   getExchangeV1PublicDomaintraderlevels,
   getExchangeV1PublicKlines,
   getExchangeV1PublicMarkets,
+  getExchangeV1PublicRates,
   getExchangeV1PublicSymbolRate,
   getExchangeV1PublicTicker24hr,
   getExchangeV1PublicTrades,
+  getPartyV1PrivateDomainForcecarnoforcharge,
   getPartyV1PrivateDomainForcetwofa,
   getPartyV1PrivateDomainMultiwallet,
   getPartyV1PrivateFavoritemarket,
@@ -103,6 +105,7 @@ import {
   getPartyV1PublicDomainSetting,
   getPartyV1PublicIdentificationlevelGuide,
   getPartyV1PublicPlugin,
+  getPartyV1PublicPluginAll,
   getPaymentV1PrivateEpayrequestCommission,
   getPaymentV1PrivateEpayrequestCount,
   getPaymentV1PrivateEpayrequestCountFromme,
@@ -258,6 +261,7 @@ import {
   CreateUserBankRequestVM,
   CreateUserWalletRequestVM,
   CreateWithdrawRequestUserWalletResponseVM,
+  CurrenciesRateListResponseVM,
   CurrencyResponseVM,
   DeleteAuthV1PrivateUsertrusteddeviceQueryParams,
   DeleteAuthV1ProtectApikeyQueryParams,
@@ -3186,6 +3190,30 @@ useGetExchangeV1PublicMarkets.prefetch = (
     ? Promise.resolve()
     : client.prefetchQuery(key, () => fun(), options);
 };
+export const useGetExchangeV1PublicRates = (
+  options?: SwaggerTypescriptUseQueryOptions<CurrenciesRateListResponseVM>,
+  configOverride?: AxiosRequestConfig,
+) => {
+  const { key, fun } = useGetExchangeV1PublicRates.info(configOverride);
+  return useQuery(key, fun, options);
+};
+useGetExchangeV1PublicRates.info = (configOverride?: AxiosRequestConfig) => {
+  return {
+    key: [getExchangeV1PublicRates.key] as QueryKey,
+    fun: () => getExchangeV1PublicRates(configOverride),
+  };
+};
+useGetExchangeV1PublicRates.prefetch = (
+  client: QueryClient,
+  options?: SwaggerTypescriptUseQueryOptions<CurrenciesRateListResponseVM>,
+  configOverride?: AxiosRequestConfig,
+) => {
+  const { key, fun } = useGetExchangeV1PublicRates.info(configOverride);
+
+  return client.getQueryData(key)
+    ? Promise.resolve()
+    : client.prefetchQuery(key, () => fun(), options);
+};
 export const useGetExchangeV1PublicSymbolRate = (
   queryParams?: GetExchangeV1PublicSymbolRateQueryParams,
   options?: SwaggerTypescriptUseQueryOptions<SymbolRateResponseVM>,
@@ -3301,6 +3329,34 @@ useGetExchangeV1PublicTrades.prefetch = (
     queryParams,
     configOverride,
   );
+
+  return client.getQueryData(key)
+    ? Promise.resolve()
+    : client.prefetchQuery(key, () => fun(), options);
+};
+export const useGetPartyV1PrivateDomainForcecarnoforcharge = (
+  options?: SwaggerTypescriptUseQueryOptions<boolean>,
+  configOverride?: AxiosRequestConfig,
+) => {
+  const { key, fun } =
+    useGetPartyV1PrivateDomainForcecarnoforcharge.info(configOverride);
+  return useQuery(key, fun, options);
+};
+useGetPartyV1PrivateDomainForcecarnoforcharge.info = (
+  configOverride?: AxiosRequestConfig,
+) => {
+  return {
+    key: [getPartyV1PrivateDomainForcecarnoforcharge.key] as QueryKey,
+    fun: () => getPartyV1PrivateDomainForcecarnoforcharge(configOverride),
+  };
+};
+useGetPartyV1PrivateDomainForcecarnoforcharge.prefetch = (
+  client: QueryClient,
+  options?: SwaggerTypescriptUseQueryOptions<boolean>,
+  configOverride?: AxiosRequestConfig,
+) => {
+  const { key, fun } =
+    useGetPartyV1PrivateDomainForcecarnoforcharge.info(configOverride);
 
   return client.getQueryData(key)
     ? Promise.resolve()
@@ -3726,6 +3782,30 @@ useGetPartyV1PublicPlugin.prefetch = (
     queryParams,
     configOverride,
   );
+
+  return client.getQueryData(key)
+    ? Promise.resolve()
+    : client.prefetchQuery(key, () => fun(), options);
+};
+export const useGetPartyV1PublicPluginAll = (
+  options?: SwaggerTypescriptUseQueryOptions<PluginInfoResponseVM[]>,
+  configOverride?: AxiosRequestConfig,
+) => {
+  const { key, fun } = useGetPartyV1PublicPluginAll.info(configOverride);
+  return useQuery(key, fun, options);
+};
+useGetPartyV1PublicPluginAll.info = (configOverride?: AxiosRequestConfig) => {
+  return {
+    key: [getPartyV1PublicPluginAll.key] as QueryKey,
+    fun: () => getPartyV1PublicPluginAll(configOverride),
+  };
+};
+useGetPartyV1PublicPluginAll.prefetch = (
+  client: QueryClient,
+  options?: SwaggerTypescriptUseQueryOptions<PluginInfoResponseVM[]>,
+  configOverride?: AxiosRequestConfig,
+) => {
+  const { key, fun } = useGetPartyV1PublicPluginAll.info(configOverride);
 
   return client.getQueryData(key)
     ? Promise.resolve()

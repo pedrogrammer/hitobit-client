@@ -46,6 +46,7 @@ import {
   CreateUserBankRequestVM,
   CreateUserWalletRequestVM,
   CreateWithdrawRequestUserWalletResponseVM,
+  CurrenciesRateListResponseVM,
   CurrencyResponseVM,
   DeleteAuthV1PrivateUsertrusteddeviceQueryParams,
   DeleteAuthV1ProtectApikeyQueryParams,
@@ -1416,6 +1417,21 @@ export const getExchangeV1PublicMarkets = (
 /** Key is end point string without base url */
 getExchangeV1PublicMarkets.key = "/exchange/v1/public/markets";
 
+export const getExchangeV1PublicRates = (
+  configOverride?: AxiosRequestConfig,
+): Promise<SwaggerResponse<CurrenciesRateListResponseVM>> => {
+  return Http.getRequest(
+    getExchangeV1PublicRates.key,
+    undefined,
+    undefined,
+    undefined,
+    overrideConfig(_CONSTANT2, configOverride),
+  );
+};
+
+/** Key is end point string without base url */
+getExchangeV1PublicRates.key = "/exchange/v1/public/rates";
+
 export const getExchangeV1PublicSymbolRate = (
   queryParams?: GetExchangeV1PublicSymbolRateQueryParams,
   configOverride?: AxiosRequestConfig,
@@ -1463,6 +1479,22 @@ export const getExchangeV1PublicTrades = (
 
 /** Key is end point string without base url */
 getExchangeV1PublicTrades.key = "/exchange/v1/public/trades";
+
+export const getPartyV1PrivateDomainForcecarnoforcharge = (
+  configOverride?: AxiosRequestConfig,
+): Promise<SwaggerResponse<boolean>> => {
+  return Http.getRequest(
+    getPartyV1PrivateDomainForcecarnoforcharge.key,
+    undefined,
+    undefined,
+    undefined,
+    overrideConfig(_CONSTANT2, configOverride),
+  );
+};
+
+/** Key is end point string without base url */
+getPartyV1PrivateDomainForcecarnoforcharge.key =
+  "/party/v1/private/domain/forcecarnoforcharge";
 
 export const getPartyV1PrivateDomainForcetwofa = (
   configOverride?: AxiosRequestConfig,
@@ -1667,6 +1699,21 @@ export const getPartyV1PublicPlugin = (
 
 /** Key is end point string without base url */
 getPartyV1PublicPlugin.key = "/party/v1/public/plugin";
+
+export const getPartyV1PublicPluginAll = (
+  configOverride?: AxiosRequestConfig,
+): Promise<SwaggerResponse<PluginInfoResponseVM[]>> => {
+  return Http.getRequest(
+    getPartyV1PublicPluginAll.key,
+    undefined,
+    undefined,
+    undefined,
+    overrideConfig(_CONSTANT2, configOverride),
+  );
+};
+
+/** Key is end point string without base url */
+getPartyV1PublicPluginAll.key = "/party/v1/public/plugin/all";
 
 export const getPaymentV1PrivateEpayrequestCommission = (
   queryParams?: GetPaymentV1PrivateEpayrequestCommissionQueryParams,

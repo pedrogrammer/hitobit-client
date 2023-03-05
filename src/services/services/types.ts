@@ -499,6 +499,20 @@ export interface CreateWithdrawRequestUserWalletResponseVM {
   id: number;
 }
 
+export interface CurrenciesRateListResponseVM {
+  currenciesRates?: CurrenciesRateResponseVM[];
+  defaultCryptoSymbol?: string;
+  defaultFiatSymbol?: string;
+}
+
+export interface CurrenciesRateResponseVM {
+  /** - Format: decimal */
+  defaultCryptoRate: number;
+  /** - Format: decimal */
+  defaultFiatRate: number;
+  currencySymbol?: string;
+}
+
 export interface CurrencyResponseVM {
   canBuy: boolean;
   canCharge: boolean;
@@ -621,9 +635,13 @@ export interface DomainMoneyNetworkResponseVM {
   /** - Format: decimal */
   maximumWithdraw: number;
   /** - Format: decimal */
+  minDeposit: number;
+  /** - Format: decimal */
   minimumWithdraw: number;
   /** - Format: decimal */
   withdrawFee: number;
+  /** - Format: decimal */
+  maxDeposit?: number;
   name?: string;
   symbol?: string;
 }
@@ -2675,6 +2693,8 @@ export interface TradeReferralHistoryResponseVM {
 export interface TradeResponseVM {
   /** - Format: decimal */
   commission: number;
+  /** - Format: decimal */
+  earnQuantity: number;
   /** - Format: int64 */
   orderId: number;
   /** - Format: decimal */
