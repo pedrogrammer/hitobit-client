@@ -7,7 +7,7 @@ const Provider = ({ children }: { children: any }) => {
   return (
     <BuyForm.Provider
       defaultValues={{
-        selectedOption: options[0],
+        selectedOption: options[1],
       }}
     >
       {children}

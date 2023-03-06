@@ -31,10 +31,11 @@ const ControllerSlider = ({
         render({
           field: {
             onChange: (_value) => {
+              if (!quoteAvailableRemain) return;
               let _total: Decimal = new Decimal(0);
               onChange(_value);
 
-              setValue("selectedOption", { value: "total" });
+              // setValue("selectedOption", { value: "total" });
               trigger(["amount", "total"]);
 
               const total =

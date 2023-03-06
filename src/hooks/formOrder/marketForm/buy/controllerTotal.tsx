@@ -30,7 +30,7 @@ const ControllerTotal = ({
         validate: {
           check: (value) => {
             if (!Number(value)) {
-              reset();
+              // reset();
               return;
             }
 
