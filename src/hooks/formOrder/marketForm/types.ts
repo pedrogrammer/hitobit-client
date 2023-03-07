@@ -20,7 +20,7 @@ const buyInitialValue: MarketOrderValues = {
   amount: "",
   total: "",
   slider: 0,
-  selectedOption: { value: "amount" },
+  selectedOption: { value: "total" },
 };
 
 export const BuyForm = createFormContext(buyInitialValue);

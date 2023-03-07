@@ -30,6 +30,7 @@ const ControllerSlider = ({
         render({
           field: {
             onChange: (_value) => {
+              if (!baseAvailableRemain) return;
               onChange(_value);
               let result: Decimal = new Decimal(0);
               if (_value && baseAvailableRemain) {
@@ -47,7 +48,7 @@ const ControllerSlider = ({
 
               setValue("total", total);
               setValue("amount", amount);
-              setValue("selectedOption", { value: "total" });
+              // setValue("selectedOption", { value: "total" });
               trigger(["amount", "total"]);
             },
             ...rest,
