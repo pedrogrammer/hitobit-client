@@ -630,6 +630,8 @@ export interface DomainCurrencyResponseVM {
 }
 
 export interface DomainMoneyNetworkResponseVM {
+  /** - Format: int32 */
+  decimalDigits: number;
   /** - Format: decimal */
   depositFee: number;
   /** - Format: decimal */
