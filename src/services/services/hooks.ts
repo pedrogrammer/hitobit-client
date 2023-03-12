@@ -110,6 +110,7 @@ import {
   getPaymentV1PrivateEpayrequestCount,
   getPaymentV1PrivateEpayrequestCountFromme,
   getPaymentV1PrivateEpayrequestInfoClientuniqueid,
+  getPaymentV1PrivateEpayrequestIpgList,
   getPaymentV1PrivateEpayrequestList,
   getPaymentV1PrivateEpayrequestListFromme,
   getPaymentV1PrivateEpayrequestPluginCount,
@@ -195,6 +196,7 @@ import {
   postSettlementV1PrivateAddressbook,
   postSettlementV1PrivateExcel,
   postSettlementV1PrivateUserWalletNumber,
+  postSettlementV1ProtectUserWalletNumber,
   postStorageV1PrivateFileUploadfile,
   postWalletV1Private,
   postWalletV1PrivateGrouptransfer,
@@ -328,6 +330,7 @@ import {
   GetPaymentV1PrivateEpayrequestCountFrommeQueryParams,
   GetPaymentV1PrivateEpayrequestCountQueryParams,
   GetPaymentV1PrivateEpayrequestInfoClientuniqueidQueryParams,
+  GetPaymentV1PrivateEpayrequestIpgListQueryParams,
   GetPaymentV1PrivateEpayrequestListFrommeQueryParams,
   GetPaymentV1PrivateEpayrequestListQueryParams,
   GetPaymentV1PrivateEpayrequestPluginCountQueryParams,
@@ -3983,6 +3986,46 @@ useGetPaymentV1PrivateEpayrequestInfoClientuniqueid.prefetch = (
     ? Promise.resolve()
     : client.prefetchQuery(key, () => fun(), options);
 };
+export const useGetPaymentV1PrivateEpayrequestIpgList = (
+  queryParams?: GetPaymentV1PrivateEpayrequestIpgListQueryParams,
+  options?: SwaggerTypescriptUseQueryOptions<EpayRequestListResponseVM>,
+  configOverride?: AxiosRequestConfig,
+) => {
+  const { key, fun } = useGetPaymentV1PrivateEpayrequestIpgList.info(
+    queryParams,
+    configOverride,
+  );
+  return useQuery(key, fun, options);
+};
+useGetPaymentV1PrivateEpayrequestIpgList.info = (
+  queryParams?: GetPaymentV1PrivateEpayrequestIpgListQueryParams,
+  configOverride?: AxiosRequestConfig,
+) => {
+  return {
+    key: [getPaymentV1PrivateEpayrequestIpgList.key, queryParams] as QueryKey,
+    fun: () =>
+      getPaymentV1PrivateEpayrequestIpgList(
+        queryParams,
+
+        configOverride,
+      ),
+  };
+};
+useGetPaymentV1PrivateEpayrequestIpgList.prefetch = (
+  client: QueryClient,
+  queryParams?: GetPaymentV1PrivateEpayrequestIpgListQueryParams,
+  options?: SwaggerTypescriptUseQueryOptions<EpayRequestListResponseVM>,
+  configOverride?: AxiosRequestConfig,
+) => {
+  const { key, fun } = useGetPaymentV1PrivateEpayrequestIpgList.info(
+    queryParams,
+    configOverride,
+  );
+
+  return client.getQueryData(key)
+    ? Promise.resolve()
+    : client.prefetchQuery(key, () => fun(), options);
+};
 export const useGetPaymentV1PrivateEpayrequestList = (
   queryParams?: GetPaymentV1PrivateEpayrequestListQueryParams,
   options?: SwaggerTypescriptUseQueryOptions<EpayRequestListResponseVM>,
@@ -6416,6 +6459,41 @@ export const usePostSettlementV1PrivateUserWalletNumber = <TExtra>(
       userWalletNumber,
       requestBody,
 
+      configOverride,
+    );
+  }, options);
+};
+
+export const usePostSettlementV1ProtectUserWalletNumber = <TExtra>(
+  options?: SwaggerTypescriptUseMutationOptions<
+    SettlementRequestInfoResponseVM,
+    {
+      userWalletNumber: string;
+      requestBody: CreateSettlementRequestVM;
+      headerParams?: {
+        otpcode: string;
+        otptoken: string;
+        purpose: PurposeType;
+        totp: string;
+      };
+    },
+    TExtra
+  >,
+) => {
+  return useMutation((_o) => {
+    const {
+      userWalletNumber,
+      requestBody,
+
+      headerParams,
+      configOverride,
+    } = _o || {};
+
+    return postSettlementV1ProtectUserWalletNumber(
+      userWalletNumber,
+      requestBody,
+
+      headerParams,
       configOverride,
     );
   }, options);

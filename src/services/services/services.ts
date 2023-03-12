@@ -113,6 +113,7 @@ import {
   GetPaymentV1PrivateEpayrequestCountFrommeQueryParams,
   GetPaymentV1PrivateEpayrequestCountQueryParams,
   GetPaymentV1PrivateEpayrequestInfoClientuniqueidQueryParams,
+  GetPaymentV1PrivateEpayrequestIpgListQueryParams,
   GetPaymentV1PrivateEpayrequestListFrommeQueryParams,
   GetPaymentV1PrivateEpayrequestListQueryParams,
   GetPaymentV1PrivateEpayrequestPluginCountQueryParams,
@@ -1783,6 +1784,23 @@ export const getPaymentV1PrivateEpayrequestInfoClientuniqueid = (
 getPaymentV1PrivateEpayrequestInfoClientuniqueid.key =
   "/payment/v1/private/epayrequest/info/clientuniqueid";
 
+export const getPaymentV1PrivateEpayrequestIpgList = (
+  queryParams?: GetPaymentV1PrivateEpayrequestIpgListQueryParams,
+  configOverride?: AxiosRequestConfig,
+): Promise<SwaggerResponse<EpayRequestListResponseVM>> => {
+  return Http.getRequest(
+    getPaymentV1PrivateEpayrequestIpgList.key,
+    queryParams,
+    undefined,
+    undefined,
+    overrideConfig(_CONSTANT2, configOverride),
+  );
+};
+
+/** Key is end point string without base url */
+getPaymentV1PrivateEpayrequestIpgList.key =
+  "/payment/v1/private/epayrequest/ipg/list";
+
 export const getPaymentV1PrivateEpayrequestList = (
   queryParams?: GetPaymentV1PrivateEpayrequestListQueryParams,
   configOverride?: AxiosRequestConfig,
@@ -3280,6 +3298,38 @@ export const postSettlementV1PrivateUserWalletNumber = (
 /** Key is end point string without base url */
 postSettlementV1PrivateUserWalletNumber.key =
   "/settlement/v1/private/{userWalletNumber}";
+
+export const postSettlementV1ProtectUserWalletNumber = (
+  userWalletNumber: string,
+  requestBody: CreateSettlementRequestVM,
+  headerParams?: {
+    otpcode: string;
+    otptoken: string;
+    purpose: PurposeType;
+    totp: string;
+  },
+  configOverride?: AxiosRequestConfig,
+): Promise<SwaggerResponse<SettlementRequestInfoResponseVM>> => {
+  return Http.postRequest(
+    template(postSettlementV1ProtectUserWalletNumber.key, { userWalletNumber }),
+    undefined,
+    requestBody,
+    undefined,
+    overrideConfig(
+      {
+        headers: {
+          ..._CONSTANT3,
+          ...headerParams,
+        },
+      },
+      configOverride,
+    ),
+  );
+};
+
+/** Key is end point string without base url */
+postSettlementV1ProtectUserWalletNumber.key =
+  "/settlement/v1/protect/{userWalletNumber}";
 
 export const postStorageV1PrivateFileUploadfile = (
   requestBody: {

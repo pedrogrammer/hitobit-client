@@ -321,7 +321,7 @@ export interface CityResponseVM {
   title?: string;
 }
 
-export type ComissionType = "Percentage" | "Fixed";
+export type ComissionType = "Percentage" | "Fixed" | "Step";
 
 export interface CommissionPolicyResponseVM {
   commissionType: ComissionType;
@@ -1304,6 +1304,23 @@ export interface GetPaymentV1PrivateEpayrequestCountQueryParams {
 
 export interface GetPaymentV1PrivateEpayrequestInfoClientuniqueidQueryParams {
   clientUniqueId?: string;
+}
+
+export interface GetPaymentV1PrivateEpayrequestIpgListQueryParams {
+  assignedToUserIds?: string[];
+  /** - Format: date-time */
+  endDate?: string;
+  epayRequestActualStates?: EpayRequestActualState[];
+  ownerType?: EpayRequestOwnerType;
+  /** - Format: int32 */
+  pageNo?: number;
+  /** - Format: int32 */
+  pageSize?: number;
+  pluginKey?: string;
+  pluginProperties?: PluginPropertyRequestVM[];
+  /** - Format: date-time */
+  startDate?: string;
+  walletNumbers?: string[];
 }
 
 export interface GetPaymentV1PrivateEpayrequestListFrommeQueryParams {
