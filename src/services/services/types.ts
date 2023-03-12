@@ -632,6 +632,7 @@ export interface DomainCurrencyResponseVM {
 export interface DomainMoneyNetworkResponseVM {
   /** - Format: int32 */
   decimalDigits: number;
+  depositEnabled: boolean;
   /** - Format: decimal */
   depositFee: number;
   /** - Format: decimal */
@@ -640,6 +641,7 @@ export interface DomainMoneyNetworkResponseVM {
   minDeposit: number;
   /** - Format: decimal */
   minimumWithdraw: number;
+  withdrawEnabled: boolean;
   /** - Format: decimal */
   withdrawFee: number;
   /** - Format: decimal */
