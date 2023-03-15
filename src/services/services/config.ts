@@ -117,7 +117,7 @@ interface ErrorParam {
 class RequestError extends Error {
   message: string;
   status?: number;
-  response?: AxiosResponse;
+  response?: AxiosResponse<{ code: number; message: string }>;
   errors?: any[];
 
   constructor({ message, status, response, errors }: ErrorParam) {
