@@ -42,15 +42,15 @@ export enum StatusCodes {
   NotExtended = 510,
   NetworkAuthenticationRequired = 511,
   NetworkConnectTimeoutError = 599,
-  TwoFactor = 657,
-  UntrustedDevice = 658,
-  TwoFactorAndUntrustedDevice = 659,
-  UserRegistrationNotCompleted = 660,
-  UserIsNotActive = 661,
-  IsLockedOut = 662,
-  IsNotAllowed = 663,
-  InvalidUserNameOrPassword = 664,
-  FaildTwoFa = 665,
-  UserTrustedDevice = 670,
-  UserIsSuspended = 709,
+  TwoFactor = 1280, // 657
+  UntrustedDevice = 1281, //658
+  TwoFactorAndUntrustedDevice = 1282, //659
+  UserRegistrationNotCompleted = 1283, //660,
+  UserIsNotActive = 1290, //661,
+  IsLockedOut = 1284, //662,
+  IsNotAllowed = 1285, //663,
+  InvalidUserNameOrPassword = 1286, //664
+  FaildTwoFa = 1287, //665
+  UserTrustedDevice = 1288, // 670,
+  UserIsSuspended = 1291, //709,
 }
