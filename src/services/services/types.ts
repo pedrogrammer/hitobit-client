@@ -279,6 +279,8 @@ export interface CancelOrderResponseVM {
   /** - Format: int64 */
   transactTime: number;
   type: AppOrderType;
+  /** - Format: decimal */
+  averageFilledPrice?: number;
   baseCurrencySymbol?: string;
   clientOrderId?: string;
   /** - Format: decimal */
@@ -1241,6 +1243,8 @@ export interface GetOrderResponseVM {
   /** - Format: int64 */
   transactTime: number;
   type: AppOrderType;
+  /** - Format: decimal */
+  averageFilledPrice?: number;
   baseCurrencySymbol?: string;
   clientOrderId?: string;
   /** - Format: decimal */
@@ -2079,6 +2083,8 @@ export interface OrderResultInfoResponseVM {
   /** - Format: int64 */
   transactTime: number;
   type: AppOrderType;
+  /** - Format: decimal */
+  averageFilledPrice?: number;
   baseCurrencySymbol?: string;
   clientOrderId?: string;
   /** - Format: decimal */
