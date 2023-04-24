@@ -4,12 +4,13 @@ import { useMarketTicker } from "../marketTicker";
 import { useMarketFilters } from "../useMarketFilters";
 import { useStepSize } from "../useStepSize";
 
-export const useStepValues = (symbol?: string) => {
+export const useStepValues = (type: "market" | "limit", symbol?: string) => {
   const { toStepSize } = useStepSize(symbol);
   const { getSymbolMarketTicker } = useMarketTicker();
   const selectedMarket = getSymbolMarketTicker(symbol);
   const { maxQuantity, maxNotional } = useMarketFilters({
     selectedMarket,
+    type,
   });
 
   const expectedValue = (value?: string | null) =>

@@ -25,6 +25,7 @@ const ControllerAmount = ({
   const currentTicker = getSymbolMarketTicker(selectedSymbol?.symbol);
 
   const { expectedValue, onChangeValue } = useStepValues(
+    "market",
     selectedSymbol?.symbol,
   );
 

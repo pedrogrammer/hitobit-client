@@ -29,13 +29,14 @@ type ConvertFromRenderProps = {
       onFocus?: () => void;
     };
   }) => React.ReactElement;
-
+  type: "market" | "limit";
   renderErrorComponent?: (message?: string) => ReactNode;
 };
 
 export const ConvertFromController = ({
   render,
   renderErrorComponent,
+  type,
 }: ConvertFromRenderProps) => {
   const { t } = useTranslation();
   const { toMarket, fromAmount, fromAsset, toAmount, lastChangedField } =
@@ -80,7 +81,7 @@ export const ConvertFromController = ({
     minNotional,
     minQuantity: _minQuantity,
     maxQuantity: _maxQuantity,
-  } = useMarketFilters({ selectedMarket });
+  } = useMarketFilters({ selectedMarket, type });
 
   const minQuantity = marketsSymbols?.find(
     ({ quoteAsset }) => quoteAsset === selectedCurrency?.symbol,
@@ -103,7 +104,10 @@ export const ConvertFromController = ({
   const canThrowError =
     errors["fromAmount"] && fromAmount !== null && fromAmount !== undefined;
 
-  const { expectedValue, onChangeValue } = useStepValues(selectedMarket?.name);
+  const { expectedValue, onChangeValue } = useStepValues(
+    type,
+    selectedMarket?.name,
+  );
 
   return (
     <>

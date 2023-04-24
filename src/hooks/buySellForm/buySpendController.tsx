@@ -24,13 +24,14 @@ type BuySpendRenderProps = {
       getMaxSize?: (value: number) => string | number;
     };
   }) => React.ReactElement;
-
+  type: "market" | "limit";
   renderErrorComponent?: (message?: string) => ReactNode;
 };
 
 export const BuySpendController = ({
   render,
   renderErrorComponent,
+  type,
 }: BuySpendRenderProps) => {
   const { t } = useTranslation();
   const { lastChangeInput, selected, spend, recieve } =
@@ -61,7 +62,10 @@ export const BuySpendController = ({
 
   const isChargeable = selectedMarket?.quoteCurrency?.canCharge;
 
-  const { minNotional, maxNotional } = useMarketFilters({ selectedMarket });
+  const { minNotional, maxNotional } = useMarketFilters({
+    selectedMarket,
+    type,
+  });
 
   const availableRemain = selectedMarket?.quoteCurrency?.availableRemain || 0;
 

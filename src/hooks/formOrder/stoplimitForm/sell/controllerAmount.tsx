@@ -26,6 +26,7 @@ const ControllerAmount = ({
   const { getAmountError } = useOrderPlacingError();
 
   const { expectedValue, onChangeValue } = useStepValues(
+    "limit",
     selectedSymbol?.symbol,
   );
 

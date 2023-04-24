@@ -27,6 +27,7 @@ const ControllerAmount = ({
   const { toTickSize } = useStepSize(selectedSymbol?.symbol);
 
   const { expectedValue, onChangeValue } = useStepValues(
+    "limit",
     selectedSymbol?.symbol,
   );
 

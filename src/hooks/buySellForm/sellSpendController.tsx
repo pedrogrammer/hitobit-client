@@ -27,13 +27,14 @@ type SellSpendRenderProps = {
       ) => string;
     };
   }) => React.ReactElement;
-
+  type: "market" | "limit";
   renderErrorComponent?: (message?: string) => ReactNode;
 };
 
 export const SellSpendController = ({
   render,
   renderErrorComponent,
+  type,
 }: SellSpendRenderProps) => {
   const { lastChangeInput, selected, spend } = BuySellContext.useWatch();
 
@@ -58,13 +59,13 @@ export const SellSpendController = ({
   const selectedMarket = getSymbolMarketTicker(selected);
 
   const { minQuantity: _minQuantity, maxQuantity: _maxQuantity } =
-    useMarketFilters({ selectedMarket });
+    useMarketFilters({ selectedMarket, type });
 
   const availableRemain = selectedMarket?.baseCurrency?.availableRemain || 0;
 
   const { toStepSize } = useStepSize(selected);
 
-  const { expectedValue, onChangeValue } = useStepValues(selected);
+  const { expectedValue, onChangeValue } = useStepValues(type, selected);
 
   const minQuantity = _minQuantity || 0;
 

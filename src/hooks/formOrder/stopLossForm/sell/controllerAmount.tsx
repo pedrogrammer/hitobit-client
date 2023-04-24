@@ -25,6 +25,7 @@ const ControllerAmount = ({
   const { getAmountError } = useOrderPlacingError();
 
   const { expectedValue, onChangeValue } = useStepValues(
+    "market",
     selectedSymbol?.symbol,
   );
 

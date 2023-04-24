@@ -9,8 +9,10 @@ import { useConvertBaseToQuote } from "../useConvertBaseToQuote";
 
 const useMarketFilters = ({
   selectedMarket,
+  type,
 }: {
   selectedMarket?: Partial<MarketSymbolResponse> | Partial<MarketTicker>;
+  type: "market" | "limit";
 }) => {
   const filterMinNotional = selectedMarket?.filters?.find(
     (item) => item.filterType === ("MIN_NOTIONAL" as any),
@@ -18,14 +20,19 @@ const useMarketFilters = ({
   const filterLotSize = selectedMarket?.filters?.find(
     (item) => item.filterType === ("LOT_SIZE" as any),
   ) as MarketFilterLotSize;
+  const filterMarketLotSize = selectedMarket?.filters?.find(
+    (item) => item.filterType === ("MARKET_LOT_SIZE" as any),
+  ) as MarketFilterLotSize;
   const filterPrice = selectedMarket?.filters?.find(
     (item) => item.filterType === ("PRICE_FILTER" as any),
   ) as MarketFilterPriceFilter | undefined;
 
   const minNotional = filterMinNotional?.minNotional;
 
-  const maxQuantity = filterLotSize?.maxQty;
-  const minQuantity = filterLotSize?.minQty;
+  const maxQuantity =
+    type === "limit" ? filterLotSize?.maxQty : filterMarketLotSize?.maxQty;
+  const minQuantity =
+    type === "limit" ? filterLotSize?.minQty : filterMarketLotSize?.minQty;
 
   const convert = useConvertBaseToQuote();
   const maxNotional = selectedMarket

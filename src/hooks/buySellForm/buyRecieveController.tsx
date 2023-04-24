@@ -25,13 +25,14 @@ type BuyRecieveRenderProps = {
       getMaxSize?: (value: number) => string | number;
     };
   }) => React.ReactElement;
-
+  type: "market" | "limit";
   renderErrorComponent?: (message?: string) => ReactNode;
 };
 
 export const BuyRecieveController = ({
   render,
   renderErrorComponent,
+  type,
 }: BuyRecieveRenderProps) => {
   const { t } = useTranslation();
   const { lastChangeInput, selected, spend } = BuySellContext.useWatch();
@@ -54,12 +55,13 @@ export const BuyRecieveController = ({
 
   const { toTickSize } = useStepSize(selected);
 
-  const { expectedValue, onChangeValue } = useStepValues(selected);
+  const { expectedValue, onChangeValue } = useStepValues(type, selected);
 
   const isChargeable = selectedMarket?.quoteCurrency?.canCharge;
 
   const { minQuantity, maxQuantity } = useMarketFilters({
     selectedMarket,
+    type,
   });
 
   const availableRemain = selectedMarket?.quoteCurrency?.availableRemain || 0;

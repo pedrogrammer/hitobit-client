@@ -20,13 +20,14 @@ type SellRecieveRenderProps = {
       onFocus?: (e: any) => void;
     };
   }) => React.ReactElement;
-
+  type: "market" | "limit";
   renderErrorComponent?: (message?: string) => ReactNode;
 };
 
 export const SellRecieveController = ({
   render,
   renderErrorComponent,
+  type,
 }: SellRecieveRenderProps) => {
   const { lastChangeInput, selected, spend } = BuySellContext.useWatch();
 
@@ -36,7 +37,7 @@ export const SellRecieveController = ({
 
   const { getTotalError } = useOrderPlacingError();
 
-  const { onChangeValue } = useStepValues();
+  const { onChangeValue } = useStepValues(type);
 
   const { marketsTicker, getSymbolMarketTicker } = useMarketTicker();
 
@@ -44,7 +45,10 @@ export const SellRecieveController = ({
 
   const selectedMarket = getSymbolMarketTicker(selected);
 
-  const { minNotional, maxNotional } = useMarketFilters({ selectedMarket });
+  const { minNotional, maxNotional } = useMarketFilters({
+    selectedMarket,
+    type,
+  });
 
   const availableRemain = selectedMarket?.quoteCurrency?.availableRemain || 0;
 
