@@ -1270,6 +1270,7 @@ export const getExchangeV1PrivateMarketsusertraderlevelfee = (
   return Http.getRequest(
     getExchangeV1PrivateMarketsusertraderlevelfee.key,
     undefined,
+    //@ts-ignore
     requestBody,
     undefined,
     overrideConfig(_CONSTANT2, configOverride),
