@@ -33,6 +33,7 @@ import {
   ChangePasswordRequestVM,
   ChangeTwoFactorRequestVM,
   CityResponseVM,
+  CommissionPolicyInfoResponseVM,
   CountryResponseVM,
   CreateChargeRequestRequestVM,
   CreateDivideIpgRequestRequestVM,
@@ -97,6 +98,7 @@ import {
   GetExchangeV1PrivateOpenordersQueryParams,
   GetExchangeV1PrivateOrderlistQueryParams,
   GetExchangeV1PrivateOrderQueryParams,
+  GetExchangeV1PrivateUsertraderlevelfeeQueryParams,
   GetExchangeV1PublicDepthQueryParams,
   GetExchangeV1PublicKlinesQueryParams,
   GetExchangeV1PublicMarketsQueryParams,
@@ -108,6 +110,7 @@ import {
   GetPartyV1PrivateFavoritemarketQueryParams,
   GetPartyV1PrivateNotificationAllQueryParams,
   GetPartyV1PrivatePluginListQueryParams,
+  GetPartyV1PrivateUserProfileimageQueryParams,
   GetPartyV1PublicPluginQueryParams,
   GetPaymentV1PrivateEpayrequestCommissionQueryParams,
   GetPaymentV1PrivateEpayrequestCountFrommeQueryParams,
@@ -123,6 +126,7 @@ import {
   GetPaymentV1PublicEpayrequestReceiptinfoClientuniqueidQueryParams,
   GetPaymentV1PublicEpayrequestReceiptinfoTokenQueryParams,
   GetSettlementV1PrivateAddressbookQueryParams,
+  GetSettlementV1PrivateCommissionPolicyQueryParams,
   GetSettlementV1PrivateCommissionQueryParams,
   GetSettlementV1PrivateCountQueryParams,
   GetSettlementV1PrivateListQueryParams,
@@ -239,6 +243,7 @@ import {
   UserSettingSecurityResponseVM,
   UserStatusResponseVM,
   UserTotalReferralProgramVM,
+  UserTraderLevelFeeResponseVM,
   UserTraderLevelResponseVM,
   UserTrustedDeviceListResponseVM,
   UserWalletDisplayDetailResponseVM,
@@ -1258,6 +1263,23 @@ export const getExchangeV1PrivateAlltrades = (
 /** Key is end point string without base url */
 getExchangeV1PrivateAlltrades.key = "/exchange/v1/private/alltrades";
 
+export const getExchangeV1PrivateMarketsusertraderlevelfee = (
+  requestBody: string[],
+  configOverride?: AxiosRequestConfig,
+): Promise<SwaggerResponse<UserTraderLevelFeeResponseVM[]>> => {
+  return Http.getRequest(
+    getExchangeV1PrivateMarketsusertraderlevelfee.key,
+    undefined,
+    requestBody,
+    undefined,
+    overrideConfig(_CONSTANT2, configOverride),
+  );
+};
+
+/** Key is end point string without base url */
+getExchangeV1PrivateMarketsusertraderlevelfee.key =
+  "/exchange/v1/private/marketsusertraderlevelfee";
+
 export const getExchangeV1PrivateOpenocoorderlist = (
   queryParams?: GetExchangeV1PrivateOpenocoorderlistQueryParams,
   configOverride?: AxiosRequestConfig,
@@ -1338,6 +1360,23 @@ export const getExchangeV1PrivateUsertraderlevel = (
 /** Key is end point string without base url */
 getExchangeV1PrivateUsertraderlevel.key =
   "/exchange/v1/private/usertraderlevel";
+
+export const getExchangeV1PrivateUsertraderlevelfee = (
+  queryParams?: GetExchangeV1PrivateUsertraderlevelfeeQueryParams,
+  configOverride?: AxiosRequestConfig,
+): Promise<SwaggerResponse<UserTraderLevelFeeResponseVM>> => {
+  return Http.getRequest(
+    getExchangeV1PrivateUsertraderlevelfee.key,
+    queryParams,
+    undefined,
+    undefined,
+    overrideConfig(_CONSTANT2, configOverride),
+  );
+};
+
+/** Key is end point string without base url */
+getExchangeV1PrivateUsertraderlevelfee.key =
+  "/exchange/v1/private/usertraderlevelfee";
 
 export const getExchangeV1PublicAlltickers24hr = (
   configOverride?: AxiosRequestConfig,
@@ -1605,6 +1644,22 @@ export const getPartyV1PrivatePluginList = (
 
 /** Key is end point string without base url */
 getPartyV1PrivatePluginList.key = "/party/v1/private/plugin/list";
+
+export const getPartyV1PrivateUserProfileimage = (
+  queryParams?: GetPartyV1PrivateUserProfileimageQueryParams,
+  configOverride?: AxiosRequestConfig,
+): Promise<SwaggerResponse<any>> => {
+  return Http.getRequest(
+    getPartyV1PrivateUserProfileimage.key,
+    queryParams,
+    undefined,
+    undefined,
+    overrideConfig(_CONSTANT1, configOverride),
+  );
+};
+
+/** Key is end point string without base url */
+getPartyV1PrivateUserProfileimage.key = "/party/v1/private/user/profileimage";
 
 export const getPartyV1PrivateUsersettingPreference = (
   configOverride?: AxiosRequestConfig,
@@ -1999,6 +2054,23 @@ export const getSettlementV1PrivateCommission = (
 
 /** Key is end point string without base url */
 getSettlementV1PrivateCommission.key = "/settlement/v1/private/commission";
+
+export const getSettlementV1PrivateCommissionPolicy = (
+  queryParams?: GetSettlementV1PrivateCommissionPolicyQueryParams,
+  configOverride?: AxiosRequestConfig,
+): Promise<SwaggerResponse<CommissionPolicyInfoResponseVM>> => {
+  return Http.getRequest(
+    getSettlementV1PrivateCommissionPolicy.key,
+    queryParams,
+    undefined,
+    undefined,
+    overrideConfig(_CONSTANT2, configOverride),
+  );
+};
+
+/** Key is end point string without base url */
+getSettlementV1PrivateCommissionPolicy.key =
+  "/settlement/v1/private/commission/policy";
 
 export const getSettlementV1PrivateCount = (
   queryParams?: GetSettlementV1PrivateCountQueryParams,

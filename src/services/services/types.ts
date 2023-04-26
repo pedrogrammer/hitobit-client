@@ -325,6 +325,24 @@ export interface CityResponseVM {
 
 export type ComissionType = "Percentage" | "Fixed" | "Step";
 
+export interface CommissionPolicyInfoResponseVM {
+  commissionType: ComissionType;
+  /** - Format: decimal */
+  minValue: number;
+  /** - Format: decimal */
+  noCommissionAmount: number;
+  /** - Format: decimal */
+  stepSize: number;
+  currencySymbol?: string;
+  /** - Format: decimal */
+  fixedValue?: number;
+  /** - Format: decimal */
+  maxValue?: number;
+  moneyNetworkSymbol?: string;
+  /** - Format: double */
+  percent?: number;
+}
+
 export interface CommissionPolicyResponseVM {
   commissionType: ComissionType;
   logicalActionType: LogicalActionType;
@@ -1177,6 +1195,10 @@ export interface GetExchangeV1PrivateOrderlistQueryParams {
   origClientOrderId?: string;
 }
 
+export interface GetExchangeV1PrivateUsertraderlevelfeeQueryParams {
+  symbol?: string;
+}
+
 export interface GetExchangeV1PublicDepthQueryParams {
   /** - Format: int32 */
   limit?: number;
@@ -1280,6 +1302,11 @@ export interface GetPartyV1PrivateNotificationAllQueryParams {
 
 export interface GetPartyV1PrivatePluginListQueryParams {
   scenarioKey?: string;
+}
+
+export interface GetPartyV1PrivateUserProfileimageQueryParams {
+  /** - Format: uuid */
+  userId?: string;
 }
 
 export interface GetPartyV1PublicPluginQueryParams {
@@ -1400,6 +1427,12 @@ export interface GetPaymentV1PublicEpayrequestReceiptinfoTokenQueryParams {
 export interface GetSettlementV1PrivateAddressbookQueryParams {
   /** - Format: int64 */
   id?: number;
+}
+
+export interface GetSettlementV1PrivateCommissionPolicyQueryParams {
+  moneyNetworkSymbol?: string;
+  /** - Format: int64 */
+  userWalletId?: number;
 }
 
 export interface GetSettlementV1PrivateCommissionQueryParams {
@@ -1697,8 +1730,6 @@ export type IdentityFailedStatusCodes =
   | "IsNotAllowed"
   | "InvalidUserNameOrPassword"
   | "FailedTwoFa"
-  | "UserTrustedDevice"
-  | "UserTrusted"
   | "UserIsSuspended";
 
 export type IdentityStatus =
@@ -2416,11 +2447,15 @@ export interface ReportResultResponseVM {
 }
 
 export interface Response400 {
+  /** - Format: int32 */
+  code: number;
   errors?: ExceptionDetails[];
   message?: string;
 }
 
 export interface Response500 {
+  /** - Format: int32 */
+  code: number;
   errors?: ExceptionDetails[];
   message?: string;
 }
@@ -2946,7 +2981,6 @@ export interface UserInfoVM {
   id: string;
   identityStatus: IdentityStatus;
   isBusinessUser: boolean;
-  nextLevel: IdentificationLevel;
   userStatus: UserStatus;
   userType: UserType;
   withdrawLimit: boolean;
@@ -2957,6 +2991,7 @@ export interface UserInfoVM {
   firstName?: string;
   lastName?: string;
   nationalCode?: string;
+  nextLevel?: IdentificationLevel;
   nextLevelStatus?: IdentificationLevelRequestStatus;
   pendingRequestDescription?: string;
   phoneNumber?: string;
@@ -3128,6 +3163,23 @@ export interface UserTotalReferralProgramVM {
   defaultFiatAmount: number;
   /** - Format: int32 */
   friendsCount: number;
+}
+
+export interface UserTraderLevelFeeResponseVM {
+  /** - Format: int32 */
+  domainTraderLevelId: number;
+  /** - Format: int64 */
+  lastUpdate: number;
+  /** - Format: int32 */
+  levelIndex: number;
+  /** - Format: decimal */
+  makerFeePercent: number;
+  /** - Format: decimal */
+  takerFeePercent: number;
+  /** - Format: uuid */
+  userId: string;
+  name?: string;
+  symbol?: string;
 }
 
 export interface UserTraderLevelResponseVM {

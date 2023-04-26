@@ -77,11 +77,13 @@ import {
   getExchangeV1PrivateAllorderlist,
   getExchangeV1PrivateAllorders,
   getExchangeV1PrivateAlltrades,
+  getExchangeV1PrivateMarketsusertraderlevelfee,
   getExchangeV1PrivateOpenocoorderlist,
   getExchangeV1PrivateOpenorders,
   getExchangeV1PrivateOrder,
   getExchangeV1PrivateOrderlist,
   getExchangeV1PrivateUsertraderlevel,
+  getExchangeV1PrivateUsertraderlevelfee,
   getExchangeV1PublicAlltickers24hr,
   getExchangeV1PublicDepth,
   getExchangeV1PublicDomaintraderlevels,
@@ -99,6 +101,7 @@ import {
   getPartyV1PrivateNotificationAll,
   getPartyV1PrivateNotificationTypes,
   getPartyV1PrivatePluginList,
+  getPartyV1PrivateUserProfileimage,
   getPartyV1PrivateUsersettingPreference,
   getPartyV1PrivateUsersettingSecurity,
   getPartyV1PrivateWalletsettingMaxreferalprogrampercent,
@@ -123,6 +126,7 @@ import {
   getSettlementV1PrivateAddressbook,
   getSettlementV1PrivateAddressbookAll,
   getSettlementV1PrivateCommission,
+  getSettlementV1PrivateCommissionPolicy,
   getSettlementV1PrivateCount,
   getSettlementV1PrivateGlobalwalletproviderAll,
   getSettlementV1PrivateList,
@@ -250,6 +254,7 @@ import {
   ChangePasswordRequestVM,
   ChangeTwoFactorRequestVM,
   CityResponseVM,
+  CommissionPolicyInfoResponseVM,
   CountryResponseVM,
   CreateChargeRequestRequestVM,
   CreateDivideIpgRequestRequestVM,
@@ -314,6 +319,7 @@ import {
   GetExchangeV1PrivateOpenordersQueryParams,
   GetExchangeV1PrivateOrderlistQueryParams,
   GetExchangeV1PrivateOrderQueryParams,
+  GetExchangeV1PrivateUsertraderlevelfeeQueryParams,
   GetExchangeV1PublicDepthQueryParams,
   GetExchangeV1PublicKlinesQueryParams,
   GetExchangeV1PublicMarketsQueryParams,
@@ -325,6 +331,7 @@ import {
   GetPartyV1PrivateFavoritemarketQueryParams,
   GetPartyV1PrivateNotificationAllQueryParams,
   GetPartyV1PrivatePluginListQueryParams,
+  GetPartyV1PrivateUserProfileimageQueryParams,
   GetPartyV1PublicPluginQueryParams,
   GetPaymentV1PrivateEpayrequestCommissionQueryParams,
   GetPaymentV1PrivateEpayrequestCountFrommeQueryParams,
@@ -340,6 +347,7 @@ import {
   GetPaymentV1PublicEpayrequestReceiptinfoClientuniqueidQueryParams,
   GetPaymentV1PublicEpayrequestReceiptinfoTokenQueryParams,
   GetSettlementV1PrivateAddressbookQueryParams,
+  GetSettlementV1PrivateCommissionPolicyQueryParams,
   GetSettlementV1PrivateCommissionQueryParams,
   GetSettlementV1PrivateCountQueryParams,
   GetSettlementV1PrivateListQueryParams,
@@ -456,6 +464,7 @@ import {
   UserSettingSecurityResponseVM,
   UserStatusResponseVM,
   UserTotalReferralProgramVM,
+  UserTraderLevelFeeResponseVM,
   UserTraderLevelResponseVM,
   UserTrustedDeviceListResponseVM,
   UserWalletDisplayDetailResponseVM,
@@ -2829,6 +2838,51 @@ useGetExchangeV1PrivateAlltrades.prefetch = (
     ? Promise.resolve()
     : client.prefetchQuery(key, () => fun(), options);
 };
+export const useGetExchangeV1PrivateMarketsusertraderlevelfee = (
+  requestBody: string[],
+  options?: SwaggerTypescriptUseQueryOptions<UserTraderLevelFeeResponseVM[]>,
+  configOverride?: AxiosRequestConfig,
+) => {
+  const { key, fun } = useGetExchangeV1PrivateMarketsusertraderlevelfee.info(
+    requestBody,
+
+    configOverride,
+  );
+  return useQuery(key, fun, options);
+};
+useGetExchangeV1PrivateMarketsusertraderlevelfee.info = (
+  requestBody: string[],
+  configOverride?: AxiosRequestConfig,
+) => {
+  return {
+    key: [
+      getExchangeV1PrivateMarketsusertraderlevelfee.key,
+      requestBody,
+    ] as QueryKey,
+    fun: () =>
+      getExchangeV1PrivateMarketsusertraderlevelfee(
+        requestBody,
+
+        configOverride,
+      ),
+  };
+};
+useGetExchangeV1PrivateMarketsusertraderlevelfee.prefetch = (
+  client: QueryClient,
+  requestBody: string[],
+  options?: SwaggerTypescriptUseQueryOptions<UserTraderLevelFeeResponseVM[]>,
+  configOverride?: AxiosRequestConfig,
+) => {
+  const { key, fun } = useGetExchangeV1PrivateMarketsusertraderlevelfee.info(
+    requestBody,
+
+    configOverride,
+  );
+
+  return client.getQueryData(key)
+    ? Promise.resolve()
+    : client.prefetchQuery(key, () => fun(), options);
+};
 export const useGetExchangeV1PrivateOpenocoorderlist = (
   queryParams?: GetExchangeV1PrivateOpenocoorderlistQueryParams,
   options?: SwaggerTypescriptUseQueryOptions<OcoOrderResultInfoResponseVM[]>,
@@ -3012,6 +3066,46 @@ useGetExchangeV1PrivateUsertraderlevel.prefetch = (
 ) => {
   const { key, fun } =
     useGetExchangeV1PrivateUsertraderlevel.info(configOverride);
+
+  return client.getQueryData(key)
+    ? Promise.resolve()
+    : client.prefetchQuery(key, () => fun(), options);
+};
+export const useGetExchangeV1PrivateUsertraderlevelfee = (
+  queryParams?: GetExchangeV1PrivateUsertraderlevelfeeQueryParams,
+  options?: SwaggerTypescriptUseQueryOptions<UserTraderLevelFeeResponseVM>,
+  configOverride?: AxiosRequestConfig,
+) => {
+  const { key, fun } = useGetExchangeV1PrivateUsertraderlevelfee.info(
+    queryParams,
+    configOverride,
+  );
+  return useQuery(key, fun, options);
+};
+useGetExchangeV1PrivateUsertraderlevelfee.info = (
+  queryParams?: GetExchangeV1PrivateUsertraderlevelfeeQueryParams,
+  configOverride?: AxiosRequestConfig,
+) => {
+  return {
+    key: [getExchangeV1PrivateUsertraderlevelfee.key, queryParams] as QueryKey,
+    fun: () =>
+      getExchangeV1PrivateUsertraderlevelfee(
+        queryParams,
+
+        configOverride,
+      ),
+  };
+};
+useGetExchangeV1PrivateUsertraderlevelfee.prefetch = (
+  client: QueryClient,
+  queryParams?: GetExchangeV1PrivateUsertraderlevelfeeQueryParams,
+  options?: SwaggerTypescriptUseQueryOptions<UserTraderLevelFeeResponseVM>,
+  configOverride?: AxiosRequestConfig,
+) => {
+  const { key, fun } = useGetExchangeV1PrivateUsertraderlevelfee.info(
+    queryParams,
+    configOverride,
+  );
 
   return client.getQueryData(key)
     ? Promise.resolve()
@@ -3593,6 +3687,46 @@ useGetPartyV1PrivatePluginList.prefetch = (
   configOverride?: AxiosRequestConfig,
 ) => {
   const { key, fun } = useGetPartyV1PrivatePluginList.info(
+    queryParams,
+    configOverride,
+  );
+
+  return client.getQueryData(key)
+    ? Promise.resolve()
+    : client.prefetchQuery(key, () => fun(), options);
+};
+export const useGetPartyV1PrivateUserProfileimage = (
+  queryParams?: GetPartyV1PrivateUserProfileimageQueryParams,
+  options?: SwaggerTypescriptUseQueryOptions<any>,
+  configOverride?: AxiosRequestConfig,
+) => {
+  const { key, fun } = useGetPartyV1PrivateUserProfileimage.info(
+    queryParams,
+    configOverride,
+  );
+  return useQuery(key, fun, options);
+};
+useGetPartyV1PrivateUserProfileimage.info = (
+  queryParams?: GetPartyV1PrivateUserProfileimageQueryParams,
+  configOverride?: AxiosRequestConfig,
+) => {
+  return {
+    key: [getPartyV1PrivateUserProfileimage.key, queryParams] as QueryKey,
+    fun: () =>
+      getPartyV1PrivateUserProfileimage(
+        queryParams,
+
+        configOverride,
+      ),
+  };
+};
+useGetPartyV1PrivateUserProfileimage.prefetch = (
+  client: QueryClient,
+  queryParams?: GetPartyV1PrivateUserProfileimageQueryParams,
+  options?: SwaggerTypescriptUseQueryOptions<any>,
+  configOverride?: AxiosRequestConfig,
+) => {
+  const { key, fun } = useGetPartyV1PrivateUserProfileimage.info(
     queryParams,
     configOverride,
   );
@@ -4516,6 +4650,46 @@ useGetSettlementV1PrivateCommission.prefetch = (
   configOverride?: AxiosRequestConfig,
 ) => {
   const { key, fun } = useGetSettlementV1PrivateCommission.info(
+    queryParams,
+    configOverride,
+  );
+
+  return client.getQueryData(key)
+    ? Promise.resolve()
+    : client.prefetchQuery(key, () => fun(), options);
+};
+export const useGetSettlementV1PrivateCommissionPolicy = (
+  queryParams?: GetSettlementV1PrivateCommissionPolicyQueryParams,
+  options?: SwaggerTypescriptUseQueryOptions<CommissionPolicyInfoResponseVM>,
+  configOverride?: AxiosRequestConfig,
+) => {
+  const { key, fun } = useGetSettlementV1PrivateCommissionPolicy.info(
+    queryParams,
+    configOverride,
+  );
+  return useQuery(key, fun, options);
+};
+useGetSettlementV1PrivateCommissionPolicy.info = (
+  queryParams?: GetSettlementV1PrivateCommissionPolicyQueryParams,
+  configOverride?: AxiosRequestConfig,
+) => {
+  return {
+    key: [getSettlementV1PrivateCommissionPolicy.key, queryParams] as QueryKey,
+    fun: () =>
+      getSettlementV1PrivateCommissionPolicy(
+        queryParams,
+
+        configOverride,
+      ),
+  };
+};
+useGetSettlementV1PrivateCommissionPolicy.prefetch = (
+  client: QueryClient,
+  queryParams?: GetSettlementV1PrivateCommissionPolicyQueryParams,
+  options?: SwaggerTypescriptUseQueryOptions<CommissionPolicyInfoResponseVM>,
+  configOverride?: AxiosRequestConfig,
+) => {
+  const { key, fun } = useGetSettlementV1PrivateCommissionPolicy.info(
     queryParams,
     configOverride,
   );
