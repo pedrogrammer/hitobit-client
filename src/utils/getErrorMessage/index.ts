@@ -9,7 +9,6 @@ export function getErrorMessage<T extends FieldErrors<any> | object | unknown>(
   field?: keyof Required<T>,
 ): string {
   const commonErrors = {
-    [StatusCodes.BadRequest]: i18n.t("BadRequest"),
     [StatusCodes.UntrustedDevice]: i18n.t("UntrustedDevice"),
     [StatusCodes.UserRegistrationNotCompleted]: i18n.t("regNotComp"),
     [StatusCodes.UserIsNotActive]: i18n.t("UserIsNotActive"),
