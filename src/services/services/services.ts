@@ -33,7 +33,7 @@ import {
   ChangePasswordRequestVM,
   ChangeTwoFactorRequestVM,
   CityResponseVM,
-  CommissionPolicyInfoResponseVM,
+  CommissionResponseVM,
   CountryResponseVM,
   CreateChargeRequestRequestVM,
   CreateDivideIpgRequestRequestVM,
@@ -94,6 +94,7 @@ import {
   GetExchangeV1PrivateAllorderlistQueryParams,
   GetExchangeV1PrivateAllordersQueryParams,
   GetExchangeV1PrivateAlltradesQueryParams,
+  GetExchangeV1PrivateMarketsusertraderlevelfeeQueryParams,
   GetExchangeV1PrivateOpenocoorderlistQueryParams,
   GetExchangeV1PrivateOpenordersQueryParams,
   GetExchangeV1PrivateOrderlistQueryParams,
@@ -1264,14 +1265,13 @@ export const getExchangeV1PrivateAlltrades = (
 getExchangeV1PrivateAlltrades.key = "/exchange/v1/private/alltrades";
 
 export const getExchangeV1PrivateMarketsusertraderlevelfee = (
-  requestBody: string[],
+  queryParams?: GetExchangeV1PrivateMarketsusertraderlevelfeeQueryParams,
   configOverride?: AxiosRequestConfig,
 ): Promise<SwaggerResponse<UserTraderLevelFeeResponseVM[]>> => {
   return Http.getRequest(
     getExchangeV1PrivateMarketsusertraderlevelfee.key,
+    queryParams,
     undefined,
-    //@ts-ignore
-    requestBody,
     undefined,
     overrideConfig(_CONSTANT2, configOverride),
   );
@@ -2059,7 +2059,7 @@ getSettlementV1PrivateCommission.key = "/settlement/v1/private/commission";
 export const getSettlementV1PrivateCommissionPolicy = (
   queryParams?: GetSettlementV1PrivateCommissionPolicyQueryParams,
   configOverride?: AxiosRequestConfig,
-): Promise<SwaggerResponse<CommissionPolicyInfoResponseVM>> => {
+): Promise<SwaggerResponse<CommissionResponseVM>> => {
   return Http.getRequest(
     getSettlementV1PrivateCommissionPolicy.key,
     queryParams,

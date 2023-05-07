@@ -325,24 +325,6 @@ export interface CityResponseVM {
 
 export type ComissionType = "Percentage" | "Fixed" | "Step";
 
-export interface CommissionPolicyInfoResponseVM {
-  commissionType: ComissionType;
-  /** - Format: decimal */
-  minValue: number;
-  /** - Format: decimal */
-  noCommissionAmount: number;
-  /** - Format: decimal */
-  stepSize: number;
-  currencySymbol?: string;
-  /** - Format: decimal */
-  fixedValue?: number;
-  /** - Format: decimal */
-  maxValue?: number;
-  moneyNetworkSymbol?: string;
-  /** - Format: double */
-  percent?: number;
-}
-
 export interface CommissionPolicyResponseVM {
   commissionType: ComissionType;
   logicalActionType: LogicalActionType;
@@ -354,6 +336,28 @@ export interface CommissionPolicyResponseVM {
   /** - Format: decimal */
   maxValue?: number;
   moneyNetworkSymbol?: string;
+  /** - Format: double */
+  percent?: number;
+}
+
+export interface CommissionResponseVM {
+  commissionType: ComissionType;
+  /** - Format: int32 */
+  currencyId: number;
+  excludeFromSettlementCommissionAmount: boolean;
+  logicalActionType: LogicalActionType;
+  /** - Format: decimal */
+  minValue: number;
+  /** - Format: decimal */
+  noCommissionAmount: number;
+  /** - Format: decimal */
+  stepSize: number;
+  /** - Format: decimal */
+  fixedValue?: number;
+  /** - Format: decimal */
+  maxValue?: number;
+  /** - Format: int32 */
+  moneyNetworkId?: number;
   /** - Format: double */
   percent?: number;
 }
@@ -1173,6 +1177,10 @@ export interface GetExchangeV1PrivateAlltradesQueryParams {
   symbol?: string;
 }
 
+export interface GetExchangeV1PrivateMarketsusertraderlevelfeeQueryParams {
+  symbols?: string[];
+}
+
 export interface GetExchangeV1PrivateOpenocoorderlistQueryParams {
   symbol?: string;
 }
@@ -1431,8 +1439,7 @@ export interface GetSettlementV1PrivateAddressbookQueryParams {
 
 export interface GetSettlementV1PrivateCommissionPolicyQueryParams {
   moneyNetworkSymbol?: string;
-  /** - Format: int64 */
-  userWalletId?: number;
+  userWalletNumber?: string;
 }
 
 export interface GetSettlementV1PrivateCommissionQueryParams {
