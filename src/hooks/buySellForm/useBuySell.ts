@@ -1,5 +1,5 @@
 import { groupBy, map } from "lodash-es";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import { v4 as uuidv4 } from "uuid";
 import {
   AppOrderSide,
@@ -54,13 +54,17 @@ export const useBuySell = (callbacks?: BuySellProps) => {
 
   const isChargeable = selectedMarket?.quoteCurrency?.canCharge;
 
-  const marketsTickerGrouped = map(
-    groupBy(
-      marketsTicker?.filter((item) => item.quoteCurrency?.canCharge),
-      (item) => item.quoteAsset,
-    ),
-    (item) => item,
-  )[0];
+  const marketsTickerGrouped = useMemo(
+    () =>
+      map(
+        groupBy(
+          marketsTicker?.filter((item) => item.quoteCurrency?.canCharge),
+          (item) => item.quoteAsset,
+        ),
+        (item) => item,
+      )[0],
+    [marketsTicker],
+  );
 
   const selectedAssignedValue = useCallback(
     ({ crypto, fiat }: SelectedQueries) => {
@@ -148,27 +152,30 @@ export const useBuySell = (callbacks?: BuySellProps) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [recieve]);
 
-  const charge = ({ redirectUrl, clientId }: Charge) => {
-    const quoteQuantity = Number(spend);
-    postAction({
-      requestBody: {
-        marketType: "Spot",
-        postActionStatus: "Success",
-        postActionNature: "PlaceMarketBuyOrder",
-        quoteQuantity,
-        marketSymbol: selected,
-      },
-      _extraVariables: { redirectUrl, clientId },
-    });
-  };
+  const charge = useCallback(
+    ({ redirectUrl, clientId }: Charge) => {
+      const quoteQuantity = Number(spend);
+      postAction({
+        requestBody: {
+          marketType: "Spot",
+          postActionStatus: "Success",
+          postActionNature: "PlaceMarketBuyOrder",
+          quoteQuantity,
+          marketSymbol: selected,
+        },
+        _extraVariables: { redirectUrl, clientId },
+      });
+    },
+    [postAction, selected, spend],
+  );
 
-  const validateCharge = () => {
+  const validateCharge = useCallback(() => {
     const isValidAmount = checkAmount(chargeAmount);
     if (!isValidAmount) {
       return;
     }
     setValue("showChargeMessage", true);
-  };
+  }, [chargeAmount, checkAmount, setValue]);
   const onSubmit = async ({ type, side, triggerBeforeOrder }: OrderProps) => {
     await new Promise((resolve) => resolve(triggerBeforeOrder?.()));
 
@@ -208,13 +215,16 @@ export const useBuySell = (callbacks?: BuySellProps) => {
 
   const isChargeLoading = isLoadingCharge || isLoadingPostAction;
 
-  const hideChargeMessage = () => {
+  const hideChargeMessage = useCallback(() => {
     setValue("showChargeMessage", false);
-  };
+  }, [setValue]);
 
-  const setSelectedBank = (userBank?: UserBankResponseVM | null) => {
-    setValue("selectedBank", userBank);
-  };
+  const setSelectedBank = useCallback(
+    (userBank?: UserBankResponseVM | null) => {
+      setValue("selectedBank", userBank);
+    },
+    [setValue],
+  );
 
   return {
     onSubmit,
