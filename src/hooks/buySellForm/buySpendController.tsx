@@ -88,7 +88,8 @@ export const BuySpendController = ({
               if (
                 isChargeable &&
                 Number(selectedMarket?.quoteCurrency?.availableRemain) <
-                  Number(value)
+                  Number(value) &&
+                new Decimal(value).lessThanOrEqualTo(maxNotional)
               ) {
                 setValue("shouldCharge", true);
                 setValue(
