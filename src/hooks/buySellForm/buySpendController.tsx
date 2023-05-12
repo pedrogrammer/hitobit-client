@@ -1,6 +1,6 @@
 import Decimal from "decimal.js";
 import { groupBy, map } from "lodash-es";
-import React, { FocusEventHandler, ReactNode } from "react";
+import React, { FocusEventHandler, ReactNode, useMemo } from "react";
 import { ControllerRenderProps } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { MarketTicker, useMarketTicker } from "../marketTicker";
@@ -48,12 +48,16 @@ export const BuySpendController = ({
 
   const { marketsTicker, getSymbolMarketTicker } = useMarketTicker();
 
-  const marketsTickerGrouped = map(
-    groupBy(
-      marketsTicker?.filter((item) => item.quoteCurrency?.canCharge),
-      (item) => item.quoteAsset,
-    ),
-    (item) => item[0],
+  const marketsTickerGrouped = useMemo(
+    () =>
+      map(
+        groupBy(
+          marketsTicker?.filter((item) => item.quoteCurrency?.canCharge),
+          (item) => item.quoteAsset,
+        ),
+        (item) => item[0],
+      ),
+    [marketsTicker],
   );
 
   const selectedMarket = getSymbolMarketTicker(selected);

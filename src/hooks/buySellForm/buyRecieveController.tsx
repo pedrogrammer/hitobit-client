@@ -1,5 +1,5 @@
 import Decimal from "decimal.js";
-import React, { ReactNode } from "react";
+import React, { ReactNode, useMemo } from "react";
 import { ControllerRenderProps } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { MarketTicker, useMarketTicker } from "../marketTicker";
@@ -66,10 +66,13 @@ export const BuyRecieveController = ({
 
   const availableRemain = selectedMarket?.quoteCurrency?.availableRemain || 0;
 
-  const assets =
-    marketsTicker?.filter(
-      (item) => item.quoteAsset === selectedMarket?.quoteAsset,
-    ) || [];
+  const assets = useMemo(
+    () =>
+      marketsTicker?.filter(
+        (item) => item.quoteAsset === selectedMarket?.quoteAsset,
+      ) || [],
+    [marketsTicker, selectedMarket?.quoteAsset],
+  );
 
   const canThrowError =
     errors["recieve"] && spend !== null && spend !== undefined;

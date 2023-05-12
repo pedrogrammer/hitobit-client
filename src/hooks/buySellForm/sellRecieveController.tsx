@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useMemo } from "react";
 import { ControllerRenderProps } from "react-hook-form";
 import { MarketTicker, useMarketTicker } from "../marketTicker";
 import { useMarketFilters } from "../useMarketFilters";
@@ -52,12 +52,15 @@ export const SellRecieveController = ({
 
   const availableRemain = selectedMarket?.quoteCurrency?.availableRemain || 0;
 
-  const assets =
-    marketsTicker?.filter(
-      (item) =>
-        item.baseAsset === selectedMarket?.baseAsset &&
-        item.quoteCurrency?.canCharge,
-    ) || [];
+  const assets = useMemo(
+    () =>
+      marketsTicker?.filter(
+        (item) =>
+          item.baseAsset === selectedMarket?.baseAsset &&
+          item.quoteCurrency?.canCharge,
+      ) || [],
+    [marketsTicker, selectedMarket?.baseAsset],
+  );
 
   const canThrowError =
     errors["recieve"] && spend !== null && spend !== undefined;
