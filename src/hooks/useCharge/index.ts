@@ -9,7 +9,7 @@ import {
   EpayRequestResponseVM,
   RequestError,
   SwaggerTypescriptMutationDefaultParams,
-  useGetWalletV1PrivateUserassetSpotDefault,
+  useGetWalletV1PublicCurrencyInfo,
   usePostPaymentV1PrivateEpayrequestCharge,
   UserMoneyNetworkResponseVM,
 } from "../../services";
@@ -48,24 +48,26 @@ export const useCharge = ({
     });
 
   const { data, isInitialLoading: isLoadingSpot } =
-    useGetWalletV1PrivateUserassetSpotDefault(
-      { symbol: currency || "" },
-      { enabled: !!currency && !!userData },
-    );
+    useGetWalletV1PublicCurrencyInfo({ enabled: !!currency && !!userData });
+
+  const targetMoneyNetwork = useMemo(
+    () =>
+      data
+        ?.find((i) => i.symbol === currency)
+        ?.domainMoneyNetworks?.find((o) => o.name === "Shaparak"),
+    [currency, data],
+  );
 
   const clearError = () => setError("");
 
   const { minDeposit, maxDeposit } = useMemo(() => {
-    if (!data?.userMoneyNetworks) return { minDeposit: 0, maxDeposit: 0 };
-    const { minDeposit, maxDeposit } =
-      data.userMoneyNetworks?.length === 1
-        ? data.userMoneyNetworks[0]
-        : data.userMoneyNetworks[0];
+    if (!targetMoneyNetwork) return { minDeposit: 0, maxDeposit: 0 };
+    const { minDeposit, maxDeposit } = targetMoneyNetwork;
     return {
       minDeposit: minDeposit || 0,
       maxDeposit: maxDeposit || 25_000_000,
     };
-  }, [data]) as UserMoneyNetworkResponseVM;
+  }, [targetMoneyNetwork]) as UserMoneyNetworkResponseVM;
 
   const checkAmount = (amount?: number | string | null) => {
     if (amount === null || amount === undefined || amount === "") {
