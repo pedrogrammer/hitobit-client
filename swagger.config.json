@@ -16,7 +16,11 @@
     "useGetAnalyticsV1PrivateTradereferralcommissionhistoryReferralhistory",
     "useGetExchangeV1PrivateAlltrades",
     "useGetExchangeV1PrivateAllorders",
-    "useGetEngagementV1PrivateNotification"
+    "useGetEngagementV1PrivateNotification",
+    "useGetCapitalV1PrivateDepositList",
+    "useGetCapitalV1PrivateWithdrawList",
+    "useGetCapitalV1PrivatePosList",
+    "useGetCapitalV1PrivateSettlementList"
   ],
   "generateEnumAsType": true
 }
