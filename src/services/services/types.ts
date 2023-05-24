@@ -2149,6 +2149,7 @@ export interface POSTransactionHistoryResponseVM {
   /** - Format: int64 */
   id: number;
   status: TransactionHistoryStatus;
+  transactionHistoryType: TransactionHistoryType;
   transferType: TransferType;
   /** - Format: uuid */
   userId: string;
@@ -2805,6 +2806,13 @@ export type TransactionHistoryStatus =
   | "Completed"
   | "Failed"
   | "Canceled";
+
+export type TransactionHistoryType =
+  | "Withdraw"
+  | "Deposit"
+  | "Settlement"
+  | "POS"
+  | "PaymentWithIdentifier";
 
 export interface TransferMoneyRequestVM {
   /** - Format: decimal */
